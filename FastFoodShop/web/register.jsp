@@ -49,24 +49,32 @@
             <div class="row">
               <div class="col-md-6 mb-4">
                 <div class="form-outline">
-                    <input type="text" id="form3Example1" class="form-control" placeholder="First name" />
+                    <input type="text" id="firstname" class="form-control" placeholder="First name" />
                 </div>
               </div>
               <div class="col-md-6 mb-4">
                 <div class="form-outline">
-                    <input type="text" id="form3Example2" class="form-control" placeholder="Last name" />
+                    <input type="text" id="lastname" class="form-control" placeholder="Last name" />
                 </div>
               </div>
             </div>
 
             <!-- Email input -->
             <div class="form-outline mb-4">
-                <input type="email" id="form3Example3" class="form-control" placeholder="Email address" />
+                <input type="email" id="email" class="form-control" placeholder="Email address" />
             </div>
 
-            <!-- Password input -->
+            <!-- Phone input -->
             <div class="form-outline mb-4">
-                <input type="password" id="form3Example4" class="form-control" placeholder="Password" />
+                <input type="number" id="phone" class="form-control" placeholder="Phone number" />
+            </div>
+            <!-- Address input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="address" class="form-control" placeholder="Address" />
+            </div>
+             <!-- Password input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="password" class="form-control" placeholder="Password" />
             </div>
 
             <!-- Checkbox -->
@@ -82,7 +90,7 @@
               Sign up
             </button>
 
-            <!-- Register buttons -->
+<!--             Register buttons 
             <div class="text-center">
               <p>or sign up with:</p>
               <button type="button" class="btn btn-link btn-floating mx-1">
@@ -100,7 +108,7 @@
               <button type="button" class="btn btn-link btn-floating mx-1">
                 <i class="fab fa-github"></i>
               </button>
-            </div>
+            </div>-->
           </form>
         </div>
       </div>
