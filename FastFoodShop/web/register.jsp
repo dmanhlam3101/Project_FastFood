@@ -86,10 +86,12 @@
                                 </div>
 
                                 <!-- Submit button -->
-                                <button type="submit" class="btn btn-primary btn-block mb-4">
-                                    Sign up
-                                </button>
 
+                                <a type="submit" href="login.jsp" style="color: white" class="btn btn-primary btn-block mb-4">
+                                    Sign up
+                                    
+                                </a>
+                                
                                 <!--             Register buttons 
                                             <div class="text-center">
                                               <p>or sign up with:</p>
