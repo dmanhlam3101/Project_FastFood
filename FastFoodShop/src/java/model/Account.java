@@ -10,9 +10,11 @@ package model;
  * @author dmanh
  */
 public class Account {
-   String id;
+   int id;
    String username;
    String password;
+   int phone;
+   String Address;
    String isAdmin;
    String isCustomer;
    String isShipper;
@@ -21,21 +23,11 @@ public class Account {
     public Account() {
     }
 
-    public Account(String id, String username, String password, String isAdmin, String isCustomer, String isShipper, String isSeller) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.isAdmin = isAdmin;
-        this.isCustomer = isCustomer;
-        this.isShipper = isShipper;
-        this.isSeller = isSeller;
-    }
-
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -53,6 +45,22 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String Address) {
+        this.Address = Address;
     }
 
     public String getIsAdmin() {
@@ -87,10 +95,24 @@ public class Account {
         this.isSeller = isSeller;
     }
 
+    public Account(int id, String username, String password, int phone, String Address, String isAdmin, String isCustomer, String isShipper, String isSeller) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.phone = phone;
+        this.Address = Address;
+        this.isAdmin = isAdmin;
+        this.isCustomer = isCustomer;
+        this.isShipper = isShipper;
+        this.isSeller = isSeller;
+    }
+
     @Override
     public String toString() {
-        return "Account{" + "id=" + id + ", username=" + username + ", password=" + password + ", isAdmin=" + isAdmin + ", isCustomer=" + isCustomer + ", isShipper=" + isShipper + ", isSeller=" + isSeller + '}';
+        return "Account{" + "id=" + id + ", username=" + username + ", password=" + password + ", phone=" + phone + ", Address=" + Address + ", isAdmin=" + isAdmin + ", isCustomer=" + isCustomer + ", isShipper=" + isShipper + ", isSeller=" + isSeller + '}';
     }
+
+   
    
    
 }
