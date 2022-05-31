@@ -29,11 +29,12 @@ public class AccountDAO {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
-                        rs.getInt(5),
-                        rs.getInt(6),
+                        rs.getString(5),
+                        rs.getString(6),
                         rs.getInt(7),
                         rs.getInt(8),
-                        rs.getInt(9));
+                        rs.getInt(9),
+                        rs.getInt(10));
             }
 
         } catch (Exception e) {
@@ -41,30 +42,28 @@ public class AccountDAO {
         return null;
     }
 
-    public void signup(String username, String phone, String Address, String password) {
+    public void signup(String username, String password,String displayName, String address, String phone) {
         String sql = "INSERT INTO [dbo].[Account]\n"
-                + "           ([ID]\n"
-                + "           ,[Username]\n"
+                + "           ([Username]\n"
                 + "           ,[Password]\n"
-                + "           ,[Phone]\n"
+                + "           ,[Displayname]\n"
                 + "           ,[Address]\n"
+                + "           ,[Phone]\n"
                 + "           ,[isAdmin]\n"
                 + "           ,[isCustomer]\n"
                 + "           ,[IsShipper]\n"
                 + "           ,[IsSaller])\n"
                 + "     VALUES\n"
-                + "           (?,?,?,?,?,?,?,?,?)";
+                + "           (?,?,?,?,?,0,1,0,0)";
         try {
             Connection conn = new DBContext().getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, username);
             ps.setString(2, password);
-            ps.setString(3, password);
-            ps.setString(4, password);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                ;
-            }
+            ps.setString(3, displayName);
+            ps.setString(4, address);
+            ps.setString(5, phone);
+            ps.executeUpdate();
 
         } catch (Exception e) {
         }
@@ -79,15 +78,16 @@ public class AccountDAO {
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-               return new Account(rs.getInt(1),
+                 return new Account(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
-                        rs.getInt(5),
-                        rs.getInt(6),
+                        rs.getString(5),
+                        rs.getString(6),
                         rs.getInt(7),
                         rs.getInt(8),
-                        rs.getInt(9));
+                        rs.getInt(9),
+                        rs.getInt(10));                                  
             }
 
         } catch (Exception e) {

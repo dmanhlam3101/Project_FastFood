@@ -13,8 +13,9 @@ public class Account {
     private int id;
     private String username;
     private String password;
+    private String displayName;
     private String Address;
-    private int phone;
+    private String phone;
     private int isAdmin;
     private int isCustomer;
     private int isShipper;
@@ -23,10 +24,11 @@ public class Account {
     public Account() {
     }
 
-    public Account(int id, String username, String password, String Address, int phone, int isAdmin, int isCustomer, int isShipper, int isSeller) {
+    public Account(int id, String username, String password, String displayName, String Address, String phone, int isAdmin, int isCustomer, int isShipper, int isSeller) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.displayName = displayName;
         this.Address = Address;
         this.phone = phone;
         this.isAdmin = isAdmin;
@@ -59,6 +61,14 @@ public class Account {
         this.password = password;
     }
 
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+
     public String getAddress() {
         return Address;
     }
@@ -67,11 +77,11 @@ public class Account {
         this.Address = Address;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -109,8 +119,11 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" + "id=" + id + ", username=" + username + ", password=" + password + ", Address=" + Address + ", phone=" + phone + ", isAdmin=" + isAdmin + ", isCustomer=" + isCustomer + ", isShipper=" + isShipper + ", isSeller=" + isSeller + '}';
+        return "Account{" + "id=" + id + ", username=" + username + ", password=" + password + ", displayName=" + displayName + ", Address=" + Address + ", phone=" + phone + ", isAdmin=" + isAdmin + ", isCustomer=" + isCustomer + ", isShipper=" + isShipper + ", isSeller=" + isSeller + '}';
     }
+
+   
+    
 
     
 }

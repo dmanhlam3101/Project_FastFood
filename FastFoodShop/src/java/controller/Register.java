@@ -32,7 +32,9 @@ public class Register extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-           
+            String firstname = request.getParameter("firstname");
+            String lastname = request.getParameter("lastname");
+            String displayname = firstname +lastname;
             String username = request.getParameter("username");
             String phone = request.getParameter("phone");
             String address = request.getParameter("address");
@@ -41,9 +43,12 @@ public class Register extends HttpServlet {
             Account account = dao.checkAccountExist(username);
             if(account== null){
                 //dc signup
-                
+                dao.signup(username, password, displayname, address,phone);
+                response.sendRedirect("login.jsp");
             }else{
                 //day ve signup
+                request.setAttribute("msg", "Username exist");
+                response.sendRedirect("register.jsp");
             }
 
         }

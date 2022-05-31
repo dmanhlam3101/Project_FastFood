@@ -44,9 +44,10 @@
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-8">
                             <h2 class="fw-bold mb-5">Sign up now</h2>
-
+                            
                             <form action="register" method="post">
                                 <!-- 2 column grid layout with text inputs for the first and last names -->
+                                <p class="text-danger">${msg}</p>
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
@@ -62,7 +63,7 @@
 
                                 <!-- Username input -->
                                 <div class="form-outline mb-4">
-                                    <input type="email" name="username" class="form-control" placeholder="User name" />
+                                    <input type="text" name="username" class="form-control" placeholder="User name" />
                                 </div>
 
                                 <!-- Phone input -->
@@ -75,7 +76,7 @@
                                 </div>
                                 <!-- Password input -->
                                 <div class="form-outline mb-4">
-                                    <input type="text" name="password" class="form-control" placeholder="Password" />
+                                    <input type="password" name="password" class="form-control" placeholder="Password" />
                                 </div>
 
                                 <!--                                 Checkbox 
@@ -88,10 +89,10 @@
 
                                 <!-- Submit button -->
 
-                                <a type="submit" href="login.jsp" style="color: white" class="btn btn-primary btn-block mb-4">
+                                <button type="submit"  style="color: white" class="btn btn-primary btn-block mb-4">
                                     Sign up
 
-                                </a>
+                                </button>
 
                                 <!--             Register buttons 
                                 -->                                            <div class="text-center">
