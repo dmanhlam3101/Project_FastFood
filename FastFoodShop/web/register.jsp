@@ -44,10 +44,10 @@
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-8">
                             <h2 class="fw-bold mb-5">Sign up now</h2>
-                            
+
                             <form action="register" method="post">
                                 <!-- 2 column grid layout with text inputs for the first and last names -->
-<!--                                <div class="row">
+                                <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
                                             <input type="text" name="firstname" class="form-control" placeholder="First name" />
@@ -58,7 +58,7 @@
                                             <input type="text" name="lastname" class="form-control" placeholder="Last name" />
                                         </div>
                                     </div>
-                                </div>-->
+                                </div>
 
                                 <!-- Username input -->
                                 <div class="form-outline mb-4">
@@ -78,40 +78,40 @@
                                     <input type="text" name="password" class="form-control" placeholder="Password" />
                                 </div>
 
-                                <!-- Checkbox -->
-                                <div class="form-check d-flex justify-content-center mb-4">
-                                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
-                                    <label class="form-check-label" for="form2Example33">
-                                        Subscribe to our newsletter
-                                    </label>
-                                </div>
+                                <!--                                 Checkbox 
+                                                                <div class="form-check d-flex justify-content-center mb-4">
+                                                                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
+                                                                    <label class="form-check-label" for="form2Example33">
+                                                                        Subscribe to our newsletter
+                                                                    </label>
+                                                                </div>-->
 
                                 <!-- Submit button -->
 
                                 <a type="submit" href="login.jsp" style="color: white" class="btn btn-primary btn-block mb-4">
                                     Sign up
-                                    
+
                                 </a>
-                                
+
                                 <!--             Register buttons 
-                                            <div class="text-center">
-                                              <p>or sign up with:</p>
-                                              <button type="button" class="btn btn-link btn-floating mx-1">
-                                                <i class="fab fa-facebook-f"></i>
-                                              </button>
-                                
-                                              <button type="button" class="btn btn-link btn-floating mx-1">
-                                                <i class="fab fa-google"></i>
-                                              </button>
-                                
-                                              <button type="button" class="btn btn-link btn-floating mx-1">
-                                                <i class="fab fa-twitter"></i>
-                                              </button>
-                                
-                                              <button type="button" class="btn btn-link btn-floating mx-1">
-                                                <i class="fab fa-github"></i>
-                                              </button>
-                                            </div>-->
+                                -->                                            <div class="text-center">
+                                    <br>
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="bi bi-facebook"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="bi bi-google"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="bi bi-twitter"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="bi bi-github"></i>
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </div>

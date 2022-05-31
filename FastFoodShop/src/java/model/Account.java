@@ -10,17 +10,29 @@ package model;
  * @author dmanh
  */
 public class Account {
-   int id;
-   String username;
-   String password;
-   int phone;
-   String Address;
-   String isAdmin;
-   String isCustomer;
-   String isShipper;
-   String isSeller;
+    private int id;
+    private String username;
+    private String password;
+    private String Address;
+    private int phone;
+    private int isAdmin;
+    private int isCustomer;
+    private int isShipper;
+    private int isSeller;
 
     public Account() {
+    }
+
+    public Account(int id, String username, String password, String Address, int phone, int isAdmin, int isCustomer, int isShipper, int isSeller) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.Address = Address;
+        this.phone = phone;
+        this.isAdmin = isAdmin;
+        this.isCustomer = isCustomer;
+        this.isShipper = isShipper;
+        this.isSeller = isSeller;
     }
 
     public int getId() {
@@ -47,14 +59,6 @@ public class Account {
         this.password = password;
     }
 
-    public int getPhone() {
-        return phone;
-    }
-
-    public void setPhone(int phone) {
-        this.phone = phone;
-    }
-
     public String getAddress() {
         return Address;
     }
@@ -63,56 +67,50 @@ public class Account {
         this.Address = Address;
     }
 
-    public String getIsAdmin() {
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    public int getIsAdmin() {
         return isAdmin;
     }
 
-    public void setIsAdmin(String isAdmin) {
+    public void setIsAdmin(int isAdmin) {
         this.isAdmin = isAdmin;
     }
 
-    public String getIsCustomer() {
+    public int getIsCustomer() {
         return isCustomer;
     }
 
-    public void setIsCustomer(String isCustomer) {
+    public void setIsCustomer(int isCustomer) {
         this.isCustomer = isCustomer;
     }
 
-    public String getIsShipper() {
+    public int getIsShipper() {
         return isShipper;
     }
 
-    public void setIsShipper(String isShipper) {
+    public void setIsShipper(int isShipper) {
         this.isShipper = isShipper;
     }
 
-    public String getIsSeller() {
+    public int getIsSeller() {
         return isSeller;
     }
 
-    public void setIsSeller(String isSeller) {
-        this.isSeller = isSeller;
-    }
-
-    public Account(int id, String username, String password, int phone, String Address, String isAdmin, String isCustomer, String isShipper, String isSeller) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.phone = phone;
-        this.Address = Address;
-        this.isAdmin = isAdmin;
-        this.isCustomer = isCustomer;
-        this.isShipper = isShipper;
+    public void setIsSeller(int isSeller) {
         this.isSeller = isSeller;
     }
 
     @Override
     public String toString() {
-        return "Account{" + "id=" + id + ", username=" + username + ", password=" + password + ", phone=" + phone + ", Address=" + Address + ", isAdmin=" + isAdmin + ", isCustomer=" + isCustomer + ", isShipper=" + isShipper + ", isSeller=" + isSeller + '}';
+        return "Account{" + "id=" + id + ", username=" + username + ", password=" + password + ", Address=" + Address + ", phone=" + phone + ", isAdmin=" + isAdmin + ", isCustomer=" + isCustomer + ", isShipper=" + isShipper + ", isSeller=" + isSeller + '}';
     }
 
-   
-   
-   
+    
 }

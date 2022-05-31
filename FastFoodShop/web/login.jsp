@@ -48,9 +48,9 @@
                             <h2 class="fw-bold mb-5">Sign in</h2>
                             <form action="login" method="post">
                                 <!-- msg is wrong username and pass -->
-                                
-                                    <p class="text-danger">${msg}</p>
-                                
+
+                                <p class="text-danger">${msg}</p>
+
                                 <!-- Username input -->
                                 <div class="form-outline mb-4">
                                     <input type="text"  class="form-control"  placeholder="Username" name="username"/>
@@ -81,6 +81,25 @@
                                 <div class="text-center">
                                     <p>Don't have an account? <a href="register.jsp" class="link-info">Register here</a></p>
 
+                                </div>
+
+                                <div class="text-center">
+                                    <br>
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="bi bi-facebook"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="bi bi-google"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="bi bi-twitter"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="bi bi-github"></i>
+                                    </button>
                                 </div>
                             </form>
                         </div>
