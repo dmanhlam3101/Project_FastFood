@@ -566,7 +566,7 @@ a:focus {
   width: 40px;
   height: 40px;
   border-radius: 100%;
-  background: #ffbe33;
+  background: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -576,9 +576,9 @@ a:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
+}/*
 
-.food_section .box .options a svg {
+*/.food_section .box .options a svg {
   width: 18px;
   height: auto;
   fill: #ffffff;
