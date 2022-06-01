@@ -43,7 +43,10 @@
 
                 </div>
                 <br>
-                <br>
+                 <br>
+                <div>
+                    <button class="btn btn-outline-dark "  ><i class="bi bi-plus-circle-fill"></i> Add</button>
+                </div>
                 <h1>List Customer</h1>
                 
                 <table class="table">

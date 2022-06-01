@@ -26,7 +26,7 @@
         <section class="text-center">
             <!-- Background image -->
             <div class="p-5 bg-image" style="
-                 background-image: url('img/headerlogin.jpg');
+                 background-image: url('images/headerlogin.jpg');
                  height: 250px;
                  "></div>
             <!-- Background image -->
@@ -47,36 +47,36 @@
                             
                             <form action="register" method="post">
                                 <!-- 2 column grid layout with text inputs for the first and last names -->
-                                <p class="text-danger">${msg}</p>
+                                
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
-                                            <input type="text" name="firstname" class="form-control" placeholder="First name" />
+                                            <input type="text" name="firstname" class="form-control" placeholder="First name"  required/>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
-                                            <input type="text" name="lastname" class="form-control" placeholder="Last name" />
+                                            <input type="text" name="lastname" class="form-control" placeholder="Last name" required />
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Username input -->
                                 <div class="form-outline mb-4">
-                                    <input type="text" name="username" class="form-control" placeholder="User name" />
+                                    <input type="text" name="username" class="form-control" placeholder="User name" required />
                                 </div>
 
                                 <!-- Phone input -->
                                 <div class="form-outline mb-4">
-                                    <input type="text" name="phone" class="form-control" placeholder="Phone number" />
+                                    <input type="text" name="phone" class="form-control" placeholder="Phone number" required/>
                                 </div>
                                 <!-- Address input -->
                                 <div class="form-outline mb-4">
-                                    <input type="text" name="address" class="form-control" placeholder="Address" />
+                                    <input type="text" name="address" class="form-control" placeholder="Address" required/>
                                 </div>
                                 <!-- Password input -->
                                 <div class="form-outline mb-4">
-                                    <input type="password" name="password" class="form-control" placeholder="Password" />
+                                    <input type="password" name="password" class="form-control" placeholder="Password" required/>
                                 </div>
 
                                 <!--                                 Checkbox 
@@ -89,11 +89,13 @@
 
                                 <!-- Submit button -->
 
-                                <button type="submit"  style="color: white" class="btn btn-primary btn-block mb-4">
+                                <button type="submit"   style="color: white" class="btn btn-primary btn-block mb-4">
                                     Sign up
-
                                 </button>
 
+                                   <!-- msg is wrong username and pass -->
+
+                                <p class="text-danger">${msg}</p>
                                 <!--             Register buttons 
                                 -->                                            <div class="text-center">
                                     <br>

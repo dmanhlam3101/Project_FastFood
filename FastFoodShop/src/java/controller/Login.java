@@ -40,6 +40,8 @@ public class Login extends HttpServlet {
                 request.setAttribute("msg", "Wrong username or password.");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             } else {
+                HttpSession session = request.getSession();
+                session.setAttribute("acc", account);
                 request.getRequestDispatcher("home").forward(request, response);
             }
         }

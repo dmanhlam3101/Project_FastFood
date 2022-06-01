@@ -43,12 +43,12 @@ public class Register extends HttpServlet {
             Account account = dao.checkAccountExist(username);
             if(account== null){
                 //dc signup
-                dao.signup(username, password, displayname, address,phone);
+                dao.signup(username, password, displayname, address,phone);              
                 response.sendRedirect("login.jsp");
             }else{
                 //day ve signup
                 request.setAttribute("msg", "Username exist");
-                response.sendRedirect("register.jsp");
+                request.getRequestDispatcher("register.jsp").forward(request, response);
             }
 
         }

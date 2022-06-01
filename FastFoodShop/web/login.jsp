@@ -27,7 +27,7 @@
         <section class="text-center">
             <!-- Background image -->
             <div class="p-5 bg-image" style="
-                 background-image: url('img/headerlogin.jpg');
+                 background-image: url('images/headerlogin.jpg');
                  height: 250px;
 
                  "></div>
@@ -50,17 +50,17 @@
                                 <!-- msg is wrong username and pass -->
 
                                 <p class="text-danger">${msg}</p>
-
+                                
                                 <!-- Username input -->
                                 <div class="form-outline mb-4">
-                                    <input type="text"  class="form-control"  placeholder="Username" name="username"/>
+                                    <input type="text"  class="form-control"  placeholder="Username" name="username" required/>
 
                                 </div>
 
 
                                 <!-- Password input -->
                                 <div class="form-outline mb-4">
-                                    <input type="password"  class="form-control " placeholder="Password" name="password"  />
+                                    <input type="password"  class="form-control " placeholder="Password" name="password" required  />
 
                                 </div>
 
