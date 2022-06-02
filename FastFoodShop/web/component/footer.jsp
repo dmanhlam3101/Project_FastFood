@@ -31,9 +31,9 @@
               Contact Us
             </h4>
             <div class="contact_link_box">
-                <a target="_blank" href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+H%E1%BB%8Dc+FPT/@21.01325,105.5248756,17z/data=!3m1!4b1!4m5!3m4!1s0x31345b465a4e65fb:0xaae6040cfabe8fe!8m2!3d21.01325!4d105.5270643?hl=vi-VN">
+                <a style="text-decoration: none" target="_blank" href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+H%E1%BB%8Dc+FPT/@21.01325,105.5248756,17z/data=!3m1!4b1!4m5!3m4!1s0x31345b465a4e65fb:0xaae6040cfabe8fe!8m2!3d21.01325!4d105.5270643?hl=vi-VN">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span>
+                <span >
                   DH FPT Ha Noi
                 </span>
               </a>
@@ -45,7 +45,7 @@
               </a>
               <a >
                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span>
+                <span >
                   fastfood@gmail.com
                 </span>
               </a>
@@ -57,9 +57,9 @@
             <a  class="footer-logo">
               FastFood
             </a>
-            <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
-            </p>
+
+              <p>Some people call it a sizzle. We think of it as an anthem.</p>
+              <p style="text-align: center">- Ruth’s Chris Steakhouse -</p>
             <div class="footer_social">
               <a href="">
                 <i class="fa fa-facebook" aria-hidden="true"></i>

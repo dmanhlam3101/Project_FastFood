@@ -5,20 +5,19 @@
  */
 package controller;
 
-import dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Account;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author dmanh
  */
-public class Register extends HttpServlet {
+public class Logout extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,25 +33,9 @@ public class Register extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String firstname = request.getParameter("firstname");
-            String lastname = request.getParameter("lastname");
-            String displayname = firstname +lastname;
-            String username = request.getParameter("username");
-            String phone = request.getParameter("phone");
-            String address = request.getParameter("address");
-            String password = request.getParameter("password");
-            AccountDAO dao = new AccountDAO();
-            Account account = dao.checkAccountExist(username);
-            if(account== null){
-                //dc signup
-                dao.signup(username, password, displayname, address,phone);              
-                response.sendRedirect("login.jsp");
-            }else{
-                //day ve signup
-                request.setAttribute("msg", "Username exist");
-                request.getRequestDispatcher("register.jsp").forward(request, response);
-            }
-
+            HttpSession session = request.getSession();
+            session.removeAttribute("acc");
+            response.sendRedirect("home.jsp");
         }
     }
 

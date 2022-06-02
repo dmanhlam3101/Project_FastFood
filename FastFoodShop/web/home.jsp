@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 
@@ -42,10 +44,11 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styles-1.css" rel="stylesheet" />
 
     </head>
 
-    <body class="sub_page">
+    <body >
 
         <div class="hero_area">
             <div class="bg-box">
@@ -54,246 +57,265 @@
             <!-- header section strats -->
             <%@include file="component/header.jsp" %>
             <!-- end header section -->
+            <!-- slider section -->
+            <section class="slider_section ">
+                <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="container ">
+                                <div class="row">
+                                    <div class="col-md-7 col-lg-6 ">
+                                        <div class="detail-box">
+                                            <h1>
+                                                Fast Food Restaurant
+                                            </h1>
+                                            <p>
+                                                Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                                            </p>
 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item ">
+                            <div class="container ">
+                                <div class="row">
+                                    <div class="col-md-7 col-lg-6 ">
+                                        <div class="detail-box">
+                                            <h1>
+                                                Fast Food Restaurant
+                                            </h1>
+                                            <p>
+                                                Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="container ">
+                                <div class="row">
+                                    <div class="col-md-7 col-lg-6 ">
+                                        <div class="detail-box">
+                                            <h1>
+                                                Fast Food Restaurant
+                                            </h1>
+                                            <p>
+                                                Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <ol class="carousel-indicators">
+                            <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+                            <li data-target="#customCarousel1" data-slide-to="1"></li>
+                            <li data-target="#customCarousel1" data-slide-to="2"></li>
+                        </ol>
+                    </div>
+                </div>
+
+            </section>
+            <!-- end slider section -->
         </div>
-        <!-- slider section -->
-      
         <!-- end slider section -->
-        <!-- offer section -->
+    </div>
 
-        <section class="offer_section layout_padding-bottom">
-            <div class="offer_container">
-                <div class="container ">
-                    <div class="row">
-                        <div class="col-md-6  ">
-                            <div class="box ">
-                                <div class="img-box">
-                                    <img src="images/o1.jpg" alt="">
-                                </div>
-                                <div class="detail-box">
-                                    <h5>
-                                        Tasty Thursdays
-                                    </h5>
-                                    <h6>
-                                        <span>20%</span> Off
-                                    </h6>
-                                    <a href="">
-                                        Order Now 
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6  ">
-                            <div class="box ">
-                                <div class="img-box">
-                                    <img src="images/o2.jpg" alt="">
-                                </div>
-                                <div class="detail-box">
-                                    <h5>
-                                        Pizza Days
-                                    </h5>
-                                    <h6>
-                                        <span>15%</span> Off
-                                    </h6>
-                                    <a href="">
-                                        Order Now
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <br>
+
+    <!-- food section -->
+
+    <section class="food_section layout_padding-bottom">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Our Menu
+                </h2>
             </div>
-        </section>
 
-        <!-- end offer section -->
+            <ul class="filters_menu">
+                <li class="active" data-filter="*">All</li>
+                <li data-filter=".burger">Burger</li>
+                <li data-filter=".pizza">Pizza</li>
+                <li data-filter=".pasta">Pasta</li>
+                <li data-filter=".fries">Fries</li>
+            </ul>
 
-        <!-- food section -->
-
-        <section class="food_section layout_padding-bottom">
-            <div class="container">
-                <div class="heading_container heading_center">
-                    <h2>
-                        Our Menu
-                    </h2>
-                </div>
-
-                <ul class="filters_menu">
-                    <li class="active" data-filter="*">All</li>
-                    <li data-filter=".burger">Burger</li>
-                    <li data-filter=".pizza">Pizza</li>
-                    <li data-filter=".pasta">Pasta</li>
-                    <li data-filter=".fries">Fries</li>
-                </ul>
-
-                <div class="filters-content">
-                    <div class="row grid">
-                        <div class="col-sm-6 col-lg-4 all pizza">
-                            <div class="box">
-                                <div>
-                                    <div class="img-box">
-                                        <img src="images/f1.png" alt="">
-                                    </div >
-                                    <div class="detail-box">
-                                        <h5>
-                                            Delicious Pizza
-                                        </h5>
-                                        <p>
-                                            Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                                        </p>
-                                        <div class="options">
-                                            <h6>
-                                                $20
-                                            </h6>
-                                            <!-- add to cart o day -->
-                                            <a href="">
-                                                <i style="color: black" class="bi bi-cart2" ></i>
-                                            </a>
-                                        </div>
+            <div class="filters-content">
+                <div class="row grid">
+                    <div class="col-sm-6 col-lg-4 all pizza">
+                        <div class="box">
+                            <div>
+                                <div class="img-box">
+                                    <img src="images/f1.png" alt="">
+                                </div >
+                                <div class="detail-box">
+                                    <h5>
+                                        Delicious Pizza
+                                    </h5>
+                                    <p>
+                                        Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                                    </p>
+                                    <div class="options">
+                                        <h6>
+                                            $20
+                                        </h6>
+                                        <!-- add to cart o day -->
+                                        <a href="">
+                                            <i style="color: black" class="bi bi-cart2" ></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4 all burger">
-                            <div class="box">
-                                <div>
-                                    <div class="img-box">
-                                        <img src="images/f2.png" alt="">
-                                    </div>
-                                    <div class="detail-box">
-                                        <h5>
-                                            Delicious Burger
-                                        </h5>
-                                        <p>
-                                            Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                                        </p>
-                                        <div class="options">
-                                            <h6>
-                                                $15
-                                            </h6>
-
-                                            <a href="">
-                                                <i style="color: black" class="bi bi-cart2" ></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4 all pizza">
-                            <div class="box">
-                                <div>
-                                    <div class="img-box">
-                                        <img src="images/f3.png" alt="">
-                                    </div>
-                                    <div class="detail-box">
-                                        <h5>
-                                            Delicious Pizza
-                                        </h5>
-                                        <p>
-                                            Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                                        </p>
-                                        <div class="options">
-                                            <h6>
-                                                $17
-                                            </h6>
-                                            <!-- add to cart o day -->
-                                            <a href="">
-                                                <i style="color: black" class="bi bi-cart2" ></i>
-                                            </a>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="btn-box">
-                            <a href="">
-                                View More
-                            </a>
                         </div>
                     </div>
-                    </section>
+                    <div class="col-sm-6 col-lg-4 all burger">
+                        <div class="box">
+                            <div>
+                                <div class="img-box">
+                                    <img src="images/f2.png" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        Delicious Burger
+                                    </h5>
+                                    <p>
+                                        Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                                    </p>
+                                    <div class="options">
+                                        <h6>
+                                            $15
+                                        </h6>
 
-                    <!-- end food section -->
-
-
-
-
-                    <section class="client_section layout_padding-bottom">
-                        <div class="container">
-                            <div class="heading_container heading_center psudo_white_primary mb_45">
-                                <h2>
-                                    What Says Our Customers
-                                </h2>
-                            </div>
-                            <div class="carousel-wrap row ">
-                                <div class="owl-carousel client_owl-carousel">
-                                    <div class="item">
-                                        <div class="box">
-                                            <div class="detail-box">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-                                                </p>
-                                                <h6>
-                                                    Moana Michell
-                                                </h6>
-                                                <p>
-                                                    magna aliqua
-                                                </p>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="box">
-                                            <div class="detail-box">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-                                                </p>
-                                                <h6>
-                                                    Mike Hamell
-                                                </h6>
-                                                <p>
-                                                    magna aliqua
-                                                </p>
-                                            </div>
-
-                                        </div>
+                                        <a href="">
+                                            <i style="color: black" class="bi bi-cart2" ></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 all pizza">
+                        <div class="box">
+                            <div>
+                                <div class="img-box">
+                                    <img src="images/f3.png" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        Delicious Pizza
+                                    </h5>
+                                    <p>
+                                        Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                                    </p>
+                                    <div class="options">
+                                        <h6>
+                                            $17
+                                        </h6>
+                                        <!-- add to cart o day -->
+                                        <a href="">
+                                            <i style="color: black" class="bi bi-cart2" ></i>
+                                        </a>
 
-                    <!-- end client section -->             
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <!-- footer section -->
-                    <%@include file="component/footer.jsp" %>
-                    <!-- footer section -->
+                    <div class="btn-box">
+                        <a href="">
+                            View More
+                        </a>
+                    </div>
+                </div>
+                </section>
 
-                    <!-- jQery -->
-                    <script src="js/jquery-3.4.1.min.js"></script>
-                    <!-- popper js -->
-                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-                    </script>
-                    <!-- bootstrap js -->
-                    <script src="js/bootstrap.js"></script>
-                    <!-- owl slider -->
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-                    </script>
-                    <!-- isotope js -->
-                    <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
-                    <!-- nice select -->
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
-                    <!-- custom js -->
-                    <script src="js/custom.js"></script>
-                    <!-- Google Map -->
-                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-                    </script>
-                    <!-- End Google Map -->
+                <!-- end food section -->
 
-                    </body>
 
-                    </html>
+
+
+                <section class="client_section layout_padding-bottom">
+                    <div class="container">
+                        <div class="heading_container heading_center psudo_white_primary mb_45">
+                            <h2>
+                                What Says Our Customers
+                            </h2>
+                        </div>
+                        <div class="carousel-wrap row ">
+                            <div class="owl-carousel client_owl-carousel">
+                                <div class="item">
+                                    <div class="box">
+                                        <div class="detail-box">
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                            </p>
+                                            <h6>
+                                                Moana Michell
+                                            </h6>
+                                            <p>
+                                                magna aliqua
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="box">
+                                        <div class="detail-box">
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                            </p>
+                                            <h6>
+                                                Mike Hamell
+                                            </h6>
+                                            <p>
+                                                magna aliqua
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- end client section -->             
+
+                <!-- footer section -->
+                <%@include file="component/footer.jsp" %>
+                <!-- footer section -->
+
+                <!-- jQery -->
+                <script src="js/jquery-3.4.1.min.js"></script>
+                <!-- popper js -->
+                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+                </script>
+                <!-- bootstrap js -->
+                <script src="js/bootstrap.js"></script>
+                <!-- owl slider -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+                </script>
+                <!-- isotope js -->
+                <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+                <!-- nice select -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+                <!-- custom js -->
+                <script src="js/custom.js"></script>
+                
+                <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts-1.js"></script>
+                </body>
+
+                </html>

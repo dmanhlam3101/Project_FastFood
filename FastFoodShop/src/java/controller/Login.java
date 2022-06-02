@@ -8,8 +8,11 @@ package controller;
 import dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Account;
 
 /**
@@ -42,7 +45,7 @@ public class Login extends HttpServlet {
             } else {
                 HttpSession session = request.getSession();
                 session.setAttribute("acc", account);
-                request.getRequestDispatcher("home").forward(request, response);
+                request.getRequestDispatcher("home.jsp").forward(request, response);
             }
         }
     }
