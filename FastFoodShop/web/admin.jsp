@@ -57,78 +57,84 @@
         </div>
         <section class="py-5">
             <div class="container" style="min-height: 1000px">
-                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                    <div class="me-3">
-                        <input type="checkbox" class="btn-check"  >
-                        <label class="btn btn-outline-dark" >Customer List</label>
-                    </div>
-                    
-                    <div class="me-3">
-                        <input type="checkbox" class="btn-check"  >
-                        <label class="btn btn-outline-dark" >Seller List</label>
-                    </div>
-                    
-                    <div>
-                        <input type="checkbox" class="btn-check"  >
-                        <label class="btn btn-outline-dark" >Shipper List</label>
-                    </div>
-
-                </div>
+               
                 <br>
-                 <br>
                 <div>
                     <button class="btn btn-outline-dark "  ><i class="bi bi-plus-circle-fill"></i> Add</button>
                 </div>
-                <h1>List Customer</h1>
-                
-                <table class="table">
+                <br>
+                <h1>List Account</h1>
+
+                <table class="table" >
                     <thead>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Phone</th>
                             <th scope="col">Address</th>
+                             <th scope="col">Role</th>
                             <th scope="col">Status</th>
-                             <th scope="col"></th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Markaaaaaaaaaaaaaaaaaaa</td>
-                            <td>Ottoaaaaaaaaaaaaaa</td>
-                            <td>@mdoaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                            <td>
-                                <select class="form-select">
-                                    <option>Active</option>
-                                    <option>Inactive</option>
-                                </select>
-                            </td>
-                            <td>
-                                 <a class="btn btn-outline-dark"><i class="bi bi-pencil"></i> Edit</a>
-                                <a class="btn btn-outline-dark"><i class="bi bi-trash"></i></i> Delete</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Mark</td>
-                            <td>Otta</td>
-                            <td>@mdo</td>
-                            <td>
-                               <select class="form-select">
-                                    <option>Active</option>
-                                    <option>Inactive</option>
-                                </select>
-                            </td>
-                            <td>
-                                 <a class="btn btn-outline-dark"><i class="bi bi-pencil"></i> Edit</a>
-                                <a class="btn btn-outline-dark"><i class="bi bi-trash"></i></i> Delete</a>
-                            </td>
-                        </tr>
+
+                            <c:forEach items="${listAccounts}" var="a">
+                               
+                                <th scope="row">${a.id}</th>
+                                <td>${a.displayName}</td>
+                                <td>${a.phone}</td>
+                                <td>${a.address}</td>
+                                <c:if test="${a.isAdmin==1}">
+                                    <td>Admin</td>   
+                                </c:if>
+                                     <c:if test="${a.isCustomer == 1}">
+                                    <td>Customer</td>
+                                </c:if>
+                                    <c:if test="${a.isSeller==1}">
+                                    <td>Seller</td>
+                                </c:if>
+                                    <c:if test="${a.isShipper==1}">
+                                    <td>Shipper</td>
+                                </c:if>
+                                <td>
+                                    <select class="form-select">
+                                        <option>Active</option>
+                                        <option>Inactive</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <a class="btn btn-outline-dark"><i class="bi bi-pencil"></i> Edit</a>
+                                    <a class="btn btn-outline-dark"><i class="bi bi-trash"></i></i> Delete</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+
                     </tbody>
                 </table>
             </div>
         </section>
-        
+        <!-- jQery -->
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <!-- popper js -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <!-- bootstrap js -->
+        <script src="js/bootstrap.js"></script>
+        <!-- owl slider -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+        </script>
+        <!-- isotope js -->
+        <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+        <!-- nice select -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+        <!-- custom js -->
+        <script src="js/custom.js"></script>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts-1.js"></script>
     </body>
 </html>

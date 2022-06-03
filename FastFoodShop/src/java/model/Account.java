@@ -14,7 +14,7 @@ public class Account {
     private String username;
     private String password;
     private String displayName;
-    private String Address;
+    private String address;
     private String phone;
     private int isAdmin;
     private int isCustomer;
@@ -24,12 +24,12 @@ public class Account {
     public Account() {
     }
 
-    public Account(int id, String username, String password, String displayName, String Address, String phone, int isAdmin, int isCustomer, int isShipper, int isSeller) {
+    public Account(int id, String username, String password, String displayName, String address, String phone, int isAdmin, int isCustomer, int isShipper, int isSeller) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.displayName = displayName;
-        this.Address = Address;
+        this.address = address;
         this.phone = phone;
         this.isAdmin = isAdmin;
         this.isCustomer = isCustomer;
@@ -70,11 +70,11 @@ public class Account {
     }
 
     public String getAddress() {
-        return Address;
+        return address;
     }
 
-    public void setAddress(String Address) {
-        this.Address = Address;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getPhone() {
@@ -119,9 +119,10 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" + "id=" + id + ", username=" + username + ", password=" + password + ", displayName=" + displayName + ", Address=" + Address + ", phone=" + phone + ", isAdmin=" + isAdmin + ", isCustomer=" + isCustomer + ", isShipper=" + isShipper + ", isSeller=" + isSeller + '}';
+        return "Account{" + "id=" + id + ", username=" + username + ", password=" + password + ", displayName=" + displayName + ", address=" + address + ", phone=" + phone + ", isAdmin=" + isAdmin + ", isCustomer=" + isCustomer + ", isShipper=" + isShipper + ", isSeller=" + isSeller + '}';
     }
 
+    
    
     
 

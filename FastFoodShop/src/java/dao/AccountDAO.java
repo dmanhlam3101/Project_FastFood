@@ -8,6 +8,8 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import model.Account;
 
 /**
@@ -15,6 +17,32 @@ import model.Account;
  * @author dmanh
  */
 public class AccountDAO {
+    public List<Account> getallAccount(){
+        List<Account> list = new ArrayList<>();
+        
+        try {
+              String sql = "select *from Account ";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Account(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7),
+                        rs.getInt(8),
+                        rs.getInt(9),
+                        rs.getInt(10)));
+            }
+           
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    
 
     public Account login(String username, String password) {
         String sql = "select *from Account where Username = ? and Password = ?";
@@ -94,4 +122,5 @@ public class AccountDAO {
         }
         return null;
     }
+   
 }
