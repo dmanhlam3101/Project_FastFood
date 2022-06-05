@@ -70,7 +70,10 @@
                                                 Fast Food Restaurant
                                             </h1>
                                             <p>
-                                                Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                                                Present in more than 118 countries with a chain of 35,000 
+                                                restaurants on all continents, every day, Global FastFood 
+                                                serves more than 70 million consumers, not only ensuring to bring them delicious, safe and hygienic meals. 
+                                                , but also make them satisfied with FastFood's service.
                                             </p>
 
                                         </div>
@@ -87,7 +90,7 @@
                                                 Fast Food Restaurant
                                             </h1>
                                             <p>
-                                                Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                                                Grasping the needs of Vietnamese consumers today, we aim to serve fast but hygienic, nutritious meals with professional service.
                                             </p>
 
                                         </div>
@@ -104,7 +107,7 @@
                                                 Fast Food Restaurant
                                             </h1>
                                             <p>
-                                                Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                                                FastFood Vietnam is committed to applying the standards of FastFood globally, which are: Quality, Service, Cleanliness & Values.
                                             </p>
 
                                         </div>
