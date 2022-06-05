@@ -3504,7 +3504,7 @@ textarea.form-control-lg {
   .fade {
     transition: none;
   }
-}
+
 .fade:not(.show) {
   opacity: 0;
 }
