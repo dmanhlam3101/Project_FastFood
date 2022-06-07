@@ -72,111 +72,39 @@
 
                 <div class="filters-content">
                     <div class="row grid">
+                        <c:forEach items="${listfood}" var="f">
                         <div class="col-sm-6 col-lg-4 all pizza">
                             <div class="box">
+
                                 <div>
                                     <div class="img-box">
-                                        <img src="images/f1.png" alt="">
-                                    </div>
+                                        <img style="background: #f1f2f3" src="${f.image}" alt="">
+                                    </div >
                                     <div class="detail-box">
-                                        <h5>
-                                            Delicious Pizza
+                                        <h5 style="color: white">
+                                            ${f.foodname}
                                         </h5>
-                                        <p>
-                                            Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                                        <p style="min-height: 80px">
+                                            ${f.description}
                                         </p>
                                         <div class="options">
-                                            <h6>
-                                                $20
-                                            </h6>
-                                             <!-- add to cart o day -->
-                                            <a href="">
-                                                <i style="color: black" class="bi bi-cart2" ></i>
-                                            </a>                                          
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4 all burger">
-                            <div class="box">
-                                <div>
-                                    <div class="img-box">
-                                        <img src="images/f2.png" alt="">
-                                    </div>
-                                    <div class="detail-box">
-                                        <h5>
-                                            Delicious Burger
-                                        </h5>
-                                        <p>
-                                            Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                                        </p>
-                                        <div class="options">
-                                            <h6>
-                                                $15
-                                            </h6>
-                                             <!-- add to cart o day -->
-                                            <a href="">
-                                                <i style="color: black" class="bi bi-cart2" ></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-sm-6 col-lg-4 all pasta">
-                            <div class="box">
-                                <div>
-                                    <div class="img-box">
-                                        <img src="images/f4.png" alt="">
-                                    </div>
-                                    <div class="detail-box">
-                                        <h5>
-                                            Delicious Pasta
-                                        </h5>
-                                        <p>
-                                            Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                                        </p>
-                                        <div class="options">
-                                            <h6>
-                                                $18
+                                            <h6 style="font-size: 20px">
+                                                $${f.unitprice}
                                             </h6>
                                             <!-- add to cart o day -->
-                                            <a href="">
-                                                <i style="color: black" class="bi bi-cart2" ></i>
+                                            <a href="" style="background-color: #ffdf9a">
+                                                <i style="color: black " class="bi bi-cart2" ></i>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-lg-4 all fries">
-                            <div class="box">
-                                <div>
-                                    <div class="img-box">
-                                        <img src="images/f5.png" alt="">
-                                    </div>
-                                    <div class="detail-box">
-                                        <h5>
-                                            French Fries
-                                        </h5>
-                                        <p>
-                                            Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                                        </p>
-                                        <div class="options">
-                                            <h6>
-                                                $10
-                                            </h6>
-                                           <!-- add to cart o day -->
-                                            <a href="">
-                                                <i style="color: black" class="bi bi-cart2" ></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    </c:forEach>
                         </div>
+                     
+                      
+                       
   
                     </div>
                 </div>

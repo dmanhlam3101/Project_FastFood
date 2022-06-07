@@ -23,7 +23,16 @@
         <link rel="shortcut icon" href="images/favicon.png" type="">
 
         <title> FastFood </title>
+        <!-- all for blog  -->
 
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/animate.css">
+
+        <link rel="stylesheet" href="css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="css/flaticon.css">
+        <link rel="stylesheet" href="css/styleblog.css">
         <!-- bootstrap core css -->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
@@ -61,7 +70,7 @@
 
             <!-- end header section -->
             <!-- slider section -->
-            
+
             <section class="slider_section ">
                 <div id="customCarousel1" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
@@ -70,7 +79,7 @@
                                 <div class="row">
                                     <div class="col-md-7 col-lg-6 ">
                                         <div class="detail-box" style="margin-bottom: 35px">
-                                            <h1>
+                                            <h1 style="color: white">
                                                 Fast Food Restaurant
                                             </h1>
                                             <p style="width: 78% " >
@@ -90,7 +99,7 @@
                                 <div class="row">
                                     <div class="col-md-7 col-lg-6 ">
                                         <div class="detail-box" style="margin-bottom: 35px">
-                                            <h1>
+                                            <h1 style="color: white">
                                                 Fast Food Restaurant
                                             </h1>
                                             <p style="width: 78% ">
@@ -107,7 +116,7 @@
                                 <div class="row">
                                     <div class="col-md-7 col-lg-6 ">
                                         <div class="detail-box" style="margin-bottom: 35px">
-                                            <h1>
+                                            <h1 style="color: white">
                                                 Fast Food Restaurant
                                             </h1>
                                             <p style="width: 78% ">
@@ -138,14 +147,13 @@
     <br>
 
     <!-- food section -->
-    
+
 
     <section class="food_section layout_padding-bottom">
         <div class="container">
-            <div class="heading_container heading_center">
-                <h2>
-                    Our Menu
-                </h2>
+            <div class="heading_container heading_center  text-center heading-section ftco-animate">
+                <span class="subheading">Specialties</span>
+                <h2>Our Menu</h2>
             </div>
 
             <ul class="filters_menu">
@@ -159,7 +167,7 @@
 
             <div class="filters-content">
                 <div class="row grid">
-                    <c:forEach items="${listfood}" var="f">
+                    <c:forEach items="${listspecialfood}" var="f">
                         <div class="col-sm-6 col-lg-4 all pizza">
                             <div class="box">
 
@@ -168,19 +176,19 @@
                                         <img style="background: #f1f2f3" src="${f.image}" alt="">
                                     </div >
                                     <div class="detail-box">
-                                        <h5>
+                                        <h5 style="color: white">
                                             ${f.foodname}
                                         </h5>
-                                        <p>
+                                        <p style="min-height: 80px">
                                             ${f.description}
                                         </p>
                                         <div class="options">
-                                            <h6>
+                                            <h6 style="font-size: 20px">
                                                 $${f.unitprice}
                                             </h6>
                                             <!-- add to cart o day -->
-                                            <a href="">
-                                                <i style="color: black" class="bi bi-cart2" ></i>
+                                            <a href="" style="background-color: #ffdf9a">
+                                                <i style="color: black " class="bi bi-cart2" ></i>
                                             </a>
                                         </div>
                                     </div>
@@ -285,8 +293,74 @@
 </div>
 </section>
 
-<!-- end client section -->             
-
+<!-- end client section -->  
+<!-- blog section -->      
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+                <span class="subheading">Blog</span>
+                <h2 class="mb-4">Recent Blog</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a class="block-20" style="background-image: url('images/Fast-Food-and-Junk-Food-4-1.jpg');">
+                    </a>
+                    <div class="text px-4 pt-3 pb-4">
+                        <div class="meta">
+                            <div><a href="#">June 3, 2022</a></div>
+                            <div><a href="#">Admin</a></div>
+                        </div>
+                        <h3 class="heading"><a target="_blank" href="https://foodtolive.com/healthy-blog/fast-food-junk-food-difference/">Fast Food and Junk Food: Is There Any Difference</a></h3>
+                        <p class="clearfix">
+                            <a href="#" class="float-left read btn btn-primary">Read more</a>
+                            <a href="#" class="float-right meta-chat"><span class="fa fa-comment"></span> 3</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a class="block-20" style="background-image: url('images/565b3881692c5f5c4402fa8ebc0e4675_wendys-Salads.jpg');">
+                    </a>
+                    <div class="text px-4 pt-3 pb-4">
+                        <div class="meta">
+                            <div><a href="#">June 3, 2022</a></div>
+                            <div><a href="#">Admin</a></div>
+                        </div>
+                        <h3 class="heading"><a target="_blank" href="https://www.hungryforever.com/recreate-wendys-salads-at-home/">Recreate Wendy’s Salads at Home</a></h3>
+                        <br>
+                        <p class="clearfix">
+                            <a href="#" class="float-left read btn btn-primary">Read more</a>
+                            <a href="#" class="float-right meta-chat"><span class="fa fa-comment"></span> 3</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ftco-animate">
+                <div class="blog-entry">
+                    <a  class="block-20" style="background-image: url('images/blog_04_2-1170x725.jpg');">
+                    </a>
+                    <div class="text px-4 pt-3 pb-4">
+                        <div class="meta">
+                            <div><a href="#">June 3, 2022</a></div>
+                            <div><a href="#">Admin</a></div>
+                        </div>
+                        <h3 class="heading"><a target="_blank" href="https://hotdogonline.com/2019/09/11/your-perfect-burger-2/">Choose Your Perfect Burger</a></h3>
+                        <br>
+                        <p class="clearfix">
+                            <a href="#" class="float-left read btn btn-primary">Read more</a>
+                            <a href="#" class="float-right meta-chat"><span class="fa fa-comment"></span> 3</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end blog section -->      
 <!-- footer section -->
 <%@include file="component/footer.jsp" %>
 <!-- footer section -->
@@ -312,6 +386,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
 <script src="js/scripts-1.js"></script>
+<!-- Core theme JS for Blog-->
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-migrate-3.0.1.min.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/scrollax.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 
 </html>

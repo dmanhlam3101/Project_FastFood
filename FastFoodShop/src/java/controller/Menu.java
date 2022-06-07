@@ -19,7 +19,7 @@ import model.Food;
  *
  * @author dmanh
  */
-public class Home extends HttpServlet {
+public class Menu extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,13 +35,10 @@ public class Home extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-           FoodDAO food= new FoodDAO();
-           String specialFood="2021-07-18";
+            FoodDAO food= new FoodDAO();
             List<Food> list = food.getallFood();
-             List<Food> listFoodByDateCreated = food.getFoodbyDateCreated(specialFood);
            request.setAttribute("listfood",list);
-           request.setAttribute("listspecialfood",listFoodByDateCreated);
-            request.getRequestDispatcher("home.jsp").forward(request, response);
+            request.getRequestDispatcher("menu.jsp").forward(request, response);
         }
     }
 
