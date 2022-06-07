@@ -39,7 +39,7 @@
                                 <a class="nav-link active" aria-current="page"  href="home">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="menu.jsp">Menu</a>
+                                <a class="nav-link" href="menu">Menu</a>
                             </li>
                             <c:if test="${sessionScope.acc.isAdmin == 1}">
                                 <li class="nav-item">

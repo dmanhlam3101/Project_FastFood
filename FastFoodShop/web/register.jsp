@@ -20,6 +20,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     </head>
     <body>
         <!-- Section: Design Block -->
@@ -44,10 +45,10 @@
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-8">
                             <h2 class="fw-bold mb-5">Sign up now</h2>
-                            
+
                             <form action="register" method="post">
                                 <!-- 2 column grid layout with text inputs for the first and last names -->
-                                
+
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
@@ -93,7 +94,7 @@
                                     Sign up
                                 </button>
 
-                                   <!-- msg is wrong username and pass -->
+                                <!-- msg is wrong username and pass -->
 
                                 <p class="text-danger">${msg}</p>
                                 <!--             Register buttons 
