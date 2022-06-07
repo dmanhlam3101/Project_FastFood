@@ -5,7 +5,7 @@
  */
 package controller;
 
-import dao.FoodDAO;
+import dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -13,13 +13,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Food;
+import model.Account;
 
 /**
  *
  * @author dmanh
  */
-public class Home extends HttpServlet {
+public class Profile extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,9 +35,8 @@ public class Home extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            List<Food> list = new FoodDAO().getallFood();
-           request.setAttribute("listfood",list);
-            request.getRequestDispatcher("home.jsp").forward(request, response);
+           
+           request.getRequestDispatcher("profile.jsp").forward(request, response);
         }
     }
 

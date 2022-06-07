@@ -51,13 +51,17 @@
     <body >
 
         <div class="hero_area">
-            <div class="bg-box">
+            <div class="bg-box ">
                 <img src="images/hero-bg.jpg" alt="">
             </div>
             <!-- header section strats -->
-            <%@include file="component/header.jsp" %>
+            <div class="">
+                <%@include file="component/header.jsp" %>
+            </div>
+
             <!-- end header section -->
             <!-- slider section -->
+            
             <section class="slider_section ">
                 <div id="customCarousel1" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
@@ -65,11 +69,11 @@
                             <div class="container ">
                                 <div class="row">
                                     <div class="col-md-7 col-lg-6 ">
-                                        <div class="detail-box">
+                                        <div class="detail-box" style="margin-bottom: 35px">
                                             <h1>
                                                 Fast Food Restaurant
                                             </h1>
-                                            <p>
+                                            <p style="width: 78% " >
                                                 Present in more than 118 countries with a chain of 35,000 
                                                 restaurants on all continents, every day, Global FastFood 
                                                 serves more than 70 million consumers, not only ensuring to bring them delicious, safe and hygienic meals. 
@@ -85,11 +89,11 @@
                             <div class="container ">
                                 <div class="row">
                                     <div class="col-md-7 col-lg-6 ">
-                                        <div class="detail-box">
+                                        <div class="detail-box" style="margin-bottom: 35px">
                                             <h1>
                                                 Fast Food Restaurant
                                             </h1>
-                                            <p>
+                                            <p style="width: 78% ">
                                                 Grasping the needs of Vietnamese consumers today, we aim to serve fast but hygienic, nutritious meals with professional service.
                                             </p>
 
@@ -102,11 +106,11 @@
                             <div class="container ">
                                 <div class="row">
                                     <div class="col-md-7 col-lg-6 ">
-                                        <div class="detail-box">
+                                        <div class="detail-box" style="margin-bottom: 35px">
                                             <h1>
                                                 Fast Food Restaurant
                                             </h1>
-                                            <p>
+                                            <p style="width: 78% ">
                                                 FastFood Vietnam is committed to applying the standards of FastFood globally, which are: Quality, Service, Cleanliness & Values.
                                             </p>
 
@@ -134,6 +138,7 @@
     <br>
 
     <!-- food section -->
+    
 
     <section class="food_section layout_padding-bottom">
         <div class="container">
@@ -151,174 +156,162 @@
                 <li data-filter=".fries">Fries</li>
             </ul>
 
+
             <div class="filters-content">
                 <div class="row grid">
-                    <div class="col-sm-6 col-lg-4 all pizza">
-                        <div class="box">
-                            <div>
-                                <div class="img-box">
-                                    <img src="images/f1.png" alt="">
-                                </div >
-                                <div class="detail-box">
-                                    <h5>
-                                        Delicious Pizza
-                                    </h5>
-                                    <p>
-                                        Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                                    </p>
-                                    <div class="options">
-                                        <h6>
-                                            $20
-                                        </h6>
-                                        <!-- add to cart o day -->
-                                        <a href="">
-                                            <i style="color: black" class="bi bi-cart2" ></i>
-                                        </a>
+                    <c:forEach items="${listfood}" var="f">
+                        <div class="col-sm-6 col-lg-4 all pizza">
+                            <div class="box">
+
+                                <div>
+                                    <div class="img-box">
+                                        <img style="background: #f1f2f3" src="${f.image}" alt="">
+                                    </div >
+                                    <div class="detail-box">
+                                        <h5>
+                                            ${f.foodname}
+                                        </h5>
+                                        <p>
+                                            ${f.description}
+                                        </p>
+                                        <div class="options">
+                                            <h6>
+                                                $${f.unitprice}
+                                            </h6>
+                                            <!-- add to cart o day -->
+                                            <a href="">
+                                                <i style="color: black" class="bi bi-cart2" ></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-4 all burger">
-                        <div class="box">
-                            <div>
-                                <div class="img-box">
-                                    <img src="images/f2.png" alt="">
-                                </div>
-                                <div class="detail-box">
-                                    <h5>
-                                        Delicious Burger
-                                    </h5>
-                                    <p>
-                                        Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                                    </p>
-                                    <div class="options">
-                                        <h6>
-                                            $15
-                                        </h6>
-
-                                        <a href="">
-                                            <i style="color: black" class="bi bi-cart2" ></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-4 all pizza">
-                        <div class="box">
-                            <div>
-                                <div class="img-box">
-                                    <img src="images/f3.png" alt="">
-                                </div>
-                                <div class="detail-box">
-                                    <h5>
-                                        Delicious Pizza
-                                    </h5>
-                                    <p>
-                                        Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                                    </p>
-                                    <div class="options">
-                                        <h6>
-                                            $17
-                                        </h6>
-                                        <!-- add to cart o day -->
-                                        <a href="">
-                                            <i style="color: black" class="bi bi-cart2" ></i>
-                                        </a>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    </c:forEach>
                     <div class="btn-box">
                         <a href="">
                             View More
                         </a>
                     </div>
                 </div>
-                </section>
-
-                <!-- end food section -->
-
-
-
-
-                <section class="client_section layout_padding-bottom">
-                    <div class="container">
-                        <div class="heading_container heading_center psudo_white_primary mb_45">
-                            <h2>
-                                What Says Our Customers
-                            </h2>
+            </div> 
+        </div>
+    </section>
+    <section class="food_section layout_padding-bottom">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Newest Food
+                </h2>
+            </div>
+            <div class="col-sm-6 col-lg-4 all burger">
+                <div class="box">
+                    <div>
+                        <div class="img-box" >
+                            <img src="https://www.mcdonalds.pt/media/4846/028_mcflurry_snickers_grande_new.png?anchor=center&mode=crop&width=210&height=210&rnd=132352386630000000" alt="">
                         </div>
-                        <div class="carousel-wrap row ">
-                            <div class="owl-carousel client_owl-carousel">
-                                <div class="item">
-                                    <div class="box">
-                                        <div class="detail-box">
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-                                            </p>
-                                            <h6>
-                                                Moana Michell
-                                            </h6>
-                                            <p>
-                                                magna aliqua
-                                            </p>
-                                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Delicious Burger
+                            </h5>
+                            <p>
+                                Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                            </p>
+                            <div class="options">
+                                <h6>
+                                    $15
+                                </h6>
 
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="box">
-                                        <div class="detail-box">
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-                                            </p>
-                                            <h6>
-                                                Mike Hamell
-                                            </h6>
-                                            <p>
-                                                magna aliqua
-                                            </p>
-                                        </div>
-
-                                    </div>
-                                </div>
+                                <a href="">
+                                    <i style="color: black" class="bi bi-cart2" ></i>
+                                </a>
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
+            </div>
+        </div>
+    </section> 
+    <!-- end food section -->
 
-                <!-- end client section -->             
 
-                <!-- footer section -->
-                <%@include file="component/footer.jsp" %>
-                <!-- footer section -->
 
-                <!-- jQery -->
-                <script src="js/jquery-3.4.1.min.js"></script>
-                <!-- popper js -->
-                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-                </script>
-                <!-- bootstrap js -->
-                <script src="js/bootstrap.js"></script>
-                <!-- owl slider -->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-                </script>
-                <!-- isotope js -->
-                <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
-                <!-- nice select -->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
-                <!-- custom js -->
-                <script src="js/custom.js"></script>
-                
-                <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts-1.js"></script>
-                </body>
 
-                </html>
+    <section class="client_section layout_padding-bottom">
+        <div class="container">
+            <div class="heading_container heading_center psudo_white_primary mb_45">
+                <h2>
+                    What Says Our Customers
+                </h2>
+            </div>
+            <div class="carousel-wrap row ">
+                <div class="owl-carousel client_owl-carousel">
+                    <div class="item">
+                        <div class="box">
+                            <div class="detail-box">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                </p>
+                                <h6>
+                                    Moana Michell
+                                </h6>
+                                <p>
+                                    magna aliqua
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="box">
+                            <div class="detail-box">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                </p>
+                                <h6>
+                                    Mike Hamell
+                                </h6>
+                                <p>
+                                    magna aliqua
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- end client section -->             
+
+<!-- footer section -->
+<%@include file="component/footer.jsp" %>
+<!-- footer section -->
+
+<!-- jQery -->
+<script src="js/jquery-3.4.1.min.js"></script>
+<!-- popper js -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<!-- bootstrap js -->
+<script src="js/bootstrap.js"></script>
+<!-- owl slider -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+</script>
+<!-- isotope js -->
+<script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+<!-- nice select -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+<!-- custom js -->
+<script src="js/custom.js"></script>
+
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts-1.js"></script>
+</body>
+
+</html>

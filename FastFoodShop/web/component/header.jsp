@@ -23,11 +23,11 @@
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/styles-1.css" rel="stylesheet" />
     </head>
-    <body>
-        <header class="header_section" style="margin-top: -0.7rem;margin-bottom: -0.7rem">
-            <div class="container">
+    <body >
+        <header class="header_section " style="margin-top: -1.5rem;margin-bottom: -1.5rem">
+            <div class="container ">
                 <nav class="navbar navbar-expand-lg custom_nav-container ">
-                    <a class="navbar-brand" href="home.jsp" style="text-decoration: none ">
+                    <a class="navbar-brand" href="home" style="text-decoration: none ">
                         <span style="font-size: 45px" >
                             FastFood
                         </span>
@@ -36,14 +36,14 @@
                     <div class="collapse navbar-collapse" id="navbarScroll">
                         <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px; padding-left: 5%">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page"  href="home.jsp">Home</a>
+                                <a class="nav-link active" aria-current="page"  href="home">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="menu.jsp">Menu</a>
                             </li>
                             <c:if test="${sessionScope.acc.isAdmin == 1}">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="admin.jsp">Manage Account</a>
+                                    <a class="nav-link" href="admin">Manage Account</a>
                                 </li>
                             </c:if>
 
@@ -80,7 +80,7 @@
                                     <span style="color:  white">${sessionScope.acc.displayName}</span>  <i class="bi bi-person-circle" style="font-size: 150%;margin-left: 5% ; color: white"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li><a class="dropdown-item" href="profile.jsp">Profile</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="logout">Logout</a></li>
                                 </ul>
