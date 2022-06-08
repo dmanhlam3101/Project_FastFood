@@ -4,6 +4,7 @@
     Author     : dmanh
 --%>
 
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -64,85 +65,86 @@
 
                 <ul class="filters_menu">
                     <li class="active" data-filter="*">All</li>
-                    <li data-filter=".burger">Burger</li>
-                    <li data-filter=".pizza">Pizza</li>
-                    <li data-filter=".pasta">Pasta</li>
-                    <li data-filter=".fries">Fries</li>
+                    <li data-filter="*"><a href="CateContro?brand=1">Pizza</a></li>
+                    <li data-filter="*"><a href="CateContro?brand=2">Chicken</a></li>
+                    <li data-filter="*"><a href="CateContro?brand=3">Drink</a></li>
+                    <li data-filter="*"><a href="CateContro?brand=4">Pasta</a></li>
+                    <li data-filter="*"><a href="CateContro?brand=5">Snacks</a></li>
+                    <li data-filter="*"><a href="CateContro?brand=6">Ice Cream</a></li>
+                    <li data-filter="*"><a href="CateContro?brand=7">Hamburger</a></li>
                 </ul>
 
                 <div class="filters-content">
                     <div class="row grid">
                         <c:forEach items="${listfood}" var="f">
-                        <div class="col-sm-6 col-lg-4 all pizza">
-                            <div class="box">
+                            <div class="col-sm-6 col-lg-4 all pizza">
+                                <div class="box">
 
-                                <div>
-                                    <div class="img-box">
-                                        <img style="background: #f1f2f3" src="${f.image}" alt="">
-                                    </div >
-                                    <div class="detail-box">
-                                        <h5 style="color: white">
-                                            ${f.foodname}
-                                        </h5>
-                                        <p style="min-height: 80px">
-                                            ${f.description}
-                                        </p>
-                                        <div class="options">
-                                            <h6 style="font-size: 20px">
-                                                $${f.unitprice}
-                                            </h6>
-                                            <!-- add to cart o day -->
-                                            <a href="" style="background-color: #ffdf9a">
-                                                <i style="color: black " class="bi bi-cart2" ></i>
-                                            </a>
+                                    <div>
+                                        <div class="img-box">
+                                            <img style="background: #f1f2f3" src="${f.image}" alt="">
+                                        </div >
+                                        <div class="detail-box">
+                                            <h5 style="color: white">
+                                                ${f.foodname}
+                                            </h5>
+                                            <p style="min-height: 80px">
+                                                ${f.description}
+                                            </p>
+                                            <div class="options">
+                                                <h6 style="font-size: 20px">
+                                                    $${f.unitprice}
+                                                </h6>
+                                                <!-- add to cart o day -->
+                                                <a href="" style="background-color: #ffdf9a">
+                                                    <i style="color: black " class="bi bi-cart2" ></i>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </c:forEach>
-                        </div>
-                     
-                      
-                       
-  
+                        </c:forEach>
                     </div>
                 </div>
-                <div class="btn-box">
-                    <a href="">
-                        View More
-                    </a>
-                </div>
             </div>
-        </section>
+<!--            <div class="btn-box">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <c:forEach begin="1" end="${endP}" var="b">
+                    <li class="page-item"><a class="page-link" href="menu?index=${b}">${b}</a></li>
+                    </c:forEach>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </div>-->
+        </div>
+    </section>
 
-        <!-- end food section -->
+    <!-- end food section -->
 
-        <!-- footer section -->
-        <%@include file="component/footer.jsp" %>
-        <!-- footer section -->
+    <!-- footer section -->
+    <%@include file="component/footer.jsp" %>
+    <!-- footer section -->
 
-        <!-- jQery -->
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <!-- popper js -->
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-        </script>
-        <!-- bootstrap js -->
-        <script src="js/bootstrap.js"></script>
-        <!-- owl slider -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-        </script>
-        <!-- isotope js -->
-        <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
-        <!-- nice select -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
-        <!-- custom js -->
-        <script src="js/custom.js"></script>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts-1.js"></script>
+    <!-- jQery -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- popper js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+    <!-- owl slider -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+    <!-- isotope js -->
+    <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+    <!-- nice select -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts-1.js"></script>
 
-    </body>
+</body>
 
 </html>
