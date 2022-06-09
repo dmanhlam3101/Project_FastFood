@@ -1,7 +1,7 @@
-    <%-- 
-    Document   : menu
-    Created on : Jun 2, 2022, 1:37:22 AM
-    Author     : dmanh
+<%-- 
+Document   : menu
+Created on : Jun 2, 2022, 1:37:22 AM
+Author     : dmanh
 --%>
 
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -99,7 +99,7 @@
                     <li data-filter="*"><a class="Cate" href="CateContro?brand=5">Desserts & shakes</a></li>
                     <li data-filter="*"><a class="Cate" href="CateContro?brand=6">Beverages</a></li>
                 </ul>
-
+               
                 <div class="filters-content">
                     <div class="row grid">
                         <c:forEach items="${listfood}" var="f">
@@ -133,10 +133,10 @@
             </div>
             <div class="btn-box">
                 <c:forEach begin="1" end="${endP}" var="b">
-                    <a class="page-item" class="page-link" href="menu?index=${b}" style="text-decoration: none">${b}</a>
+                    <a class="page-item btn btn-outline-dark ${b==page?"active":""}" class="page-link" href="menu?index=${b}" style="text-decoration: none">${b}</a>
                 </c:forEach>
             </div>
-        </div>
+        
     </section>
 
     <!-- end food section -->

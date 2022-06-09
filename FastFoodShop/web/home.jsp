@@ -197,8 +197,8 @@
                         </div>
                     </c:forEach>
                     <div class="btn-box">
-                        <a href="">
-                            View More
+                        <a href="menu" style="text-decoration: none">
+                            View Menu
                         </a>
                     </div>
                 </div>
@@ -207,37 +207,50 @@
     </section>
     <section class="food_section layout_padding-bottom">
         <div class="container">
-            <div class="heading_container heading_center">
+             <div class="heading_container heading_center  text-center heading-section ftco-animate">
+                <span class="subheading">New</span>
                 <h2>
                     Newest Food
                 </h2>
             </div>
-            <div class="col-sm-6 col-lg-4 all burger">
-                <div class="box">
-                    <div>
-                        <div class="img-box" >
-                            <img src="https://www.mcdonalds.pt/media/4846/028_mcflurry_snickers_grande_new.png?anchor=center&mode=crop&width=210&height=210&rnd=132352386630000000" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h5>
-                                Delicious Burger
-                            </h5>
-                            <p>
-                                Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                            </p>
-                            <div class="options">
-                                <h6>
-                                    $15
-                                </h6>
+          <div class="filters-content">
+                <div class="row grid">
+                    <c:forEach items="${listnewestfood}" var="f">
+                        <div class="col-sm-6 col-lg-4 all pizza">
+                            <div class="box">
 
-                                <a href="">
-                                    <i style="color: black" class="bi bi-cart2" ></i>
-                                </a>
+                                <div>
+                                    <div class="img-box">
+                                        <img style="background: #f1f2f3" src="${f.image}" alt="">
+                                    </div >
+                                    <div class="detail-box">
+                                        <h5 style="color: white">
+                                            ${f.foodname}
+                                        </h5>
+                                        <p style="min-height: 80px">
+                                            ${f.description}
+                                        </p>
+                                        <div class="options">
+                                            <h6 style="font-size: 20px">
+                                                $${f.unitprice}
+                                            </h6>
+                                            <!-- add to cart o day -->
+                                            <a href="" style="background-color: #ffdf9a">
+                                                <i style="color: black " class="bi bi-cart2" ></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </c:forEach>
+                    <div class="btn-box">
+                        <a href="menu" style="text-decoration: none">
+                            View Menu
+                        </a>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
     </section> 
     <!-- end food section -->

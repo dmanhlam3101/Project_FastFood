@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Food;
 
 /**
@@ -49,9 +50,11 @@ public class Menu extends HttpServlet {
                 endPage++;
             }
             List<Food> list = food.getProductwithpagging(index);
-            
+            request.setAttribute("page", indexPage);//de khi an vao trang 2 thi trang 2 mau den
             request.setAttribute("endP", endPage);
-            request.setAttribute("listfood", list);
+             
+            HttpSession session = request.getSession();
+            session.setAttribute("listfood", list);
             request.getRequestDispatcher("menu.jsp").forward(request, response);
         }
     }

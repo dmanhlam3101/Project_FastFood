@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Food;
 
 /**
@@ -37,10 +38,16 @@ public class Home extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
            FoodDAO food= new FoodDAO();
            String specialFood="2021-07-18";
-            List<Food> list = food.getallFood();
-             List<Food> listFoodByDateCreated = food.getFoodbyDateCreated(specialFood);
-           request.setAttribute("listfood",list);
-           request.setAttribute("listspecialfood",listFoodByDateCreated);
+           String newestFood = "2022-02-12";
+//            List<Food> list = food.getallFood();
+             List<Food> listFoodSpec = food.getFoodbyDateCreated(specialFood);
+             List<Food> listFoodNew = food.getFoodbyDateCreated(newestFood);
+             
+             HttpSession session = request.getSession();
+             session.setAttribute("listspecialfood", listFoodSpec);
+             session.setAttribute("listnewestfood", listFoodNew);
+//           request.setAttribute("listfood",list);
+
             request.getRequestDispatcher("home.jsp").forward(request, response);
         }
     }

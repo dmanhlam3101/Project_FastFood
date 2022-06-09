@@ -11,35 +11,40 @@ package model;
  * @author trung
  */
 public class Category {
-    private String CategoryId;
-    private String CategoryName;
+    private String categoryId;
+    private String categoryName;
 
     public Category() {
     }
 
-    public Category(String CategoryId, String CategoryName) {
-        this.CategoryId = CategoryId;
-        this.CategoryName = CategoryName;
+    public Category(String categoryId, String categoryName) {
+        this.categoryId = categoryId;
+        this.categoryName = categoryName;
     }
 
     public String getCategoryId() {
-        return CategoryId;
+        return categoryId;
     }
 
-    public void setCategoryId(String CategoryId) {
-        this.CategoryId = CategoryId;
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getCategoryName() {
-        return CategoryName;
+        return categoryName;
     }
 
-    public void setCategoryName(String CategoryName) {
-        this.CategoryName = CategoryName;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     @Override
     public String toString() {
-        return "Category{" + "CategoryId=" + CategoryId + ", CategoryName=" + CategoryName + '}';
+        return "Category{" + "categoryId=" + categoryId + ", categoryName=" + categoryName + '}';
     }
+
+    
+    
+
+   
 }

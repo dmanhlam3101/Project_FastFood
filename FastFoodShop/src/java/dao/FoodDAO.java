@@ -71,7 +71,7 @@ public class FoodDAO extends ConnectDB {
         }
         return list;
     }
-    
+  
     public List<Food> getFoodbyIamge(String Image) {
         List<Food> list = new ArrayList<>();
 
@@ -197,23 +197,23 @@ public class FoodDAO extends ConnectDB {
         return list;
     }
 
-    public Vector SortByCategory() {
-        Vector<Category> vec = new Vector<Category>();
-        try {
-            String sql = "select * from Category";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                String CategoryID = rs.getString(1);
-                String CategoryName = rs.getString(2);
-                Category cate = new Category(CategoryID, CategoryName);
-                vec.add(cate);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return vec;
-    }
+//    public Vector SortByCategory() {
+//        Vector<Category> vec = new Vector<Category>();
+//        try {
+//            String sql = "select * from Category";
+//            PreparedStatement ps = conn.prepareStatement(sql);
+//            ResultSet rs = ps.executeQuery();
+//            while (rs.next()) {
+//                String CategoryID = rs.getString(1);
+//                String CategoryName = rs.getString(2);
+//                Category cate = new Category(CategoryID, CategoryName);
+//                vec.add(cate);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return vec;
+//    }
 
     public int getTotalFood() {
         String query = "select count(*) from Foods";
