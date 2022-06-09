@@ -1,4 +1,4 @@
-<%-- 
+    <%-- 
     Document   : menu
     Created on : Jun 2, 2022, 1:37:22 AM
     Author     : dmanh
@@ -64,7 +64,6 @@
                 </div>
                 <style>
                     .filters_menu .Cate:link{
-                        color: black;
                         text-decoration: none;
                     }
                     .filters_menu .Cate:visited{
@@ -93,7 +92,6 @@
 
                 </style>
                 <ul class="filters_menu" style="color: red">
-                    <li data-filter="*"><a class="Cate" href="CateContro?brand=0">All</a></li>
                     <li data-filter="*"><a class="Cate" href="CateContro?brand=1">Pizza</a></li>
                     <li data-filter="*"><a class="Cate" href="CateContro?brand=2">Breakfast</a></li>
                     <li data-filter="*"><a class="Cate" href="CateContro?brand=3">Burgers</a></li>
@@ -110,15 +108,12 @@
 
                                     <div>
                                         <div class="img-box">
-                                            <img style="background: #f1f2f3" src="${f.image}" alt="">
+                                            <a href="DetailFood?image=${f.image}"><img style="background: #f1f2f3" src="${f.image}" alt=""></a>
                                         </div >
                                         <div class="detail-box">
                                             <h5 style="color: white">
                                                 ${f.foodname}
                                             </h5>
-                                            <p style="min-height: 80px">
-                                                ${f.description}
-                                            </p>
                                             <div class="options">
                                                 <h6 style="font-size: 20px">
                                                     $${f.unitprice}
@@ -136,13 +131,11 @@
                     </div>
                 </div>
             </div>
-            <!--            <div class="btn-box">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <c:forEach begin="1" end="${endP}" var="b">
-            <li class="page-item"><a class="page-link" href="menu?index=${b}">${b}</a></li>
-            </c:forEach>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </div>-->
+            <div class="btn-box">
+                <c:forEach begin="1" end="${endP}" var="b">
+                    <a class="page-item" class="page-link" href="menu?index=${b}" style="text-decoration: none">${b}</a>
+                </c:forEach>
+            </div>
         </div>
     </section>
 

@@ -38,20 +38,25 @@ public class CateContro extends HttpServlet {
         FoodDAO dao = new FoodDAO();
         String brand = request.getParameter("brand");
         int brand1 = Integer.parseInt(brand);
-        List<Food> list = dao.SearchByCategory(brand1);
-        System.out.println(list);
-        if (brand1 == 0){
-            List<Food> list1 = dao.getallFood();
-            request.setAttribute("listfood", list1);
-            request.getRequestDispatcher("menu.jsp").forward(request, response);
-        }
-//        int count = list.size();
-//        int endPage = count / 6;
-//        if (count % 6 != 0) {
-//            endPage++;
+        List<Food> list2 = dao.SearchByCategory(brand1);
+//        if (brand1 == 0) {
+//            List<Food> list1 = dao.getallFood();
+//            request.setAttribute("listfood", list1);
+//            request.getRequestDispatcher("menu.jsp").forward(request, response);
 //        }
-//        
-//        request.setAttribute("endP", endPage);
+        String indexPage = request.getParameter("index");
+        if (indexPage == null) {
+            indexPage = "1";
+        }
+        int index = Integer.parseInt(indexPage);
+        int count = list2.size();
+        int endPage = count / 9;
+        if (count % 9 != 0) {
+            endPage++;
+        }
+        List<Food> list = dao.getProductwithpagging1(index, brand1);
+        
+        request.setAttribute("endP", endPage);
         request.setAttribute("listfood", list);
         request.getRequestDispatcher("menu.jsp").forward(request, response);
     }

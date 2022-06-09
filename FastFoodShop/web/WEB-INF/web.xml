@@ -32,6 +32,14 @@
         <servlet-name>CateContro</servlet-name>
         <servlet-class>controller.CateContro</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DetailFood</servlet-name>
+        <servlet-class>controller.DetailFood</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>controller.Search</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -63,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>CateContro</servlet-name>
         <url-pattern>/CateContro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetailFood</servlet-name>
+        <url-pattern>/DetailFood</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/Search</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

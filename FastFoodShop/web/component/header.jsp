@@ -60,6 +60,66 @@
                                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
                             </li>
                         </ul>
+                        <style>
+                            .container-3{
+                                width: 300px;
+                                vertical-align: middle;
+                                white-space: nowrap;
+                                position: relative;
+                            }
+
+                            .container-3 input#search{
+                                width: 300px;
+                                height: 50px;
+                                background: #2b303b;
+                                border: none;
+                                font-size: 10pt;
+                                float: left;
+                                color: #262626;
+                                padding-left: 45px;
+                                -webkit-border-radius: 5px;
+                                -moz-border-radius: 5px;
+                                border-radius: 5px;
+                                color: #fff;
+                            }
+                            .container-3 input#search::-webkit-input-placeholder {
+                                color: #65737e;
+                            }
+
+                            .container-3 input#search:-moz-placeholder { /* Firefox 18- */
+                                color: #65737e;  
+                            }
+
+                            .container-3 input#search::-moz-placeholder {  /* Firefox 19+ */
+                                color: #65737e;  
+                            }
+
+                            .container-3 input#search:-ms-input-placeholder {  
+                                color: #65737e;  
+                            }
+                            .container-3 .icon{
+                                position: absolute;
+                                top: 50%;
+                                margin-left: 17px;
+                                margin-top: 17px;
+                                z-index: 1;
+                                color: #4f5b66;
+
+                                -webkit-transition: all .55s ease;
+                                -moz-transition: all .55s ease;
+                                -ms-transition: all .55s ease;
+                                -o-transition: all .55s ease;
+                                transition: all .55s ease;
+                            }
+                        </style>
+                        <form action="Search" method="post">
+                            <div class="box" style="padding-right: 20px">
+                                <div class="container-3">
+                                    <span class="icon"><i class="fa fa-search"></i></span>
+                                    <input name="name" value="${nameSearch}" type="text" id="search" placeholder="Search by name food" />
+                                </div>
+                            </div>
+                        </form>
                         <form class="d-flex">
                             <button class="btn btn-outline-dark " style="background-color: white" type="submit">
                                 <i class="bi-cart-fill me-1"></i>

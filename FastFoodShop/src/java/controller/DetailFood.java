@@ -17,9 +17,9 @@ import model.Food;
 
 /**
  *
- * @author dmanh
+ * @author trung
  */
-public class Menu extends HttpServlet {
+public class DetailFood extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,27 +33,14 @@ public class Menu extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            FoodDAO food = new FoodDAO();
-            List<Food> list2 = food.getallFood();
-            String indexPage = request.getParameter("index");
-            if(indexPage == null){
-                indexPage = "1";
-            }
-            int index = Integer.parseInt(indexPage);
-            
-            int count = list2.size();
-            int endPage = count / 9;
-            if (count % 9 != 0) {
-                endPage++;
-            }
-            List<Food> list = food.getProductwithpagging(index);
-            
-            request.setAttribute("endP", endPage);
-            request.setAttribute("listfood", list);
-            request.getRequestDispatcher("menu.jsp").forward(request, response);
-        }
+        FoodDAO dao = new FoodDAO();
+        String img = request.getParameter("image");
+        System.out.println(img);
+        List<Food> f = dao.getFoodbyIamge(img);
+        System.out.println(f);
+        request.setAttribute("food", f);
+        request.getRequestDispatcher("detailfood.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
