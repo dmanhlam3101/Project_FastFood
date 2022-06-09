@@ -40,7 +40,11 @@ public class CateContro extends HttpServlet {
         int brand1 = Integer.parseInt(brand);
         List<Food> list = dao.SearchByCategory(brand1);
         System.out.println(list);
-        
+        if (brand1 == 0){
+            List<Food> list1 = dao.getallFood();
+            request.setAttribute("listfood", list1);
+            request.getRequestDispatcher("menu.jsp").forward(request, response);
+        }
 //        int count = list.size();
 //        int endPage = count / 6;
 //        if (count % 6 != 0) {

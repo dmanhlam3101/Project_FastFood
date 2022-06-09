@@ -62,16 +62,44 @@
                         Our Menu
                     </h2>
                 </div>
+                <style>
+                    .filters_menu .Cate:link{
+                        color: black;
+                        text-decoration: none;
+                    }
+                    .filters_menu .Cate:visited{
+                        color: black;
+                    }
+                    .filters_menu .Cate:hover{
+                        padding: 0;
+                        list-style-type: none;
+                        margin: 45px 0 20px 0;
+                        padding: 7px 25px;
+                        cursor: pointer;
+                        border-radius: 25px;
+                        background-color: black;
+                        color: white;
+                    }
+                    .filters_menu .Cate:active{
+                        padding: 0;
+                        list-style-type: none;
+                        margin: 45px 0 20px 0;
+                        padding: 7px 25px;
+                        cursor: pointer;
+                        border-radius: 25px;
+                        background-color: black;
+                        color: white;
+                    }
 
-                <ul class="filters_menu">
-                    <li class="active" data-filter="*">All</li>
-                    <li data-filter="*"><a href="CateContro?brand=1">Pizza</a></li>
-                    <li data-filter="*"><a href="CateContro?brand=2">Chicken</a></li>
-                    <li data-filter="*"><a href="CateContro?brand=3">Drink</a></li>
-                    <li data-filter="*"><a href="CateContro?brand=4">Pasta</a></li>
-                    <li data-filter="*"><a href="CateContro?brand=5">Snacks</a></li>
-                    <li data-filter="*"><a href="CateContro?brand=6">Ice Cream</a></li>
-                    <li data-filter="*"><a href="CateContro?brand=7">Hamburger</a></li>
+                </style>
+                <ul class="filters_menu" style="color: red">
+                    <li data-filter="*"><a class="Cate" href="CateContro?brand=0">All</a></li>
+                    <li data-filter="*"><a class="Cate" href="CateContro?brand=1">Pizza</a></li>
+                    <li data-filter="*"><a class="Cate" href="CateContro?brand=2">Breakfast</a></li>
+                    <li data-filter="*"><a class="Cate" href="CateContro?brand=3">Burgers</a></li>
+                    <li data-filter="*"><a class="Cate" href="CateContro?brand=4">Chicken & Sandwiches</a></li>
+                    <li data-filter="*"><a class="Cate" href="CateContro?brand=5">Desserts & shakes</a></li>
+                    <li data-filter="*"><a class="Cate" href="CateContro?brand=6">Beverages</a></li>
                 </ul>
 
                 <div class="filters-content">
@@ -108,13 +136,13 @@
                     </div>
                 </div>
             </div>
-<!--            <div class="btn-box">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <c:forEach begin="1" end="${endP}" var="b">
-                    <li class="page-item"><a class="page-link" href="menu?index=${b}">${b}</a></li>
-                    </c:forEach>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </div>-->
+            <!--            <div class="btn-box">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <c:forEach begin="1" end="${endP}" var="b">
+            <li class="page-item"><a class="page-link" href="menu?index=${b}">${b}</a></li>
+            </c:forEach>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </div>-->
         </div>
     </section>
 
