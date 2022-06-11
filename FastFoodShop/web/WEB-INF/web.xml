@@ -40,6 +40,10 @@
         <servlet-name>Search</servlet-name>
         <servlet-class>controller.Search</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Homeshipper</servlet-name>
+        <servlet-class>controller.Homeshipper</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>Search</servlet-name>
         <url-pattern>/Search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Homeshipper</servlet-name>
+        <url-pattern>/homeshipper</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
