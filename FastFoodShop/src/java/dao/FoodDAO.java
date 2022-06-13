@@ -72,14 +72,14 @@ public class FoodDAO extends ConnectDB {
         return list;
     }
   
-    public List<Food> getFoodbyIamge(String Image) {
+ public List<Food> getFoodbyFoodId(int foodid) {
         List<Food> list = new ArrayList<>();
 
         try {
-            String sql = "select * from Foods where Image = ?";
+            String sql = "select * from Foods where FoodID = ?";
             Connection conn = new DBContext().getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, Image);
+            ps.setInt(1, foodid);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new Food(rs.getInt(1),

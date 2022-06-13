@@ -80,7 +80,7 @@ public class AccountDAO {
                 + "           ,[isAdmin]\n"
                 + "           ,[isCustomer]\n"
                 + "           ,[IsShipper]\n"
-                + "           ,[IsSaller])\n"
+                + "           ,[IsSeller])\n"
                 + "     VALUES\n"
                 + "           (?,?,?,?,?,0,1,0,0)";
         try {

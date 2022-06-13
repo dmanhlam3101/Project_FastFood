@@ -33,11 +33,22 @@ public class DetailFood extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+<<<<<<< HEAD
          int foodid = Integer.parseInt(request.getParameter("foodid"));
          Food food =  new FoodDAO().getFoodById(foodid);
          request.setAttribute("food",food);
          request.getSession().setAttribute("urlHistory", "DetailFood?foodid="+foodid);
          request.getRequestDispatcher("detailfood.jsp").forward(request, response);
+=======
+        FoodDAO dao = new FoodDAO();
+        String foodid = request.getParameter("foodid");
+        int foodid1 = Integer.parseInt(foodid);
+        System.out.println(foodid);
+        List<Food> f = dao.getFoodbyFoodId(foodid1);
+        System.out.println(f);
+        request.setAttribute("food", f);
+        request.getRequestDispatcher("detailfood.jsp").forward(request, response);
+>>>>>>> 2fcd16e1b1716f429d71781b9e04a4d7076fa252
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
