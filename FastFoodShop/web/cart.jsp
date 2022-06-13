@@ -1,12 +1,15 @@
 <%-- 
-    Document   : detailfood
-    Created on : Jun 6, 2022, 10:22:00 AM
+    Document   : login
+    Created on : May 26, 2022, 10:06:19 PM
     Author     : dmanh
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <!-- Basic -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -19,7 +22,7 @@
         <meta name="author" content="" />
         <link rel="shortcut icon" href="images/favicon.png" type="">
 
-        <title> FastFood </title>
+        <title> Cart </title>
 
         <!-- bootstrap core css -->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -42,10 +45,8 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/styles-1.css" rel="stylesheet" />
-       
     </head>
-    <body class="sub_page">
-        <!-- Navigation-->
+    <body class="sub_page">  
         <div class="hero_area">
             <div class="bg-box">
                 <img src="images/hero-bg.jpg" alt="">
@@ -54,38 +55,62 @@
             <%@include file="component/header.jsp" %>
             <!-- end header section -->
         </div>
-        <!-- Product section-->
-        <section class="py-5" style="min-height: 700px">
-            <div class="container px-4 px-lg-5 my-5">
+        <section class="py-5">
+            <div class="container" style="min-height: 1000px">
+                <c:choose>
+                    <c:when test="${sessionScope.carts == null || sessionScope.carts.size()== 0}">
+                        <h1 style="text-align: center">List Cart is Empty</h1>
+                    </c:when>
+                    <c:otherwise>
+                        <br>
 
-                <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6 border border-1" ><img class="card-img-top mb-5 mb-md-0 " src=${food.image} alt="..."></div>
-                    <div class="col-md-6">
-                        <h1 class="display-5 fw-bolder">${food.foodname}</h1>
-                        <div class="fs-5 mb-5">
-                            <span>$${food.unitprice}</span>
-                        </div>
-                        <p class="lead">${food.description}</p>
-                        <div class="d-flex">
-                            <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem">
-                            <a  href="add-to-cart?foodid=${food.foodid}">
-                            <button  class="btn btn-outline-dark flex-shrink-0" type="button">
-                                <i class="bi-cart-fill me-1"></i>
-                                Add to cart
-                            </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                        <br>
+                        <h1>Shopping Cart</h1>
+
+                        <table class="table" >
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Total Price</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <c:forEach items="${carts}" var="C">
+                                <form action="update-quantity" method="get">
+                                    <tr>
+                                    <input type="hidden" name="foodid" value="${C.value.product.foodid}">
+                                        <th scope="row">${C.value.product.foodid}</th>
+                                        <td><img style="width: 70px" src="${C.value.product.image}"></td>
+                                        <td>${C.value.product.foodname}</td>
+                                        <td>${C.value.product.unitprice} </td>
+                                        <td ><input  onchange="this.form.submit()"  name="quantity" style="width: 50px" type="number" value="${C.value.quantity}"></td>
+                                        <td>${C.value.product.unitprice*C.value.quantity}</td>
+                                        <td>
+                                            <a href="delete-cart?foodid=${C.value.product.foodid}" class="btn btn-outline-danger "
+                                               style="background-color: white; color: red"  >
+                                                <i class="bi bi-trash"></i> Delete
+                                            </a>
+                                        </td>
+
+                                    </tr>
+                                </form>
+                            </c:forEach>
+
+                            </tbody>
+                        </table>
+                        <h2>Total Amount: $${totalAmount}</h2>
+                        <a href="payment" class="btn btn-success" style="color: white">Payment</a>
+                    </c:otherwise>
+                </c:choose>
+
             </div>
         </section>
-
-
-        <!-- Bootstrap core JS-->
-        <!-- footer section -->
-        <%@include file="component/footer.jsp" %>
-        <!-- footer section -->
-
         <!-- jQery -->
         <script src="js/jquery-3.4.1.min.js"></script>
         <!-- popper js -->
@@ -102,15 +127,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
         <!-- custom js -->
         <script src="js/custom.js"></script>
-
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts-1.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-
-
     </body>
 </html>

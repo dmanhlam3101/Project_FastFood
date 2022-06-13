@@ -44,6 +44,26 @@
         <servlet-name>Homeshipper</servlet-name>
         <servlet-class>controller.Homeshipper</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddToCart</servlet-name>
+        <servlet-class>controller.AddToCart</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Carts</servlet-name>
+        <servlet-class>controller.Carts</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteCart</servlet-name>
+        <servlet-class>controller.DeleteCart</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateCartQuantity</servlet-name>
+        <servlet-class>controller.UpdateCartQuantity</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Payment</servlet-name>
+        <servlet-class>controller.Payment</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -87,6 +107,26 @@
     <servlet-mapping>
         <servlet-name>Homeshipper</servlet-name>
         <url-pattern>/homeshipper</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToCart</servlet-name>
+        <url-pattern>/add-to-cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Carts</servlet-name>
+        <url-pattern>/carts</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteCart</servlet-name>
+        <url-pattern>/delete-cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCartQuantity</servlet-name>
+        <url-pattern>/update-quantity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Payment</servlet-name>
+        <url-pattern>/payment</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

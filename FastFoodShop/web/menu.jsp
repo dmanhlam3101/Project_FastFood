@@ -89,6 +89,7 @@ Author     : dmanh
                         background-color: black;
                         color: white;
                     }
+                    
 
                 </style>
                 <ul class="filters_menu" style="color: red">
@@ -108,7 +109,7 @@ Author     : dmanh
 
                                     <div>
                                         <div class="img-box">
-                                            <a href="DetailFood?image=${f.image}"><img style="background: #f1f2f3" src="${f.image}" alt=""></a>
+                                            <a href="DetailFood?foodid=${f.foodid}"><img style="background: #f1f2f3 " src="${f.image}" alt=""></a>
                                         </div >
                                         <div class="detail-box">
                                             <h5 style="color: white">
@@ -119,7 +120,7 @@ Author     : dmanh
                                                     $${f.unitprice}
                                                 </h6>
                                                 <!-- add to cart o day -->
-                                                <a href="" style="background-color: #ffdf9a">
+                                                <a  href="add-to-cart?foodid=${f.foodid}" style="background-color: #ffdf9a">
                                                     <i style="color: black " class="bi bi-cart2" ></i>
                                                 </a>
                                             </div>

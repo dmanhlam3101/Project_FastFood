@@ -46,7 +46,7 @@
                                     <a class="nav-link" href="admin">Manage Account</a>
                                 </li>
                             </c:if>
-                                
+
                             <c:if test="${sessionScope.acc.isShipper == 1}">
                                 <li class="nav-item">
                                     <a class="nav-link" href="homeshipper">List Order Ship</a>
@@ -56,15 +56,21 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Link</a>
                             </li>
-                          
+
                         </ul>
-                        <form class="d-flex">
-                            <button class="btn btn-outline-dark " style="background-color: white" type="submit">
+                        <div class="d-flex" >
+                            <a class="btn btn-light " style="background-color: white"  href="carts">
                                 <i class="bi-cart-fill me-1"></i>
                                 Cart
-                                <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                            </button>
-                        </form>
+                                <c:if test="${sessionScope.carts == null ||sessionScope.carts.size()== 0}">
+                                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span> 
+                                </c:if>
+                                       <c:if test="${sessionScope.carts.size()!= 0}">
+                                    <span class="badge bg-dark text-white ms-1 rounded-pill">${sessionScope.carts.size()}</span>    
+                                </c:if>
+                                                    
+                            </a>
+                        </div>
                         <c:if test="${sessionScope.acc == null}">
                             <form class="d-flex" style="margin-left: 2%">
                                 <button class="btn btn-outline-dark btn-secondary" >

@@ -8,19 +8,21 @@ package controller;
 import dao.FoodDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Cart;
 import model.Food;
 
 /**
  *
  * @author dmanh
  */
-public class Menu extends HttpServlet {
+public class AddToCart extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,29 +38,30 @@ public class Menu extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            FoodDAO food = new FoodDAO();
-            List<Food> list2 = food.getallFood();
-            String indexPage = request.getParameter("index");
-            if(indexPage == null){
-                indexPage = "1";
-            }
-            int index = Integer.parseInt(indexPage);
-            
-            int count = list2.size();
-            int endPage = count / 9;
-            if (count % 9 != 0) {
-                endPage++;
-            }
-            List<Food> list = food.getProductwithpagging(index);
-            request.setAttribute("page", indexPage);//de khi an vao trang 2 thi trang 2 mau den
-            request.setAttribute("endP", endPage);
-             
+           int foodid = Integer.parseInt(request.getParameter("foodid"));
             HttpSession session = request.getSession();
-            session.setAttribute("listfood", list);
-            session.setAttribute("urlHistory", "menu");
-            
-            request.getRequestDispatcher("menu.jsp").forward(request, response);
+            Map<Integer,Cart> carts = (Map<Integer,Cart>) session.getAttribute("carts");
+            if(carts == null){
+                carts = new LinkedHashMap<>();//linkedmap se sap xep theo thu tu
+            }
+            //lau food voi id nhan dc
+            if(carts.containsKey(foodid)){//th2
+                int oldQuantity = carts.get(foodid).getQuantity();
+                carts.get(foodid).setQuantity(oldQuantity +1);
+            }else{//th1
+                Food food =  new FoodDAO().getFoodById(foodid);
+                carts.put(foodid,new Cart(food,1));
+            }
+            //th1: sp chua co trong gio hang
+            //th2: san pham da co tren gio hang -> cap nhat lai so luong tren gio hang
+            session.setAttribute("carts", carts);
+            String urlHistory = (String) session.getAttribute("urlHistory");
+            if(urlHistory == null){
+                urlHistory = "home";
+            }
+            response.sendRedirect(urlHistory);
         }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
