@@ -109,11 +109,7 @@ Author     : dmanh
 
                                     <div>
                                         <div class="img-box">
-<<<<<<< HEAD
                                             <a href="DetailFood?foodid=${f.foodid}"><img style="background: #f1f2f3 " src="${f.image}" alt=""></a>
-=======
-                                            <a href="DetailFood?foodid=${f.foodid}"><img style="background: #f1f2f3" src="${f.image}" alt=""></a>
->>>>>>> 2fcd16e1b1716f429d71781b9e04a4d7076fa252
                                         </div >
                                         <div class="detail-box">
                                             <h5 style="color: white">
