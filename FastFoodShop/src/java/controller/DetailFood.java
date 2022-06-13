@@ -34,13 +34,13 @@ public class DetailFood extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         FoodDAO dao = new FoodDAO();
-        String img = request.getParameter("image");
-        System.out.println(img);
-        List<Food> f = dao.getFoodbyIamge(img);
+        String foodid = request.getParameter("foodid");
+        int foodid1 = Integer.parseInt(foodid);
+        System.out.println(foodid);
+        List<Food> f = dao.getFoodbyFoodId(foodid1);
         System.out.println(f);
         request.setAttribute("food", f);
         request.getRequestDispatcher("detailfood.jsp").forward(request, response);
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

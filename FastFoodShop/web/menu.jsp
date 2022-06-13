@@ -108,7 +108,7 @@ Author     : dmanh
 
                                     <div>
                                         <div class="img-box">
-                                            <a href="DetailFood?image=${f.image}"><img style="background: #f1f2f3" src="${f.image}" alt=""></a>
+                                            <a href="DetailFood?foodid=${f.foodid}"><img style="background: #f1f2f3" src="${f.image}" alt=""></a>
                                         </div >
                                         <div class="detail-box">
                                             <h5 style="color: white">
