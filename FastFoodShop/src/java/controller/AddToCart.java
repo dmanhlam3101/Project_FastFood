@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Account;
 import model.Cart;
 import model.Food;
 
@@ -40,6 +41,12 @@ public class AddToCart extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
            int foodid = Integer.parseInt(request.getParameter("foodid"));
             HttpSession session = request.getSession();
+            //checklogin
+            Account account = (Account) session.getAttribute("acc");
+            if(account ==null){
+                response.sendRedirect("login.jsp");
+                return;
+            }
             Map<Integer,Cart> carts = (Map<Integer,Cart>) session.getAttribute("carts");
             if(carts == null){
                 carts = new LinkedHashMap<>();//linkedmap se sap xep theo thu tu

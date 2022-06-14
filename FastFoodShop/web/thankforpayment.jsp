@@ -1,15 +1,18 @@
 <%-- 
-    Document   : detailfood
-    Created on : Jun 6, 2022, 10:22:00 AM
-    Author     : dmanh
+Document   : menu
+Created on : Jun 2, 2022, 1:37:22 AM
+Author     : dmanh
 --%>
 
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
+
     <head>
         <!-- Basic -->
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- Mobile Metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -33,20 +36,15 @@
 
         <!-- Custom styles for this template -->
         <link href="css/style.css" rel="stylesheet" />
+        <link href="css/styles-1.css" rel="stylesheet" />
         <!-- responsive style -->
         <link href="css/responsive.css" rel="stylesheet" />
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <link href="css/styles-1.css" rel="stylesheet" />
 
     </head>
-    <body class="sub_page">
-        <!-- Navigation-->
-        <div class="hero_area">
+
+    <body class="sub_page" >
+
+        <div class="hero_area ">
             <div class="bg-box">
                 <img src="images/hero-bg.jpg" alt="">
             </div>
@@ -54,45 +52,22 @@
             <%@include file="component/header.jsp" %>
             <!-- end header section -->
         </div>
-        <!-- Product section-->
-        <section class="py-5" style="min-height: 700px">
-            <div class="container px-4 px-lg-5 my-5">
 
-                <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6 border border-1" ><img class="card-img-top mb-5 mb-md-0 " src=${food.image} alt="..."></div>
-                    <div class="col-md-6">
-                        <h3 class="display-5 fw-bolder">${food.foodname}</h3>
-                        <div class="fs-5 mb-5">
-                            <span>$${food.unitprice}</span>
-                        </div>
-                        <p class="lead">${food.description}</p>
-                        <div class="d-flex">
+        <!-- food section -->
 
-
-                            <div class="row">
-                                <div class="  col-md-8" >
-                                    <a href="add-to-cart?foodid=${food.foodid}" class="btn btn-success  " style="color: white" >
-                                        <i class="bi-cart-fill "></i>
-                                        Add to cart
-                                    </a>
-                                </div>
-                                <div class="col-md-4" >
-                                    <a href="" class="btn btn-danger " style="color: white" >
-                                        <i class="bi bi-bag-fill"></i> Buy
-                                    </a>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
+        <section class="food_section layout_padding" style="min-height: 450px" >
+            <div class="container">
+                <div class="text-center" >
+                    <h1 style="font-size: 150px">Thank you!</h1>
+                    <h4>Your payment has been received</h4>
                 </div>
 
             </div>
+
         </section>
 
+        <!-- end food section -->
 
-        <!-- Bootstrap core JS-->
         <!-- footer section -->
         <%@include file="component/footer.jsp" %>
         <!-- footer section -->
@@ -113,15 +88,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
         <!-- custom js -->
         <script src="js/custom.js"></script>
-
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts-1.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-
 
     </body>
+
 </html>

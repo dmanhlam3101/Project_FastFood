@@ -5,10 +5,14 @@
  */
 package model;
 
+
+
 /**
  *
  * @author dmanh
  */
+
+
 public class Order {
     private int acount_id;
     private String name;
@@ -111,5 +115,7 @@ public class Order {
     public String toString() {
         return "Order{" + "acount_id=" + acount_id + ", name=" + name + ", phone=" + phone + ", address=" + address + ", totalprice=" + totalprice + ", sellerid=" + sellerid + ", shipperid=" + shipperid + ", created_date=" + created_date + ", status=" + status + '}';
     }
+
+   
     
 }

@@ -9,6 +9,7 @@ import dao.OrderDAO;
 import dao.OrderDetailDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.servlet.ServletException;
@@ -103,11 +104,16 @@ public class Payment extends HttpServlet {
 
             totalAmout += cart.getQuantity() * cart.getProduct().getUnitprice();
         }
-        Order order = new Order(1, name, phone, address, totalAmout, 0, 0, address, true);
+        Order order = new Order();
+        order.setAcount_id(1);
+        order.setName(name);
+        order.setPhone(phone);
+        order.setAddress(address);
+        order.setTotalprice(totalAmout);
         int orderId = new OrderDAO().createReturnId(order);
-        System.out.println("id"+orderId);
         //luu order detail
         new OrderDetailDAO().saveCart(orderId,carts);
+//        System.out.println(carts);
     }
 
     /**

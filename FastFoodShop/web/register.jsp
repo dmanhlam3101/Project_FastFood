@@ -80,14 +80,6 @@
                                     <input type="password" name="password" class="form-control" placeholder="Password" required/>
                                 </div>
 
-                                <!--                                 Checkbox 
-                                                                <div class="form-check d-flex justify-content-center mb-4">
-                                                                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
-                                                                    <label class="form-check-label" for="form2Example33">
-                                                                        Subscribe to our newsletter
-                                                                    </label>
-                                                                </div>-->
-
                                 <!-- Submit button -->
 
                                 <button type="submit"   style="color: white" class="btn btn-primary btn-block mb-4">
@@ -97,25 +89,27 @@
                                 <!-- msg is wrong username and pass -->
 
                                 <p class="text-danger">${msg}</p>
-                                <!--             Register buttons 
-                                -->                                            <div class="text-center">
-                                    <br>
-                                    <button type="button" class="btn btn-link btn-floating mx-1">
-                                        <i class="bi bi-facebook"></i>
-                                    </button>
+                                <a href="login.jsp">I did have a account</a>
+                            </form>
+                            <!--             Register buttons 
+                            -->                                            <div class="text-center">
+                                <br>
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <i class="bi bi-facebook"></i>
+                                </button>
 
-                                    <button type="button" class="btn btn-link btn-floating mx-1">
-                                        <i class="bi bi-google"></i>
-                                    </button>
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <i class="bi bi-google"></i>
+                                </button>
 
-                                    <button type="button" class="btn btn-link btn-floating mx-1">
-                                        <i class="bi bi-twitter"></i>
-                                    </button>
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <i class="bi bi-twitter"></i>
+                                </button>
 
-                                    <button type="button" class="btn btn-link btn-floating mx-1">
-                                        <i class="bi bi-github"></i>
-                                    </button>
-                                </div>
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <i class="bi bi-github"></i>
+                                </button>
+                            </div>
                             </form>
                         </div>
                     </div>
