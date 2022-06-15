@@ -43,6 +43,29 @@ public class AccountDAO {
         return list;
     }
     
+    public Account getAcountByID(int id) {
+        String sql = "select *from Account where ID = ?";
+        try {
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Account(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7),
+                        rs.getInt(8),
+                        rs.getInt(9),
+                        rs.getInt(10));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
 
     public Account login(String username, String password) {
         String sql = "select *from Account where Username = ? and Password = ?";
@@ -123,4 +146,9 @@ public class AccountDAO {
         return null;
     }
    
+    public static void main(String[] args) {
+        AccountDAO dao = new AccountDAO();
+        Account a = dao.getAcountByID(2);
+        System.out.println(a);
+    }
 }

@@ -4,6 +4,8 @@
     Author     : dmanh
 --%>
 
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -41,56 +43,72 @@
                             <div class="card-body text-center">
                                 <img src="https://1.bp.blogspot.com/-r8taaC_nv5U/XngOYFjbRVI/AAAAAAAAZnc/QjGkkHS78GMm6CocQ1OqrWGgQTkG1oQNACLcBGAsYHQ/s1600/Avatar-Facebook%2B%25281%2529.jpg" alt="avatar"
                                      class="rounded-circle img-fluid" style="width: 150px;">
-                                <h5 class="my-3">Johnatan Smith</h5>
+                                <h5 class="my-3">${profile.displayName}</h5>
                                 <div class="d-flex justify-content-center mb-2">
                                     <button type="button" class="btn btn-outline-primary ms-1">Edit Profile</button>
                                 </div>
                             </div>
                         </div>
-                
+
                     </div>
                     <div class="col-lg-8">
                         <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <p class="mb-0">Full Name</p>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Full Name</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">${profile.displayName}</p>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-9">
-                                        <p class="text-muted mb-0">Johnatan Smith</p>
+
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Phone</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">${profile.phone}</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Role</p>
+                                        </div>
+                                        <c:if test="${profile.isAdmin == 1}">
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0">Admin</p>
+                                            </div>
+                                        </c:if>
+                                        <c:if test="${profile.isCustomer == 1}">
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0">Customer</p>
+                                            </div>
+                                        </c:if>
+                                        <c:if test="${profile.isShipper == 1}">
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0">Shipper</p>
+                                            </div>
+                                        </c:if>
+                                        <c:if test="${profile.isSeller == 1}">
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0">Seller</p>
+                                            </div>
+                                        </c:if>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Address</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">${profile.address}</p>
+                                        </div>
                                     </div>
                                 </div>
-                               
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <p class="mb-0">Phone</p>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <p class="text-muted mb-0">(097) 234-5678</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <p class="mb-0">Role</p>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <p class="text-muted mb-0">(098) 765-4321</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <p class="mb-0">Address</p>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                       
                     </div>
                 </div>
             </div>

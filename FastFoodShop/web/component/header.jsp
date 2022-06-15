@@ -65,10 +65,10 @@
                                 <c:if test="${sessionScope.carts == null ||sessionScope.carts.size()== 0}">
                                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span> 
                                 </c:if>
-                                       <c:if test="${sessionScope.carts.size()!= 0}">
+                                <c:if test="${sessionScope.carts.size()!= 0}">
                                     <span class="badge bg-dark text-white ms-1 rounded-pill">${sessionScope.carts.size()}</span>    
                                 </c:if>
-                                                    
+
                             </a>
                         </div>
                         <c:if test="${sessionScope.acc == null}">
@@ -84,7 +84,7 @@
                                     <span style="color:  white">${sessionScope.acc.displayName}</span>  <i class="bi bi-person-circle" style="font-size: 150%;margin-left: 5% ; color: white"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                    <li><a class="dropdown-item" href="profile.jsp">Profile</a></li>
+                                    <li><a class="dropdown-item" href="profile?id=${sessionScope.acc.id}">Profile</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="logout">Logout</a></li>
                                 </ul>

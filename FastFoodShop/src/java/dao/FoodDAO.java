@@ -254,11 +254,10 @@ public Food getFoodById(int foodid) {
 
     public static void main(String[] args) {
         FoodDAO dao = new FoodDAO();
-//        List<Food> a = dao.getallFood();
-//        System.out.println(a);
-        Food b = dao.getFoodById(1);
-        
-            System.out.println(b);
+        List<Food> a = dao.getallFood();
+        for (Food food : a) {
+            System.out.println(food);
+        }
         
     }
 

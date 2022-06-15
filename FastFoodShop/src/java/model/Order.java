@@ -14,6 +14,7 @@ package model;
 
 
 public class Order {
+    private int orderid;
     private int acount_id;
     private String name;
     private String phone;
@@ -27,7 +28,8 @@ public class Order {
     public Order() {
     }
 
-    public Order(int acount_id, String name, String phone, String address, float totalprice, int sellerid, int shipperid, String created_date, boolean status) {
+    public Order(int orderid, int acount_id, String name, String phone, String address, float totalprice, int sellerid, int shipperid, String created_date, boolean status) {
+        this.orderid = orderid;
         this.acount_id = acount_id;
         this.name = name;
         this.phone = phone;
@@ -37,6 +39,14 @@ public class Order {
         this.shipperid = shipperid;
         this.created_date = created_date;
         this.status = status;
+    }
+
+    public int getOrderid() {
+        return orderid;
+    }
+
+    public void setOrderid(int orderid) {
+        this.orderid = orderid;
     }
 
     public int getAcount_id() {
@@ -113,9 +123,6 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "acount_id=" + acount_id + ", name=" + name + ", phone=" + phone + ", address=" + address + ", totalprice=" + totalprice + ", sellerid=" + sellerid + ", shipperid=" + shipperid + ", created_date=" + created_date + ", status=" + status + '}';
-    }
-
-   
-    
+        return "Order{" + "orderid=" + orderid + ", acount_id=" + acount_id + ", name=" + name + ", phone=" + phone + ", address=" + address + ", totalprice=" + totalprice + ", sellerid=" + sellerid + ", shipperid=" + shipperid + ", created_date=" + created_date + ", status=" + status + '}';
+    }  
 }

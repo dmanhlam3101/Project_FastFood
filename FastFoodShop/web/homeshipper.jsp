@@ -71,48 +71,33 @@
                     <thead>
                         <tr>
                             <th scope="col">OrderID</th>
-                            <th scope="col">ProductName</th>
-                            <th scope="col">ProductQuantity</th>
-                            <th scope="col">Price</th>
                             <th scope="col">NameCustomer</th>
                             <th scope="col">Address</th>
                             <th scope="col">Phone</th>
-                            <th scope="col">Waiting For Confirmation</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Order Details</th>
+                            <th scope="col">Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th scope="row">1</th>
-                            <td>Bmy</td>
-                            <td>3</td>
-                            <td>12k</td>
                             <td>Hùng</td>
                             <td>HaNoi</td>
                             <td>123456</td>
-                            <td>
-
-
-                                <input type="checkbox" class="btn-check"  >
-                                <label class="btn btn-outline-dark" >Accept</label>
-
-                            <td>
-                                <!-- <li class="nav-item"><a class="nav-link" href="View.jsp">View</a></li>-->
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Xôi</td>
-                            <td>3</td>
                             <td>12k</td>
-                            <td>Hùng</td>
-                            <td>HaNoi</td>
-                            <td>12345</td>
                             <td>
+                                <a class="btn btn-outline-dark" href="View.jsp">View</a>
+                            </td>
+                            <td>
+
+
                                 <input type="checkbox" class="btn-check"  >
                                 <label class="btn btn-outline-dark" >Accept</label>
-                                <!--                            <label class="btn btn-outline-dark" >Reject</label>-->
-                            </td>
 
+                            <td>
+
+                            </td>
                         </tr>
                     </tbody>
                 </table>
