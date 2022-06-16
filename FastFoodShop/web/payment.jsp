@@ -115,9 +115,9 @@
                                     <button  class="btn btn-default btn-lg btn-block" style="background-color: #f0f0f0">Cancel</button>
                                 </div>
                                 <div class="col-md-6">
-                                    <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
+                                    <button type="submit" class="btn btn-success btn-lg btn-block" >Submit</button>
                                 </div>
-                            </div>
+                            </div> 
 
                         </form>
                     </div>

@@ -4,7 +4,9 @@
     Author     : vanhung38ht
 --%>
 
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,9 +59,9 @@
                     <div class="me-3">
                         <!--                        Search by ShipperID: <input type="select" class="btn-check"  > 
                                                 <input type="submit" value="Find">-->
-                        <label class="btn btn-outline-dark"><a class="nav-link" href="homeshipper.jsp">List Order</a></label>
+                        <label class="btn btn-outline-dark"><a class="nav-link" href="homeshipper">List Order</a></label>
                         <label class="btn btn-outline-dark"><a class="nav-link" href="shipperacceptorder.jsp">Order has been accepted</a></label>
-                        <label class="btn btn-outline-dark"><a class="nav-link" href="shipperdelivered.jsp">Delivered</a></label>
+                        <!--<label class="btn btn-outline-dark"><a class="nav-link" href="shipperdelivered.jsp">Delivered</a></label>-->
                     </div>                   
 
                 </div>
@@ -70,35 +72,32 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">OrderID</th>
-                            <th scope="col">NameCustomer</th>
+                            <th scope="col">Order ID</th>
+                            <th scope="col">Name Customer</th>
                             <th scope="col">Address</th>
                             <th scope="col">Phone</th>
-                            <th scope="col">Price</th>
+                            <th scope="col">Total Price</th>
                             <th scope="col">Order Details</th>
                             <th scope="col">Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Hùng</td>
-                            <td>HaNoi</td>
-                            <td>123456</td>
-                            <td>12k</td>
-                            <td>
-                                <a class="btn btn-outline-dark" href="View.jsp">View</a>
-                            </td>
-                            <td>
-
-
-                                <input type="checkbox" class="btn-check"  >
-                                <label class="btn btn-outline-dark" >Accept</label>
-
-                            <td>
-
-                            </td>
-                        </tr>
+                        <c:forEach items="${listorder}" var="l">
+                            <tr>
+                                <th scope="row">${l.orderid}</th>
+                                <td>${l.name}</td>
+                                <td>${l.address}</td>
+                                <td>${l.phone}</td>
+                                <td>$${l.totalprice}</td>
+                                <td>
+                                    <a class="btn btn-outline-dark" href="View.jsp">View</a>
+                                </td>
+                                <td>
+                                    <input type="checkbox" class="btn-check"  >
+                                    <label class="btn btn-outline-dark" >Accept</label>
+                                </td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>

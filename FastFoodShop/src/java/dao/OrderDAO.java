@@ -71,14 +71,61 @@ public class OrderDAO {
                         rs.getBoolean(10)));
             }
         } catch (Exception e) {
-
+        }
+        return list;
+    }
+    
+    public List<Order> getOrderById( int id) {
+        List<Order> list = new ArrayList<>();
+        try {
+            String sql = "select * from Orders where OrderID = " + id;
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Order(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getFloat(6),
+                        rs.getInt(7),
+                        rs.getInt(8),
+                        rs.getString(9),
+                        rs.getBoolean(10)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    
+    public List<Order> getOrderNotAcceptByShipperID() {
+        List<Order> list = new ArrayList<>();
+        try {
+            String sql = "select * from Orders where ShipperID is not null";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Order(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getFloat(6),
+                        rs.getInt(7),
+                        rs.getInt(8),
+                        rs.getString(9),
+                        rs.getBoolean(10)));
+            }
+        } catch (Exception e) {
         }
         return list;
     }
     
     public static void main(String[] args) {
         OrderDAO dao = new OrderDAO();
-        List<Order> o = dao.getAllOrder();
+        List<Order> o = dao.getOrderNotAcceptByShipperID();
         for (Order order : o) {
             System.out.println(order);
         }
