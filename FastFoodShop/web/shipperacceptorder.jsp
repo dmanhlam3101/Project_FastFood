@@ -53,7 +53,7 @@
                     <div class="me-3">
                         <!--                        Search by ShipperID: <input type="select" class="btn-check"  > 
                                                 <input type="submit" value="Find">-->
-                        <label class="btn btn-outline-dark"><a class="nav-link" href="homeshipper.jsp">List Order</a></label>
+                        <label class="btn btn-outline-dark"><a class="nav-link" href="homeshipper">List Order</a></label>
                         <label class="btn btn-outline-dark"><a class="nav-link" href="shipperacceptorder.jsp">Order has been accepted</a></label>
                         <label class="btn btn-outline-dark"><a class="nav-link" href="shipperdelivered.jsp">Delivered</a></label>
                     </div>                   
