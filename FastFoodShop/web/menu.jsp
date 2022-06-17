@@ -93,7 +93,8 @@ Author     : dmanh
 
                 </style>
                 <ul class="filters_menu" style="color: red">
-                    <li data-filter="*"><a class="Cate" href="CateContro?brand=1">Pizza</a></li>
+                    <li data-filter="*"><a class="Cate" href="menu">All</a></li>
+                    <li data-filter="*"><a class="Cate ${1==brand?"active":""}" href="CateContro?brand=1">Pizza</a></li>
                     <li data-filter="*"><a class="Cate" href="CateContro?brand=2">Breakfast</a></li>
                     <li data-filter="*"><a class="Cate" href="CateContro?brand=3">Burgers</a></li>
                     <li data-filter="*"><a class="Cate" href="CateContro?brand=4">Chicken & Sandwiches</a></li>

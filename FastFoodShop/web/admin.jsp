@@ -57,10 +57,10 @@
         </div>
         <section class="py-5">
             <div class="container" style="min-height: 1000px">
-               
+
                 <br>
                 <div>
-                    <button class="btn btn-outline-dark "  ><i class="bi bi-plus-circle-fill"></i> Add</button>
+                    <a href="add-account" class="btn btn-success "  ><i class="bi bi-plus-circle-fill"></i> Add</a>
                 </div>
                 <br>
                 <h1>List Account</h1>
@@ -72,7 +72,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Phone</th>
                             <th scope="col">Address</th>
-                             <th scope="col">Role</th>
+                            <th scope="col">Role</th>
                             <th scope="col">Status</th>
                             <th scope="col"></th>
                         </tr>
@@ -81,7 +81,7 @@
                         <tr>
 
                             <c:forEach items="${listAccounts}" var="a">
-                               
+
                                 <th scope="row">${a.id}</th>
                                 <td>${a.displayName}</td>
                                 <td>${a.phone}</td>
@@ -89,24 +89,38 @@
                                 <c:if test="${a.isAdmin==1}">
                                     <td>Admin</td>   
                                 </c:if>
-                                     <c:if test="${a.isCustomer == 1}">
+                                <c:if test="${a.isCustomer == 1}">
                                     <td>Customer</td>
                                 </c:if>
-                                    <c:if test="${a.isSeller==1}">
+                                <c:if test="${a.isSeller==1}">
                                     <td>Seller</td>
                                 </c:if>
-                                    <c:if test="${a.isShipper==1}">
+                                <c:if test="${a.isShipper==1}">
                                     <td>Shipper</td>
                                 </c:if>
                                 <td>
-                                    <select class="form-select">
-                                        <option>Active</option>
-                                        <option>Inactive</option>
-                                    </select>
+                                    <c:if test="${a.isShipper==1}">
+                                        <c:if test="${a.status ==1}">
+                                            <a href="delete-shipper?accountid=${a.id}" class="btn btn-outline-danger">Block</a> 
+                                        </c:if>
+                                        <c:if test="${a.status ==0}">
+                                            <a href="insert-shipper?accountid=${a.id}" class="btn btn-outline-danger">Active</a> 
+                                        </c:if>
+
+                                    </c:if>
+                                    <c:if test="${ a.isSeller==1}">
+                                        <c:if test="${a.status ==1}">
+                                            <a href="delete-seller?accountid=${a.id}" class="btn btn-outline-danger">Block</a> 
+                                        </c:if>
+                                        <c:if test="${a.status ==0}">
+                                            <a href="insert-seller?accountid=${a.id}" class="btn btn-outline-danger">Active</a>
+                                        </c:if>
+
+                                    </c:if>
                                 </td>
                                 <td>
-                                    <a class="btn btn-outline-dark"><i class="bi bi-pencil"></i> Edit</a>
-                                    <a class="btn btn-outline-dark"><i class="bi bi-trash"></i></i> Delete</a>
+                                    <a href="" class="btn btn-outline-dark"><i class="bi bi-pencil"></i> Edit</a>
+                                    <a href="delete-account?accountid=${a.id}" class="btn btn-outline-dark"><i class="bi bi-trash"></i></i> Delete</a>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -115,6 +129,53 @@
                 </table>
             </div>
         </section>
+        <div id="addEmployeeModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="add-account" method="post">
+                        <div class="modal-header">						
+                            <h4 class="modal-title">Add Product</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">					
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input name="name" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Image</label>
+                                <input name="image" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input name="price" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Title</label>
+                                <textarea name="title" class="form-control" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea name="description" class="form-control" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Category</label>
+                                <select name="category" class="form-select" aria-label="Default select example">
+                                    <c:forEach items="${listCC}" var="o">
+                                        <option value="${o.cid}">${o.cname}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                            <input type="submit" class="btn btn-success" value="Add">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <!-- jQery -->
         <script src="js/jquery-3.4.1.min.js"></script>
         <!-- popper js -->

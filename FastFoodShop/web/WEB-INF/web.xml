@@ -68,6 +68,30 @@
         <servlet-name>Profile</servlet-name>
         <servlet-class>controller.Profile</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteAccount</servlet-name>
+        <servlet-class>controller.DeleteAccount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddNewAccount</servlet-name>
+        <servlet-class>controller.AddNewAccount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertShipper</servlet-name>
+        <servlet-class>controller.InsertShipper</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertSeller</servlet-name>
+        <servlet-class>controller.InsertSeller</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteShipper</servlet-name>
+        <servlet-class>controller.DeleteShipper</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteSeller</servlet-name>
+        <servlet-class>controller.DeleteSeller</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -135,6 +159,30 @@
     <servlet-mapping>
         <servlet-name>Profile</servlet-name>
         <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteAccount</servlet-name>
+        <url-pattern>/delete-account</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNewAccount</servlet-name>
+        <url-pattern>/add-account</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertShipper</servlet-name>
+        <url-pattern>/insert-shipper</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertSeller</servlet-name>
+        <url-pattern>/insert-seller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteShipper</servlet-name>
+        <url-pattern>/delete-shipper</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteSeller</servlet-name>
+        <url-pattern>/delete-seller</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

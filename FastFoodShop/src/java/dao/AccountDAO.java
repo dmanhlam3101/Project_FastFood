@@ -17,11 +17,12 @@ import model.Account;
  * @author dmanh
  */
 public class AccountDAO {
-    public List<Account> getallAccount(){
+
+    public List<Account> getallAccount() {
         List<Account> list = new ArrayList<>();
-        
+
         try {
-              String sql = "select *from Account ";
+            String sql = "select *from Account ";
             Connection conn = new DBContext().getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -35,14 +36,15 @@ public class AccountDAO {
                         rs.getInt(7),
                         rs.getInt(8),
                         rs.getInt(9),
-                        rs.getInt(10)));
+                        rs.getInt(10),
+                        rs.getInt(11)));
             }
-           
+
         } catch (Exception e) {
         }
         return list;
     }
-    
+
     public Account getAcountByID(int id) {
         String sql = "select *from Account where ID = ?";
         try {
@@ -60,7 +62,8 @@ public class AccountDAO {
                         rs.getInt(7),
                         rs.getInt(8),
                         rs.getInt(9),
-                        rs.getInt(10));
+                        rs.getInt(10),
+                        rs.getInt(11));
             }
         } catch (Exception e) {
         }
@@ -85,7 +88,8 @@ public class AccountDAO {
                         rs.getInt(7),
                         rs.getInt(8),
                         rs.getInt(9),
-                        rs.getInt(10));
+                        rs.getInt(10),
+                        rs.getInt(11));
             }
 
         } catch (Exception e) {
@@ -93,7 +97,7 @@ public class AccountDAO {
         return null;
     }
 
-    public void signup(String username, String password,String displayName, String address, String phone) {
+    public void signup(String username, String password, String displayName, String address, String phone) {
         String sql = "INSERT INTO [dbo].[Account]\n"
                 + "           ([Username]\n"
                 + "           ,[Password]\n"
@@ -129,7 +133,7 @@ public class AccountDAO {
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                 return new Account(rs.getInt(1),
+                return new Account(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
@@ -138,14 +142,94 @@ public class AccountDAO {
                         rs.getInt(7),
                         rs.getInt(8),
                         rs.getInt(9),
-                        rs.getInt(10));                                  
+                        rs.getInt(10),
+                        rs.getInt(11));
             }
 
         } catch (Exception e) {
         }
         return null;
     }
-   
+
+    public Account deleteAcountByID(int id) {
+        String sql = "delete from Account where ID = ?";
+        try {
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Account(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7),
+                        rs.getInt(8),
+                        rs.getInt(9),
+                        rs.getInt(10),
+                        rs.getInt(11));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public Account updateStatusis1(int id) {
+        String sql = "update Account \n"
+                + "set [status] =1\n"
+                + "where Account.ID=?";
+        try {
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Account(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7),
+                        rs.getInt(8),
+                        rs.getInt(9),
+                        rs.getInt(10),
+                        rs.getInt(11));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public Account updateStatusis0(int id) {
+        String sql = "update Account \n"
+                + "set [status] =0\n"
+                + "where Account.ID=?";
+        try {
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Account(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7),
+                        rs.getInt(8),
+                        rs.getInt(9),
+                        rs.getInt(10),
+                        rs.getInt(11));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         AccountDAO dao = new AccountDAO();
         Account a = dao.getAcountByID(2);

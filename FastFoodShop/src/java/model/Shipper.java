@@ -16,18 +16,20 @@ public class Shipper {
     private String phone;
     private String address;
     private float deliverymoney;
-    private boolean status;
+    private int accountid;
+    private int status;
 
     public Shipper() {
     }
 
-    public Shipper(int shipperid, int sellerid, String shippername, String phone, String address, float deliverymoney, boolean status) {
+    public Shipper(int shipperid, int sellerid, String shippername, String phone, String address, float deliverymoney, int accountid, int status) {
         this.shipperid = shipperid;
         this.sellerid = sellerid;
         this.shippername = shippername;
         this.phone = phone;
         this.address = address;
         this.deliverymoney = deliverymoney;
+        this.accountid = accountid;
         this.status = status;
     }
 
@@ -79,18 +81,29 @@ public class Shipper {
         this.deliverymoney = deliverymoney;
     }
 
-    public boolean isStatus() {
+    public int getAccountid() {
+        return accountid;
+    }
+
+    public void setAccountid(int accountid) {
+        this.accountid = accountid;
+    }
+
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
     @Override
     public String toString() {
-        return "Shipper{" + "shipperid=" + shipperid + ", sellerid=" + sellerid + ", shippername=" + shippername + ", phone=" + phone + ", address=" + address + ", deliverymoney=" + deliverymoney + ", status=" + status + '}';
+        return "Shipper{" + "shipperid=" + shipperid + ", sellerid=" + sellerid + ", shippername=" + shippername + ", phone=" + phone + ", address=" + address + ", deliverymoney=" + deliverymoney + ", accountid=" + accountid + ", status=" + status + '}';
     }
+
+   
+
     
     
 }

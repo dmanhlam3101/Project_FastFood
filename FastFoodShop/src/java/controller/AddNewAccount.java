@@ -5,23 +5,18 @@
  */
 package controller;
 
-import dao.FoodDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import java.util.Vector;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Category;
-import model.Food;
 
 /**
  *
- * @author trung
+ * @author dmanh
  */
-public class CateContro extends HttpServlet {
+public class AddNewAccount extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,30 +30,18 @@ public class CateContro extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        FoodDAO dao = new FoodDAO();
-        String brand = request.getParameter("brand");
-        int brand1 = Integer.parseInt(brand);
-        List<Food> list2 = dao.SearchByCategory(brand1);
-//        if (brand1 == 0) {
-//            List<Food> list1 = dao.getallFood();
-//            request.setAttribute("listfood", list1);
-//            request.getRequestDispatcher("menu.jsp").forward(request, response);
-//        }
-        String indexPage = request.getParameter("index");
-        if (indexPage == null) {
-            indexPage = "1";
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet AddNewAccount</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet AddNewAccount at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
-        int index = Integer.parseInt(indexPage);
-        int count = list2.size();
-        int endPage = count / 9;
-        if (count % 9 != 0) {
-            endPage++;
-        }
-        List<Food> list = dao.getProductwithpagging1(index, brand1);
-        request.setAttribute("brand", brand);
-        request.setAttribute("endP", endPage);
-        request.setAttribute("listfood", list);
-        request.getRequestDispatcher("menu.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

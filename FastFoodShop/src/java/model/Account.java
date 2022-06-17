@@ -20,11 +20,12 @@ public class Account {
     private int isCustomer;
     private int isShipper;
     private int isSeller;
+    private int status;
 
     public Account() {
     }
 
-    public Account(int id, String username, String password, String displayName, String address, String phone, int isAdmin, int isCustomer, int isShipper, int isSeller) {
+    public Account(int id, String username, String password, String displayName, String address, String phone, int isAdmin, int isCustomer, int isShipper, int isSeller, int status) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -35,6 +36,7 @@ public class Account {
         this.isCustomer = isCustomer;
         this.isShipper = isShipper;
         this.isSeller = isSeller;
+        this.status = status;
     }
 
     public int getId() {
@@ -117,11 +119,20 @@ public class Account {
         this.isSeller = isSeller;
     }
 
-    @Override
-    public String toString() {
-        return "Account{" + "id=" + id + ", username=" + username + ", password=" + password + ", displayName=" + displayName + ", address=" + address + ", phone=" + phone + ", isAdmin=" + isAdmin + ", isCustomer=" + isCustomer + ", isShipper=" + isShipper + ", isSeller=" + isSeller + '}';
+    public int getStatus() {
+        return status;
     }
 
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" + "id=" + id + ", username=" + username + ", password=" + password + ", displayName=" + displayName + ", address=" + address + ", phone=" + phone + ", isAdmin=" + isAdmin + ", isCustomer=" + isCustomer + ", isShipper=" + isShipper + ", isSeller=" + isSeller + ", status=" + status + '}';
+    }
+
+    
     
    
     

@@ -6,6 +6,7 @@
 package controller;
 
 import dao.AccountDAO;
+import dao.ShipperDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Account;
+import model.Shipper;
 
 /**
  *
@@ -35,6 +37,7 @@ public class Admin extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            
           List<Account> list = new AccountDAO().getallAccount();
            request.setAttribute("listAccounts",list);
            request.getRequestDispatcher("admin.jsp").forward(request, response);
