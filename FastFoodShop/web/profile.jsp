@@ -22,6 +22,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     </head>
     <body>
         <section style="background-color: #eee;">
@@ -53,61 +54,100 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="card mb-4">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <p class="mb-0">Full Name</p>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <p class="text-muted mb-0">${profile.displayName}</p>
-                                        </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Username</p>
                                     </div>
-
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <p class="mb-0">Phone</p>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <p class="text-muted mb-0">${profile.phone}</p>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <p class="mb-0">Role</p>
-                                        </div>
-                                        <c:if test="${profile.isAdmin == 1}">
-                                            <div class="col-sm-9">
-                                                <p class="text-muted mb-0">Admin</p>
-                                            </div>
-                                        </c:if>
-                                        <c:if test="${profile.isCustomer == 1}">
-                                            <div class="col-sm-9">
-                                                <p class="text-muted mb-0">Customer</p>
-                                            </div>
-                                        </c:if>
-                                        <c:if test="${profile.isShipper == 1}">
-                                            <div class="col-sm-9">
-                                                <p class="text-muted mb-0">Shipper</p>
-                                            </div>
-                                        </c:if>
-                                        <c:if test="${profile.isSeller == 1}">
-                                            <div class="col-sm-9">
-                                                <p class="text-muted mb-0">Seller</p>
-                                            </div>
-                                        </c:if>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <p class="mb-0">Address</p>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <p class="text-muted mb-0">${profile.address}</p>
-                                        </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">${profile.username}</p>
                                     </div>
                                 </div>
+
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Password</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <script>
+                                            function togglePassword() {
+                                                var upass = document.getElementById('upass');
+                                                var toggleBtn = document.getElementById('toggleBtn');
+                                                if (upass.type == "password") {
+                                                    upass.type = "text";
+                                                    toggleBtn.value = "Hide";
+                                                } else {
+                                                    upass.type = "password";
+                                                    toggleBtn.value = "Show";
+                                                }
+                                            }
+                                        </script>
+                                        <div class="container">
+                                            <input style="" id="upass" type="password" name="userpass" value="${profile.password}" readonly>
+  
+                                            <input id="toggleBtn" type="button" onclick="togglePassword()" value="Show">
+                                            
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Full Name</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">${profile.displayName}</p>
+                                    </div>
+                                </div>
+
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Phone</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">${profile.phone}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Role</p>
+                                    </div>
+                                    <c:if test="${profile.isAdmin == 1}">
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">Admin</p>
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${profile.isCustomer == 1}">
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">Customer</p>
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${profile.isShipper == 1}">
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">Shipper</p>
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${profile.isSeller == 1}">
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">Seller</p>
+                                        </div>
+                                    </c:if>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Address</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">${profile.address}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

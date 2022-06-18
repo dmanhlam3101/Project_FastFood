@@ -19,7 +19,7 @@ import model.Account;
  *
  * @author dmanh
  */
-public class AddNewAccount extends HttpServlet {
+public class EditAccount extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,44 +35,7 @@ public class AddNewAccount extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            String name = request.getParameter("name");
-            String address = request.getParameter("address");
-            String phone = request.getParameter("phone");
-            int role = Integer.parseInt(request.getParameter("role"));
-                    
-            AccountDAO accdao = new AccountDAO();
-
-            Account account = accdao.checkAccountExist(username);
-            if (account == null) {
-                //dc add
-                switch (role) {
-                    case 1:
-                        //add customer
-                        accdao.addNewAccount(username, password, name, address, phone, 1, 0, 0);
-                        request.setAttribute("msg", "Add new account successfully!");
-                        request.getRequestDispatcher("admin").forward(request, response);
-                        break;
-                    case 2:
-                        //add seller
-                        accdao.addNewAccount(username, password, name, address, phone, 0, 0, 1);
-                        request.setAttribute("msg", "Add new account successfully!");
-                        request.getRequestDispatcher("admin").forward(request, response);
-                        break;
-                    case 3:
-                        //add shipper
-                        accdao.addNewAccount(username, password, name, address, phone, 0, 1, 0);
-                        request.setAttribute("msg", "Add new account successfully!");
-                        request.getRequestDispatcher("admin").forward(request, response);
-                        break;
-                }
-            } else {
-                //ko dc add
-                request.setAttribute("error", "Username exist");
-                request.getRequestDispatcher("#addEmployeeModal").forward(request, response);
-            }
-
+          
         }
     }
 
@@ -102,7 +65,42 @@ public class AddNewAccount extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        int id = Integer.parseInt(request.getParameter("id"));
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String name = request.getParameter("name");
+        String address = request.getParameter("address");
+        String phone = request.getParameter("phone");
+        int role = Integer.parseInt(request.getParameter("role"));
+
+        AccountDAO accdao = new AccountDAO();
+
+        Account account = accdao.checkAccountExist(username);
+        if (account == null) {
+            //dc add
+            switch (role) {
+                case 1:
+                    //add customer
+                    accdao.editAccountById(username, password, name, address, phone, 1, 0, 0,id);
+                    request.getRequestDispatcher("admin").forward(request, response);
+                    break;
+                case 2:
+                    //add seller
+                    accdao.editAccountById(username, password, name, address, phone, 0, 0, 1,id);
+                    request.getRequestDispatcher("admin").forward(request, response);
+                    break;
+                case 3:
+                    //add shipper
+                    accdao.editAccountById(username, password, name, address, phone, 0, 1, 0,id);
+                    request.getRequestDispatcher("admin").forward(request, response);
+                    break;
+            }
+        } else {
+            //ko dc add
+            request.setAttribute("error", "Username exist");
+            String url = "loadAccount?accountid="+id;
+            request.getRequestDispatcher(url).forward(request, response);
+        }
     }
 
     /**

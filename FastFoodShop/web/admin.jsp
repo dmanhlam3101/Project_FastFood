@@ -59,8 +59,9 @@
             <div class="container" style="min-height: 1000px">
 
                 <br>
+                <h6 style="color: #be123c">${msg}</h6>
                 <div>
-                    <a href="add-account" class="btn btn-success "  ><i class="bi bi-plus-circle-fill"></i> Add</a>
+                    <a href="#addEmployeeModal" class="btn btn-success " data-toggle="modal" ><i class="bi bi-plus-circle-fill"></i> Add</a>
                 </div>
                 <br>
                 <h1>List Account</h1>
@@ -69,6 +70,8 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Password</th>
                             <th scope="col">Name</th>
                             <th scope="col">Phone</th>
                             <th scope="col">Address</th>
@@ -83,6 +86,8 @@
                             <c:forEach items="${listAccounts}" var="a">
 
                                 <th scope="row">${a.id}</th>
+                                <td>${a.username}</td>
+                                <td>${a.password}</td>
                                 <td>${a.displayName}</td>
                                 <td>${a.phone}</td>
                                 <td>${a.address}</td>
@@ -118,10 +123,18 @@
 
                                     </c:if>
                                 </td>
+
                                 <td>
-                                    <a href="" class="btn btn-outline-dark"><i class="bi bi-pencil"></i> Edit</a>
-                                    <a href="delete-account?accountid=${a.id}" class="btn btn-outline-dark"><i class="bi bi-trash"></i></i> Delete</a>
+
+                                    <c:if test="${a.isShipper==1 || a.isSeller==1 || a.isCustomer==1}">
+                                        <a href="loadAccount?accountid=${a.id}" class="btn btn-outline-dark"  ><i class="bi bi-pencil"></i> Edit</a>
+                                        <a href="delete-account?accountid=${a.id}" class="btn btn-outline-dark"><i class="bi bi-trash"></i></i> Delete</a>
+                                    </c:if>
                                 </td>
+
+
+
+
                             </tr>
                         </c:forEach>
 
@@ -129,53 +142,59 @@
                 </table>
             </div>
         </section>
+        <!-- Add new Account -->
         <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <form action="add-account" method="post">
                         <div class="modal-header">						
-                            <h4 class="modal-title">Add Product</h4>
+                            <h4 class="modal-title">Add new Account</h4>
+                            <h6 style="color: #be123c">${error}</h6>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
-                        <div class="modal-body">					
+                        <div class="modal-body">	
+                            <div class="form-group">
+                                <label>User Name</label>
+                                <input name="username" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input name="password" type="password" class="form-control" required>
+                            </div>
                             <div class="form-group">
                                 <label>Name</label>
                                 <input name="name" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Image</label>
-                                <input name="image" type="text" class="form-control" required>
+                                <label>Phone</label>
+                                <input name="phone" type="number" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Price</label>
-                                <input name="price" type="text" class="form-control" required>
-                            </div>
+                                <label>Address</label>
+                                <input name="address" type="text" class="form-control" required>
+                            </div>       
                             <div class="form-group">
-                                <label>Title</label>
-                                <textarea name="title" class="form-control" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea name="description" class="form-control" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Category</label>
-                                <select name="category" class="form-select" aria-label="Default select example">
-                                    <c:forEach items="${listCC}" var="o">
-                                        <option value="${o.cid}">${o.cname}</option>
-                                    </c:forEach>
+                                <label>Role</label>
+                                <select name="role" class="form-select" aria-label="Default select example">
+                                    <option value="1">Customer</option>
+                                    <option value="2">Seller</option>
+                                    <option value="3">Shipper</option>
+
                                 </select>
                             </div>
 
                         </div>
                         <div class="modal-footer">
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                            <input type="button" class="btn btn-default" style="background:#f5f5f5" data-dismiss="modal" value="Cancel">
                             <input type="submit" class="btn btn-success" value="Add">
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+        <!-- End add new account -->
+
+
         <!-- jQery -->
         <script src="js/jquery-3.4.1.min.js"></script>
         <!-- popper js -->

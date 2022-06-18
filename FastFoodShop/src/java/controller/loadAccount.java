@@ -12,14 +12,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import model.Account;
 
 /**
  *
  * @author dmanh
  */
-public class AddNewAccount extends HttpServlet {
+public class loadAccount extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,44 +34,10 @@ public class AddNewAccount extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            String name = request.getParameter("name");
-            String address = request.getParameter("address");
-            String phone = request.getParameter("phone");
-            int role = Integer.parseInt(request.getParameter("role"));
-                    
-            AccountDAO accdao = new AccountDAO();
-
-            Account account = accdao.checkAccountExist(username);
-            if (account == null) {
-                //dc add
-                switch (role) {
-                    case 1:
-                        //add customer
-                        accdao.addNewAccount(username, password, name, address, phone, 1, 0, 0);
-                        request.setAttribute("msg", "Add new account successfully!");
-                        request.getRequestDispatcher("admin").forward(request, response);
-                        break;
-                    case 2:
-                        //add seller
-                        accdao.addNewAccount(username, password, name, address, phone, 0, 0, 1);
-                        request.setAttribute("msg", "Add new account successfully!");
-                        request.getRequestDispatcher("admin").forward(request, response);
-                        break;
-                    case 3:
-                        //add shipper
-                        accdao.addNewAccount(username, password, name, address, phone, 0, 1, 0);
-                        request.setAttribute("msg", "Add new account successfully!");
-                        request.getRequestDispatcher("admin").forward(request, response);
-                        break;
-                }
-            } else {
-                //ko dc add
-                request.setAttribute("error", "Username exist");
-                request.getRequestDispatcher("#addEmployeeModal").forward(request, response);
-            }
-
+             int accountid = Integer.parseInt(request.getParameter("accountid"));
+            Account account = new AccountDAO().getAcountByID(accountid);
+            request.setAttribute("account", account);
+            request.getRequestDispatcher("editaccount.jsp").forward(request, response);
         }
     }
 

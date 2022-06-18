@@ -32,7 +32,7 @@ public class ConnectDB {
         }
     }
     public ConnectDB(){
-        this("jdbc:sqlserver://localhost:1433;databaseName=SWP_Project_1","sa","123456");
+        this("jdbc:sqlserver://localhost:1433;databaseName=SWP_Project","sa","123456");
     }
     public ResultSet getData(String sql){
         ResultSet rs=null;

@@ -99,6 +99,7 @@ public class Login extends HttpServlet {
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("acc", account);
+            //session.setMaxInactiveInterval(300);
             response.sendRedirect("home");
         }
     }
