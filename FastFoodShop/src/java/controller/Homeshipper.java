@@ -34,7 +34,7 @@ public class Homeshipper extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         OrderDAO dao = new OrderDAO();
-        List<Order> list = dao.getAllOrder();
+        List<Order> list = dao.getOrderNotAcceptByShipperID();
         
         request.setAttribute("listorder", list);
         request.getRequestDispatcher("homeshipper.jsp").forward(request, response);

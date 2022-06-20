@@ -55,7 +55,6 @@
                                                 <input type="submit" value="Find">-->
                         <label class="btn btn-outline-dark"><a class="nav-link" href="homeshipper">List Order</a></label>
                         <label class="btn btn-outline-dark"><a class="nav-link" href="shipperacceptorder.jsp">Order has been accepted</a></label>
-                        <label class="btn btn-outline-dark"><a class="nav-link" href="shipperdelivered.jsp">Delivered</a></label>
                     </div>                   
 
                 </div>
@@ -66,50 +65,32 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">OrderID</th>
-                            <th scope="col">ProductName</th>
-                            <th scope="col">ProductQuantity</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">NameCustomer</th>
+                            <th scope="col">Order ID</th>
+                            <th scope="col">Name Customer</th>
                             <th scope="col">Address</th>
                             <th scope="col">Phone</th>
-                            <th scope="col">Waiting For Confirmation</th>
+                            <th scope="col">Total Price</th>
+                            <th scope="col">ShipperID</th>
+                            <th scope="col">Money</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Bún Đậu</td>
-                            <td>3</td>
-                            <td>12k</td>
-                            <td>Hùng</td>
-                            <td>HaNoi</td>
-                            <td>123456</td>
-                            <td>
-
-
-                                <input type="checkbox" class="btn-check"  >
-                                <label class="btn btn-outline-dark" >Accept</label>
-
-                            <td>
-                                <!-- <li class="nav-item"><a class="nav-link" href="View.jsp">View</a></li>-->
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Xôi</td>
-                            <td>3</td>
-                            <td>12k</td>
-                            <td>Hùng</td>
-                            <td>HaNoi</td>
-                            <td>12345</td>
-                            <td>
-                                <input type="checkbox" class="btn-check"  >
-                                <label class="btn btn-outline-dark" >Accept</label>
-                                <!--                            <label class="btn btn-outline-dark" >Reject</label>-->
-                            </td>
-
-                        </tr>
+                        <c:forEach items="${listorder}" var="l">
+                            <tr>
+                                <th scope="row">${l.orderid}</th>
+                                <td>${l.name}</td>
+                                <td>${l.address}</td>
+                                <td>${l.phone}</td>
+                                <td>$${l.totalprice}</td>
+                                <td>
+                                    <a class="btn btn-outline-dark" href="View.jsp">View</a>
+                                </td>
+<!--                                <td>
+                                    <input type="checkbox" class="btn-check"  >
+                                    <label class="btn btn-outline-dark" >Accept</label>
+                                </td>-->
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>
