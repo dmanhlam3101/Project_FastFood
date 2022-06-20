@@ -66,7 +66,7 @@
                                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span> 
                                 </c:if>
                                 <c:if test="${sessionScope.carts.size()!= 0}">
-                                    <span class="badge bg-dark text-white ms-1 rounded-pill">${sessionScope.carts.size()}</span>    
+                                    <span id="cart_number" class="badge bg-dark text-white ms-1 rounded-pill">${sessionScope.carts.size()}</span>    
                                 </c:if>
 
                             </a>

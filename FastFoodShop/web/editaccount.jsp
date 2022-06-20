@@ -146,7 +146,7 @@
                                         <div class="col-sm-9">
                                             <div class="d-flex justify-content-end">
                                             <a href="admin" type="button" class="btn btn-default" style="background:#f5f5f5"  >Cancel</a>
-                                            <input type="submit" class="btn btn-success" value="Edit">
+                                            <input style="margin-left: 10px" type="submit" class="btn btn-success" value="Edit">
                                         </div>
                                             </div>
                                     </div>

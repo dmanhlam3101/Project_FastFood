@@ -54,7 +54,7 @@
             <!-- header section strats -->
             <%@include file="component/header.jsp" %>
             <!-- end header section -->
-        </div>
+        </div>    
         <section class="py-5">
             <div class="container" style="min-height: 1000px">
                 <c:choose>
@@ -66,7 +66,7 @@
 
                         <br>
                         <h1>Shopping Cart</h1>
-
+                       
                         <table class="table" >
                             <thead>
                                 <tr>
@@ -83,20 +83,20 @@
 
                                 <c:forEach items="${carts}" var="C">
                                 <form action="update-quantity" method="get">
-                                    <tr>
+                                    <tr>                               
                                     <input type="hidden" name="foodid" value="${C.value.product.foodid}">
-                                        <th scope="row">${C.value.product.foodid}</th>
-                                        <td><img style="width: 70px" src="${C.value.product.image}"></td>
-                                        <td>${C.value.product.foodname}</td>
-                                        <td>${C.value.product.unitprice} </td>
-                                        <td ><input  onchange="this.form.submit()"  name="quantity" style="width: 50px" type="number" value="${C.value.quantity}"></td>
-                                        <td>${C.value.product.unitprice*C.value.quantity}</td>
-                                        <td>
-                                            <a href="delete-cart?foodid=${C.value.product.foodid}" class="btn btn-outline-danger "
-                                               style="background-color: white; color: red"  >
-                                                <i class="bi bi-trash"></i> Delete
-                                            </a>
-                                        </td>
+                                    <th scope="row">${C.value.product.foodid}</th>
+                                    <td><img style="width: 70px" src="${C.value.product.image}"></td>
+                                    <td>${C.value.product.foodname}</td>
+                                    <td>${C.value.product.unitprice} </td>
+                                    <td ><input  onchange="this.form.submit()"  name="quantity" style="width: 50px" type="number" value="${C.value.quantity}"></td>
+                                    <td>${C.value.product.unitprice*C.value.quantity}</td>
+                                    <td>
+                                        <a href="delete-cart?foodid=${C.value.product.foodid}" class="btn btn-outline-danger "
+                                           style="background-color: white; color: red"  >
+                                            <i class="bi bi-trash"></i> Delete
+                                        </a>
+                                    </td>
 
                                     </tr>
                                 </form>

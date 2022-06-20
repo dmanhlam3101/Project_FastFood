@@ -38,6 +38,8 @@ public class Payment extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             HttpSession session = request.getSession();
@@ -55,6 +57,7 @@ public class Payment extends HttpServlet {
             }
             request.setAttribute("totalAmount", totalAmout);
             request.getRequestDispatcher("payment.jsp").forward(request, response);
+
         }
     }
 
@@ -84,16 +87,18 @@ public class Payment extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
-       
 
         //luu order
-         HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
         Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
         if (carts == null) {
+
             carts = new LinkedHashMap<>();
         }
         //tinh total amout
@@ -105,15 +110,18 @@ public class Payment extends HttpServlet {
             totalAmout += cart.getQuantity() * cart.getProduct().getUnitprice();
         }
         Order order = new Order();
-        order.setAcount_id(1);
+        order.setAcount_id(id);
         order.setName(name);
         order.setPhone(phone);
         order.setAddress(address);
         order.setTotalprice(totalAmout);
         int orderId = new OrderDAO().createReturnId(order);
         //luu order detail
-        new OrderDetailDAO().saveCart(orderId,carts);
+        new OrderDetailDAO().saveCart(orderId, carts);
 //        System.out.println(carts);
+//sau khi payment xoa khoi gio hang
+        session.removeAttribute("carts");
+        response.sendRedirect("thank");
     }
 
     /**

@@ -100,6 +100,10 @@
         <servlet-name>loadAccount</servlet-name>
         <servlet-class>controller.loadAccount</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ThanksforPayment</servlet-name>
+        <servlet-class>controller.ThanksforPayment</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -199,6 +203,10 @@
     <servlet-mapping>
         <servlet-name>loadAccount</servlet-name>
         <url-pattern>/loadAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ThanksforPayment</servlet-name>
+        <url-pattern>/thank</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -98,15 +98,19 @@
                     <div class="col-md-4" style="border: 1px solid #ccc;border-radius: 5px ; padding: 1rem">
                         <h3>Billing Information</h3>
                         <form action="payment" method="POST">
+
                             <div class="mb-3">
+                                <a hidden>
+                                    <input value="${sessionScope.acc.id}" name="id" type="text" class="form-control" required>
+                                </a>
                                 <label for="name" class="form-label">Name</label>
                                 <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" required>
                             </div>
-                             <div class="mb-3">
+                            <div class="mb-3">
                                 <label for="phone" class="form-label">Phone</label>
                                 <input type="text" class="form-control" id="phone" name="phone" aria-describedby="emailHelp" required> 
                             </div>
-                             <div class="mb-3">
+                            <div class="mb-3">
                                 <label for="address" class="form-label">Address</label>
                                 <input type="text" class="form-control" id="address" name="address" aria-describedby="emailHelp" required>
                             </div>   
@@ -115,7 +119,7 @@
                                     <button  class="btn btn-default btn-lg btn-block" style="background-color: #f0f0f0">Cancel</button>
                                 </div>
                                 <div class="col-md-6">
-                                    <button type="submit" class="btn btn-success btn-lg btn-block" >Submit</button>
+                                    <button  type="submit" class="btn btn-success btn-lg btn-block" >Submit</button>
                                 </div>
                             </div> 
 

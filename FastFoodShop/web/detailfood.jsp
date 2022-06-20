@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -67,23 +68,13 @@
                         </div>
                         <p class="lead">${food.description}</p>
                         <div class="d-flex">
-
-
-                            <div class="row">
-                                <div class="  col-md-8" >
+                               
                                     <a href="add-to-cart?foodid=${food.foodid}" class="btn btn-success  " style="color: white" >
                                         <i class="bi-cart-fill "></i>
                                         Add to cart
                                     </a>
-                                </div>
-                                <div class="col-md-4" >
-                                    <a href="" class="btn btn-danger " style="color: white" >
-                                        <i class="bi bi-bag-fill"></i> Buy
-                                    </a>
-                                </div>
-
-                            </div>
-
+                              
+                               
                         </div>
                     </div>
                 </div>
@@ -97,7 +88,7 @@
         <%@include file="component/footer.jsp" %>
         <!-- footer section -->
 
-        <!-- jQery -->
+       <!-- jQery -->
         <script src="js/jquery-3.4.1.min.js"></script>
         <!-- popper js -->
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
@@ -118,9 +109,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts-1.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
 
 
     </body>

@@ -156,13 +156,13 @@
                 <h2>Our Menu</h2>
             </div>
 
-            <ul class="filters_menu">
+<!--            <ul class="filters_menu">
                 <li class="active" data-filter="*">All</li>
                 <li data-filter=".burger">Burger</li>
                 <li data-filter=".pizza">Pizza</li>
                 <li data-filter=".pasta">Pasta</li>
                 <li data-filter=".fries">Fries</li>
-            </ul>
+            </ul>-->
 
 
             <div class="filters-content">
@@ -258,8 +258,20 @@
         </div>
     </section> 
     <!-- end food section -->
-
-
+<!--
+    onclick="addToCartAsync
+    function addToCartAsync(foodid){
+        axios.get('add-to-cart',{
+            params: {
+                foodid: foodid
+            }
+        }).then((reponse)=>{
+            //get data sucessful
+            document.getElementById("cart_number").innerHTML = reponse.data;
+            //update view
+        })
+    }
+</script>-->
 
 
     <section class="client_section layout_padding-bottom">
@@ -411,6 +423,7 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/scrollax.min.js"></script>
 <script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
 </html>
