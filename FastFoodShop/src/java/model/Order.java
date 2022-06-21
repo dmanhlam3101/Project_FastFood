@@ -28,6 +28,10 @@ public class Order {
     public Order() {
     }
 
+    public Order(int shipperid) {
+        this.shipperid = shipperid;
+    }
+
     public Order(int orderid, int acount_id, String name, String phone, String address, float totalprice, int sellerid, int shipperid, String created_date, boolean status) {
         this.orderid = orderid;
         this.acount_id = acount_id;

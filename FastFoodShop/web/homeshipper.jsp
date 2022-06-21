@@ -60,7 +60,7 @@
                         <!--                        Search by ShipperID: <input type="select" class="btn-check"  > 
                                                 <input type="submit" value="Find">-->
                         <label class="btn btn-outline-dark"><a class="nav-link" href="homeshipper">List Order</a></label>
-                        <label class="btn btn-outline-dark"><a class="nav-link" href="shipperacceptorder.jsp">Order has been accepted</a></label>
+                        <label class="btn btn-outline-dark"><a class="nav-link" href="Shipperacceptorder?accountid=${sessionScope.acc.id}">Order has been accepted</a></label>
                         <!--<label class="btn btn-outline-dark"><a class="nav-link" href="shipperdelivered.jsp">Delivered</a></label>-->
                     </div>                   
 
@@ -81,20 +81,27 @@
                             <th scope="col">Status</th>
                         </tr>
                     </thead>
+                    <a hidden>
+                        <input value="${sessionScope.acc.id}" name="idShipper">
+                    </a>
                     <tbody>
                         <c:forEach items="${listorder}" var="l">
                             <tr>
+
                                 <th scope="row">${l.orderid}</th>
                                 <td>${l.name}</td>
                                 <td>${l.address}</td>
                                 <td>${l.phone}</td>
                                 <td>$${l.totalprice}</td>
                                 <td>
-                                    <a class="btn btn-outline-dark" href="View.jsp">View</a>
+                                    <a class="btn btn-outline-dark" href="#vieworder">View</a>
+                                    <!--<a href="#vieworder" class="btn btn-success " data-toggle="modal" ><i class="bi bi-plus-circle-fill"></i> View</a>-->
                                 </td>
                                 <td>
-                                    <input type="checkbox" class="btn-check"  >
-                                    <label class="btn btn-outline-dark" >Accept</label>
+                                    <!--<input type="checkbox" class="btn-check"  >-->
+
+                                    <a class="btn btn-outline-dark" href="AcceptOrderShipper?accountid=${sessionScope.acc.id}&orderid=${l.orderid}" >Accept</a>
+
                                 </td>
                             </tr>
                         </c:forEach>
