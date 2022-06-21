@@ -59,14 +59,16 @@
 
     <body >
 
-        <div class="hero_area">
+        <div class="hero_area ">
             <div class="bg-box ">
-                <img src="images/hero-bg.jpg" alt="">
+                <img src="images/bg_2.jpg" alt="">
             </div>
             <!-- header section strats -->
-            <div class="">
+            <div >
+                
                 <%@include file="component/header.jsp" %>
             </div>
+         
 
             <!-- end header section -->
             <!-- slider section -->
@@ -79,10 +81,10 @@
                                 <div class="row">
                                     <div class="col-md-7 col-lg-6 ">
                                         <div class="detail-box" style="margin-bottom: 35px">
-                                            <h1 style="color: white">
+                                            <h1 style="color: white;font-size: 80px">
                                                 Fast Food Restaurant
                                             </h1>
-                                            <p style="width: 78% " >
+                                            <p style="width: 100% " >
                                                 Present in more than 118 countries with a chain of 35,000 
                                                 restaurants on all continents, every day, Global FastFood 
                                                 serves more than 70 million consumers, not only ensuring to bring them delicious, safe and hygienic meals. 
@@ -99,10 +101,10 @@
                                 <div class="row">
                                     <div class="col-md-7 col-lg-6 ">
                                         <div class="detail-box" style="margin-bottom: 35px">
-                                            <h1 style="color: white">
+                                            <h1 style="color: white;font-size: 80px">
                                                 Fast Food Restaurant
                                             </h1>
-                                            <p style="width: 78% ">
+                                            <p style="width: 100% ">
                                                 Grasping the needs of Vietnamese consumers today, we aim to serve fast but hygienic, nutritious meals with professional service.
                                             </p>
 
@@ -116,10 +118,10 @@
                                 <div class="row">
                                     <div class="col-md-7 col-lg-6 ">
                                         <div class="detail-box" style="margin-bottom: 35px">
-                                            <h1 style="color: white">
+                                            <h1 style="color: white;font-size: 80px">
                                                 Fast Food Restaurant
                                             </h1>
-                                            <p style="width: 78% ">
+                                            <p style="width: 100% ">
                                                 FastFood Vietnam is committed to applying the standards of FastFood globally, which are: Quality, Service, Cleanliness & Values.
                                             </p>
 
@@ -153,7 +155,7 @@
         <div class="container">
             <div class="heading_container heading_center  text-center heading-section ftco-animate">
                 <span class="subheading">Specialties</span>
-                <h2>Our Menu</h2>
+                <strong style="font-size: 240%">Our Menu</strong>
             </div>
 
 <!--            <ul class="filters_menu">
@@ -166,7 +168,7 @@
 
 
             <div class="filters-content">
-                <div class="row grid">
+                <div class="row grid ftco-animate">
                     <c:forEach items="${listspecialfood}" var="f">
                         <div class="col-sm-6 col-lg-4 all pizza">
                             <div class="box">
@@ -207,13 +209,15 @@
             </div> 
         </div>
     </section>
-    <section class="food_section layout_padding-bottom">
-        <div class="container">
+    <section class="food_section layout_padding-bottom ftco-animate">
+        <div class="container ">
              <div class="heading_container heading_center  text-center heading-section ftco-animate">
                 <span class="subheading">New</span>
-                <h2>
+<!--                <h2>
                     Newest Food
-                </h2>
+                </h2>-->
+                
+                <strong style="font-size: 240%">Newest Food</strong>
             </div>
           <div class="filters-content">
                 <div class="row grid">
@@ -240,7 +244,7 @@
                                             </h6>
                                             <!-- add to cart o day -->
                                             <a href="add-to-cart?foodid=${f.foodid}" style="background-color: #ffdf9a">
-                                                <i style="color: black " class="bi bi-cart2" ></i>
+                                                <i  style="color: black " class="bi bi-cart2" ></i>
                                             </a>
                                         </div>
                                     </div>
@@ -329,7 +333,8 @@
         <div class="row justify-content-center mb-5 pb-2">
             <div class="col-md-7 text-center heading-section ftco-animate">
                 <span class="subheading">Blog</span>
-                <h2 class="mb-4">Recent Blog</h2>
+                
+                <strong style="font-size: 240%">Recent Blog</strong>
             </div>
         </div>
         <div class="row">

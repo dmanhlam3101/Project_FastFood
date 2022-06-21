@@ -89,7 +89,7 @@
                                     <td><img style="width: 70px" src="${C.value.product.image}"></td>
                                     <td>${C.value.product.foodname}</td>
                                     <td>${C.value.product.unitprice} </td>
-                                    <td ><input  onchange="this.form.submit()"  name="quantity" style="width: 50px" type="number" value="${C.value.quantity}"></td>
+                                    <td ><input  onchange="this.form.submit()"  name="quantity" style="width: 50px" min="1" type="number" value="${C.value.quantity}"></td>
                                     <td>${C.value.product.unitprice*C.value.quantity}</td>
                                     <td>
                                         <a href="delete-cart?foodid=${C.value.product.foodid}" class="btn btn-outline-danger "

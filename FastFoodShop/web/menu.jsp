@@ -102,7 +102,7 @@ Author     : dmanh
                     <li data-filter="*"><a class="Cate" href="CateContro?brand=6">Beverages</a></li>
                 </ul>
                
-                <div class="filters-content">
+                <div class="filters-content ">
                     <div class="row grid">
                         <c:forEach items="${listfood}" var="f">
                             <div class="col-sm-6 col-lg-4 all pizza">
