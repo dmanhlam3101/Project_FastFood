@@ -75,8 +75,8 @@ public class OrderDAO {
         }
         return list;
     }
-    
-    public List<Order> getOrderById( int id) {
+
+    public List<Order> getOrderById(int id) {
         List<Order> list = new ArrayList<>();
         try {
             String sql = "select * from Orders where OrderID = " + id;
@@ -99,7 +99,7 @@ public class OrderDAO {
         }
         return list;
     }
-    
+
     public List<Order> getOrderNotAcceptByShipperID() {
         List<Order> list = new ArrayList<>();
         try {
@@ -123,8 +123,8 @@ public class OrderDAO {
         }
         return list;
     }
-    
-        public List<Order> getOrderAcceptByShipperID() {
+
+    public List<Order> getOrderAcceptByShipperID() {
         List<Order> list = new ArrayList<>();
         try {
             String sql = "Select * From Orders where ShipperID is not null";
@@ -132,7 +132,34 @@ public class OrderDAO {
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new Order (rs.getInt(1),
+                list.add(new Order(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getFloat(6),
+                        rs.getInt(7),
+                        rs.getInt(8),
+                        rs.getString(9),
+                        rs.getBoolean(10)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
+    public List<Order> AddShipperIDtoOrder(int orderid, int accountid) {
+        List<Order> list = new ArrayList<>();
+        try {
+            String sql = " Update Orders set ShipperID = (select ShipperID from Shipper where AccountID = ?) where OrderID = ?";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+//            System.out.println(orderid + accountid);
+            ps.setInt(1, accountid);
+            ps.setInt(2, orderid);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Order(rs.getInt(1),
                         rs.getInt(2),
                         rs.getString(3),
                         rs.getString(4),
@@ -148,9 +175,35 @@ public class OrderDAO {
         return list;
     }
     
+    public List<Order> DisplayOrderByShipperID( int accountid) {
+        List<Order> list = new ArrayList<>();
+        try {
+            String sql = "select * from orders where shipperid = (select ShipperID from Shipper where AccountID = ?)";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+//            System.out.println(orderid + accountid);
+            ps.setInt(1, accountid);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Order(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getFloat(6),
+                        rs.getInt(7),
+                        rs.getInt(8),
+                        rs.getString(9),
+                        rs.getBoolean(10)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
         OrderDAO dao = new OrderDAO();
-        List<Order> o = dao.getOrderAcceptByShipperID();
+        List<Order> o = dao.DisplayOrderByShipperID( 7);
         for (Order order : o) {
             System.out.println(order);
         }

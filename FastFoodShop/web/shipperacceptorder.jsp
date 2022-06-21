@@ -70,21 +70,21 @@
                             <th scope="col">Address</th>
                             <th scope="col">Phone</th>
                             <th scope="col">Total Price</th>
-                            <th scope="col">ShipperID</th>
-                            <th scope="col">Money</th>
+<!--                            <th scope="col">ShipperID</th>-->
+<!--                            <th scope="col">Money</th>-->
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${listorder}" var="l">
+                        <c:forEach items="${list}" var="l">
                             <tr>
                                 <th scope="row">${l.orderid}</th>
                                 <td>${l.name}</td>
                                 <td>${l.address}</td>
                                 <td>${l.phone}</td>
                                 <td>$${l.totalprice}</td>
-                                <td>
+<!--                                <td>
                                     <a class="btn btn-outline-dark" href="View.jsp">View</a>
-                                </td>
+                                </td>-->
 <!--                                <td>
                                     <input type="checkbox" class="btn-check"  >
                                     <label class="btn btn-outline-dark" >Accept</label>
