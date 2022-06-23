@@ -27,7 +27,7 @@
         <section class="text-center">
             <!-- Background image -->
             <div class="p-5 bg-image" style="
-                 background-image: url('images/headerlogin.jpg');
+                 background-image: url('images/head.png');
                  height: 250px;
 
                  "></div>
@@ -53,24 +53,24 @@
                                 
                                 <!-- Username input -->
                                 <div class="form-outline mb-4">
-                                    <input type="text"  class="form-control"  placeholder="Username" name="username" required/>
+                                    <input pattern="[a-z0-9]+$"  type="text"  class="form-control"  placeholder="Username" name="username"   required/>
 
                                 </div>
 
 
                                 <!-- Password input -->
                                 <div class="form-outline mb-4">
-                                    <input type="password"  class="form-control " placeholder="Password" name="password" required  />
+                                    <input pattern="[a-z0-9]+$"  type="password"  class="form-control " placeholder="Password" name="password" required  />
 
                                 </div>
 
-                                <!-- Checkbox -->
+<!--                                 Checkbox 
                                 <div class="form-check d-flex justify-content-center mb-4">
                                     <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
                                     <label class="form-check-label" for="form2Example33">
                                         Remember me
                                     </label>
-                                </div>
+                                </div>-->
 
                                 <!-- Submit button -->
                                 <button type="submit" class="btn btn-primary btn-block mb-4">

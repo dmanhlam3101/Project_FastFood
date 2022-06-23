@@ -64,11 +64,11 @@
                 <img src="images/bg_2.jpg" alt="">
             </div>
             <!-- header section strats -->
+           
             <div >
-                
                 <%@include file="component/header.jsp" %>
             </div>
-         
+   
 
             <!-- end header section -->
             <!-- slider section -->
@@ -216,7 +216,7 @@
 <!--                <h2>
                     Newest Food
                 </h2>-->
-                
+
                 <strong style="font-size: 240%">Newest Food</strong>
             </div>
           <div class="filters-content">
@@ -278,7 +278,7 @@
 </script>-->
 
 
-    <section class="client_section layout_padding-bottom">
+<!--    <section class="client_section layout_padding-bottom">
         <div class="container">
             <div class="heading_container heading_center psudo_white_primary mb_45">
                 <h2>
@@ -324,7 +324,7 @@
         </div>
     </div>
 </div>
-</section>
+</section>-->
 
 <!-- end client section -->  
 <!-- blog section -->      
@@ -349,8 +349,8 @@
                         </div>
                         <h3 class="heading"><a target="_blank" href="https://foodtolive.com/healthy-blog/fast-food-junk-food-difference/">Fast Food and Junk Food: Is There Any Difference</a></h3>
                         <p class="clearfix">
-                            <a href="#" class="float-left read btn btn-primary">Read more</a>
-                            <a href="#" class="float-right meta-chat"><span class="fa fa-comment"></span> 3</a>
+                            <a target="_blank"  href="https://foodtolive.com/healthy-blog/fast-food-junk-food-difference/" class="float-left read btn btn-primary">Read more</a>
+<!--                            <a href="#" class="float-right meta-chat"><span class="fa fa-comment"></span> 3</a>-->
                         </p>
                     </div>
                 </div>
@@ -367,8 +367,8 @@
                         <h3 class="heading"><a target="_blank" href="https://www.hungryforever.com/recreate-wendys-salads-at-home/">Recreate Wendy’s Salads at Home</a></h3>
                         <br>
                         <p class="clearfix">
-                            <a href="#" class="float-left read btn btn-primary">Read more</a>
-                            <a href="#" class="float-right meta-chat"><span class="fa fa-comment"></span> 3</a>
+                            <a target="_blank"  href="https://www.hungryforever.com/recreate-wendys-salads-at-home/" class="float-left read btn btn-primary">Read more</a>
+<!--                            <a href="#" class="float-right meta-chat"><span class="fa fa-comment"></span> 3</a>-->
                         </p>
                     </div>
                 </div>
@@ -385,8 +385,8 @@
                         <h3 class="heading"><a target="_blank" href="https://hotdogonline.com/2019/09/11/your-perfect-burger-2/">Choose Your Perfect Burger</a></h3>
                         <br>
                         <p class="clearfix">
-                            <a href="#" class="float-left read btn btn-primary">Read more</a>
-                            <a href="#" class="float-right meta-chat"><span class="fa fa-comment"></span> 3</a>
+                            <a target="_blank"  href="https://hotdogonline.com/2019/09/11/your-perfect-burger-2/" class="float-left read btn btn-primary">Read more</a>
+                            <!--<a href="#" class="float-right meta-chat"><span class="fa fa-comment"></span> 3</a>-->
                         </p>
                     </div>
                 </div>
