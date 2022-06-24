@@ -140,9 +140,9 @@ public class ShipperDAO {
   
         public static void main(String[] args) {
         OrderDAO dao = new OrderDAO();
-        List <Shipper> o = dao.getShipperByAccountID(7);
-        for (Shipper shipper : o) {
-            System.out.println(shipper);
-        }      
+//        List <Shipper> o = dao.getShipperByAccountID(7);
+//        for (Shipper shipper : o) {
+//            System.out.println(shipper);
+//        }      
     }
 }

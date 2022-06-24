@@ -277,9 +277,10 @@ public class OrderDAO {
 
     public static void main(String[] args) {
         OrderDAO dao = new OrderDAO();
-        List <Order> o = dao.UpdateDeliveryMoney(30,7);
+        List <Order> o = dao.getAllOrder();
         for (Order shipper : o) {
             System.out.println(shipper);
+            break;
         }      
     }
 }
