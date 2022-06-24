@@ -90,7 +90,8 @@ public class ShipperDAO {
         }
         return list;
     }
-     public Shipper deleteShipperByAccountid(int id) {
+
+    public Shipper deleteShipperByAccountid(int id) {
         String sql = "delete from Shipper where AccountID = ?";
         try {
             Connection conn = new DBContext().getConnection();
@@ -112,9 +113,36 @@ public class ShipperDAO {
         }
         return null;
     }
-    public static void main(String[] args) {
-        ShipperDAO dao = new ShipperDAO();
-        List<Shipper> a = dao.getallShipper();
-        System.out.println(a);
+
+    public List<Shipper> getShiperbyShipperID(int accountID) {
+        List<Shipper> list = new ArrayList<>();
+
+        try {
+            String sql = "select *from Shipper where Shipperid = (select ShipperID from Shipper where AccountID = ?)";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Shipper(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getFloat(6),
+                        rs.getInt(7),
+                        rs.getInt(8)));
+            }
+
+        } catch (Exception e) {
+        }
+        return list;
+    }
+  
+        public static void main(String[] args) {
+        OrderDAO dao = new OrderDAO();
+        List <Shipper> o = dao.getShipperByAccountID(7);
+        for (Shipper shipper : o) {
+            System.out.println(shipper);
+        }      
     }
 }
