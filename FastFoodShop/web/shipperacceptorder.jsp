@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -50,12 +51,21 @@
         <section class="py-5">
             <div class="container" style="min-height: 1000px">
                 <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                    <div class="me-3">
+                    <div style="margin-right: 30rem">
                         <!--                        Search by ShipperID: <input type="select" class="btn-check"  > 
                                                 <input type="submit" value="Find">-->
+                        <label class="btn btn-outline-dark"><a class="nav-link" href="homeshipper">List Order</a></label>
+                        <label class="btn btn-outline-dark"><a class="nav-link" href="shipperacceptorder?accountid=${sessionScope.acc.id}">Order has been accepted</a></label>
+
+                    </div>     
+                    <c:forEach items="${list1}" var="c">
+                        <div style="font-size: 30px;font-weight: 700" class="d-flex justify-content-end">Delivery Money: $${c.deliverymoney}</div>
+                    </c:forEach>
+
                         <label style="background: white" class="btn btn-outline-dark"><a class="nav-link" href="homeshipper">List Order</a></label>
                         <label class="btn btn-outline-dark"><a class="nav-link" href="shipperacceptorder.jsp">Order has been accepted</a></label>
                     </div>                   
+
 
                 </div>
                 <br>
@@ -70,8 +80,9 @@
                             <th scope="col">Address</th>
                             <th scope="col">Phone</th>
                             <th scope="col">Total Price</th>
-<!--                            <th scope="col">ShipperID</th>-->
-<!--                            <th scope="col">Money</th>-->
+                            <th scope="col">Status</th>
+                            <!--                            <th scope="col">ShipperID</th>-->
+                            <!--                            <th scope="col">Money</th>-->
                         </tr>
                     </thead>
                     <tbody>
@@ -81,19 +92,38 @@
                                 <td>${l.name}</td>
                                 <td>${l.address}</td>
                                 <td>${l.phone}</td>
-                                <td>$${l.totalprice}</td>
-<!--                                <td>
-                                    <a class="btn btn-outline-dark" href="View.jsp">View</a>
-                                </td>-->
-<!--                                <td>
-                                    <input type="checkbox" class="btn-check"  >
-                                    <label class="btn btn-outline-dark" >Accept</label>
-                                </td>-->
+                                <td>$${l.totalprice}</td>                             
+                                <td>
+                                    <a style="color: white" class="btn btn-success" href="deliveryMoney?totalprice=${l.totalprice}&accountid=${sessionScope.acc.id}&orderid=${l.orderid}">Done</a>
+                                </td>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
             </div>
         </section>
+
+
+        <!-- jQery -->
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <!-- popper js -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <!-- bootstrap js -->
+        <script src="js/bootstrap.js"></script>
+        <!-- owl slider -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+        </script>
+        <!-- isotope js -->
+        <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+        <!-- nice select -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+        <!-- custom js -->
+        <script src="js/custom.js"></script>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts-1.js"></script>
     </body>
 </html>

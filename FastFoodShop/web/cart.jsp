@@ -80,7 +80,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-
                                 <c:forEach items="${carts}" var="C">
                                 <form action="update-quantity" method="get">
                                     <tr>                               

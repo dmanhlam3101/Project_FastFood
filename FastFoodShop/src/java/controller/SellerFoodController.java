@@ -5,25 +5,25 @@
  */
 package controller;
 
-import dao.OrderDAO;
-import dao.ShipperDAO;
-
+import dao.FoodDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Order;
-import model.Shipper;
+import model.Food;
 
 /**
  *
- * @author vanhung38ht
+ * @author ASUS
  */
-public class Shipperacceptorder extends HttpServlet {
+@WebServlet(name = "SellerFoodController", urlPatterns = {"/SellerFood"})
+public class SellerFoodController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,17 +37,38 @@ public class Shipperacceptorder extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-      
-        OrderDAO dao = new OrderDAO();
-     
-        int accountid = Integer.parseInt(request.getParameter("accountid"));
-        List<Order> list = dao.DisplayOrderByShipperID(accountid);
-        List<Shipper> list1 = dao.getShipperByAccountID(accountid);
-        
-        request.setAttribute("list1", list1);
-        request.setAttribute("list", list);
-        request.getRequestDispatcher("shipperacceptorder.jsp").forward(request, response);
-        
+        try (PrintWriter out = response.getWriter()) {
+             FoodDAO food = new FoodDAO();
+            List<Food> list2 = food.getallFood();
+            String indexPage = request.getParameter("index");
+            String searchName = request.getParameter("searchName");
+            List<Food> list = new ArrayList<>();
+            if(indexPage == null){
+                indexPage = "1";
+            }
+          
+            int index = Integer.parseInt(indexPage);
+            
+            int count = list2.size();
+            int endPage = count / 9;
+            if (count % 9 != 0) {
+                endPage++;
+            } 
+            if(searchName == null){
+                 list = food.getProductwithpagging(index);
+            }else{
+                list = food.getProductwithpaggingByName(index, searchName);
+            }
+            
+            request.setAttribute("page", indexPage);//de khi an vao trang 2 thi trang 2 mau den
+            request.setAttribute("endP", endPage);
+             
+            HttpSession session = request.getSession();
+            session.setAttribute("listfood", list);
+            session.setAttribute("urlHistory", "menu");
+            
+            request.getRequestDispatcher("sellerFood.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

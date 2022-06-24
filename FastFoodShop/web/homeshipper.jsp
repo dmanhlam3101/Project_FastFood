@@ -69,7 +69,7 @@
                         <label class="btn btn-outline-dark"><a class="nav-link" href="Shipperacceptorder?accountid=${sessionScope.acc.id}">Order has been accepted</a></label>
                         <!--<label class="btn btn-outline-dark"><a class="nav-link" href="shipperdelivered.jsp">Delivered</a></label>-->
                     </div>                   
-
+                    
                 </div>
                 <br>
                 <br>
@@ -100,13 +100,13 @@
                                 <td>${l.phone}</td>
                                 <td>$${l.totalprice}</td>
                                 <td>
-                                    <a class="btn btn-outline-dark" href="#vieworder">View</a>
+                                    <a class="btn btn-outline-dark" href="#vieworder"  data-toggle="modal">View</a>
                                     <!--<a href="#vieworder" class="btn btn-success " data-toggle="modal" ><i class="bi bi-plus-circle-fill"></i> View</a>-->
                                 </td>
                                 <td>
                                     <!--<input type="checkbox" class="btn-check"  >-->
 
-                                    <a class="btn btn-outline-dark" href="AcceptOrderShipper?accountid=${sessionScope.acc.id}&orderid=${l.orderid}" >Accept</a>
+                                    <a class="btn btn-outline-dark" href="AcceptOrderShipper?accountid=${sessionScope.acc.id}&orderid=${l.orderid}&dedeliverymoney=${deliverymoney}" >Accept</a>
 
                                 </td>
                             </tr>
@@ -115,6 +115,57 @@
                 </table>
             </div>
         </section>
+
+        <div id="vieworder" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="add-account" method="post">
+                        <div class="modal-header">						
+                            <h4 class="modal-title">Add new Account</h4>
+                            <h6 style="color: #be123c">${error}</h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">	
+                            <div class="form-group">
+                                <label>User Name</label>
+                                <input name="username" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input name="password" type="password" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input name="name" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input name="phone" type="number" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input name="address" type="text" class="form-control" required>
+                            </div>       
+                            <div class="form-group">
+                                <label>Role</label>
+                                <select name="role" class="form-select" aria-label="Default select example">
+                                    <option value="1">Customer</option>
+                                    <option value="2">Seller</option>
+                                    <option value="3">Shipper</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-default" style="background:#f5f5f5" data-dismiss="modal" value="Cancel">
+                            <input type="submit" class="btn btn-success" value="Add">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <!-- jQery -->
         <script src="js/jquery-3.4.1.min.js"></script>
         <!-- popper js -->
@@ -136,6 +187,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts-1.js"></script>
+
         <!-- Core theme JS for Blog-->
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery-migrate-3.0.1.min.js"></script>

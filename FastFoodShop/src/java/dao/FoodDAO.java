@@ -251,7 +251,31 @@ public Food getFoodById(int foodid) {
         }
         return null;
     }
-
+public List<Food> getProductwithpaggingByName(int index, String name) {
+        List<Food> list = new ArrayList<Food>();
+        try {
+            String sql = "select * from Foods where FoodName like '%"+name+"%' order by FoodName offset ? row fetch next 9 rows only";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, (index - 1) * 6);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int FoodID = rs.getInt(1);
+                String FoodName = rs.getString(2);
+                int CategoryID = rs.getInt(3);
+                String Image = rs.getString(4);
+                int Quantity = rs.getInt(5);
+                float UnitPrice = rs.getFloat(6);
+                String Description = rs.getString(7);
+                boolean Status = rs.getBoolean(8);
+                String DateCreated = rs.getString(9);
+                Food food = new Food(FoodID, FoodName, CategoryID, Image, Quantity, UnitPrice, Description, Status, DateCreated);
+                list.add(food);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
     public static void main(String[] args) {
         FoodDAO dao = new FoodDAO();
         List<Food> a = dao.getallFood();
