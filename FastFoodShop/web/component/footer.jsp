@@ -27,7 +27,7 @@
       <div class="row">
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
-            <h4>
+            <h4 style="color: white">
               Contact Us
             </h4>
             <div class="contact_link_box">
@@ -80,7 +80,7 @@
           </div>
         </div>
         <div class="col-md-4 footer-col">
-          <h4>
+            <h4 style="color: white">
             Opening Hours
           </h4>
           <p>

@@ -155,23 +155,23 @@
                         <div class="modal-body">	
                             <div class="form-group">
                                 <label>User Name</label>
-                                <input name="username" type="text" class="form-control" required>
+                                <input  pattern="[a-z0-9]+$"  name="username" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input name="password" type="password" class="form-control" required>
+                                <input  pattern="[a-z0-9]+$"  name="password" type="password" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Name</label>
-                                <input name="name" type="text" class="form-control" required>
+                                <input pattern="[A-Za-z]+$" name="name" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Phone</label>
-                                <input name="phone" type="number" class="form-control" required>
+                                <input pattern="^0[0-9]{9}" title="Số điện thoại bao gồm 10 chữ số và bắt đầu bằng chữ số 0" name="phone" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Address</label>
-                                <input name="address" type="text" class="form-control" required>
+                                <input pattern="[A-Za-z0-9]+$" name="address" type="text" class="form-control" required>
                             </div>       
                             <div class="form-group">
                                 <label>Role</label>

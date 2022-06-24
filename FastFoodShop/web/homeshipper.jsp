@@ -12,7 +12,7 @@
 <html lang="en">
     <head>
         <!-- Basic -->
-        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- Mobile Metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -22,7 +22,7 @@
         <meta name="author" content="" />
         <link rel="shortcut icon" href="images/favicon.png" type="">
 
-        <title> HomeShipper </title>
+        <title> FastFood </title>
 
         <!-- bootstrap core css -->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -36,9 +36,15 @@
 
         <!-- Custom styles for this template -->
         <link href="css/style.css" rel="stylesheet" />
-        <link href="css/styles-1.css" rel="stylesheet" />
         <!-- responsive style -->
         <link href="css/responsive.css" rel="stylesheet" />
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styles-1.css" rel="stylesheet" />
 
     </head>
 
@@ -109,6 +115,7 @@
                 </table>
             </div>
         </section>
+<<<<<<< HEAD
         <div id="vieworder" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -159,6 +166,8 @@
             </div>
         </div>
 
+=======
+>>>>>>> b0453cab46c8cad52611058ee40a20c8ffc4c942
         <!-- jQery -->
         <script src="js/jquery-3.4.1.min.js"></script>
         <!-- popper js -->
@@ -180,6 +189,18 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts-1.js"></script>
+<<<<<<< HEAD
 
+=======
+        <!-- Core theme JS for Blog-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-migrate-3.0.1.min.js"></script>
+        <script src="js/jquery.waypoints.min.js"></script>
+        <script src="js/jquery.stellar.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/scrollax.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+>>>>>>> b0453cab46c8cad52611058ee40a20c8ffc4c942
     </body>
 </html>

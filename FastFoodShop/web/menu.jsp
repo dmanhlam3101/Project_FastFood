@@ -54,10 +54,10 @@ Author     : dmanh
         </div>
 
         <!-- food section -->
-
+      
         <section class="food_section layout_padding">
             <div class="container">
-                <div class="heading_container heading_center">
+                    <div class="heading_container heading_center">
                     <h2>
                         Our Menu
                     </h2>
@@ -89,7 +89,7 @@ Author     : dmanh
                         background-color: black;
                         color: white;
                     }
-                    
+
 
                 </style>
                 <ul class="filters_menu" style="color: red">
@@ -101,8 +101,8 @@ Author     : dmanh
                     <li data-filter="*"><a class="Cate" href="CateContro?brand=5">Desserts & shakes</a></li>
                     <li data-filter="*"><a class="Cate" href="CateContro?brand=6">Beverages</a></li>
                 </ul>
-               
-                <div class="filters-content">
+
+                <div class="filters-content ">
                     <div class="row grid">
                         <c:forEach items="${listfood}" var="f">
                             <div class="col-sm-6 col-lg-4 all pizza">
@@ -138,36 +138,36 @@ Author     : dmanh
                     <a class="page-item btn btn-outline-dark ${b==page?"active":""}" class="page-link" href="menu?index=${b}" style="text-decoration: none">${b}</a>
                 </c:forEach>
             </div>
-        
-    </section>
 
-    <!-- end food section -->
+        </section>
 
-    <!-- footer section -->
-    <%@include file="component/footer.jsp" %>
-    <!-- footer section -->
+        <!-- end food section -->
 
-    <!-- jQery -->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <!-- popper js -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <!-- bootstrap js -->
-    <script src="js/bootstrap.js"></script>
-    <!-- owl slider -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-    </script>
-    <!-- isotope js -->
-    <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
-    <!-- nice select -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
-    <!-- custom js -->
-    <script src="js/custom.js"></script>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts-1.js"></script>
+        <!-- footer section -->
+        <%@include file="component/footer.jsp" %>
+        <!-- footer section -->
 
-</body>
+        <!-- jQery -->
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <!-- popper js -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <!-- bootstrap js -->
+        <script src="js/bootstrap.js"></script>
+        <!-- owl slider -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+        </script>
+        <!-- isotope js -->
+        <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+        <!-- nice select -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+        <!-- custom js -->
+        <script src="js/custom.js"></script>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts-1.js"></script>
+
+    </body>
 
 </html>

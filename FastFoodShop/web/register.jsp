@@ -27,7 +27,7 @@
         <section class="text-center">
             <!-- Background image -->
             <div class="p-5 bg-image" style="
-                 background-image: url('images/headerlogin.jpg');
+                 background-image: url('images/head.png');
                  height: 250px;
                  "></div>
             <!-- Background image -->
@@ -52,32 +52,32 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
-                                            <input type="text" name="firstname" class="form-control" placeholder="First name"  required/>
+                                            <input pattern="[A-Za-z]+$"  type="text" name="firstname" class="form-control" placeholder="First name"  required/>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
-                                            <input type="text" name="lastname" class="form-control" placeholder="Last name" required />
+                                            <input pattern="[A-Za-z]+$" type="text" name="lastname" class="form-control" placeholder="Last name" required />
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Username input -->
                                 <div class="form-outline mb-4">
-                                    <input type="text" name="username" class="form-control" placeholder="User name" required />
+                                    <input pattern="[a-z0-9]+$" type="text" name="username" class="form-control" placeholder="User name" required />
                                 </div>
 
                                 <!-- Phone input -->
                                 <div class="form-outline mb-4">
-                                    <input type="text" name="phone" class="form-control" placeholder="Phone number" required/>
+                                    <input pattern="^0[0-9]{9}" title="Số điện thoại bao gồm 10 chữ số và bắt đầu bằng chữ số 0"  type="text" name="phone" class="form-control" placeholder="Phone number" required/>
                                 </div>
                                 <!-- Address input -->
                                 <div class="form-outline mb-4">
-                                    <input type="text" name="address" class="form-control" placeholder="Address" required/>
+                                    <input pattern="[A-Za-z0-9]+$"   type="text" name="address" class="form-control" placeholder="Address" required/>
                                 </div>
                                 <!-- Password input -->
                                 <div class="form-outline mb-4">
-                                    <input type="password" name="password" class="form-control" placeholder="Password" required/>
+                                    <input  pattern="[a-z0-9]+$" type="password" name="password" class="form-control" placeholder="Password" required/>
                                 </div>
 
                                 <!-- Submit button -->

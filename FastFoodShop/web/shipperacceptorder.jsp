@@ -54,6 +54,7 @@
                     <div style="margin-right: 30rem">
                         <!--                        Search by ShipperID: <input type="select" class="btn-check"  > 
                                                 <input type="submit" value="Find">-->
+<<<<<<< HEAD
                         <label class="btn btn-outline-dark"><a class="nav-link" href="homeshipper">List Order</a></label>
                         <label class="btn btn-outline-dark"><a class="nav-link" href="shipperacceptorder?accountid=${sessionScope.acc.id}">Order has been accepted</a></label>
 
@@ -61,6 +62,11 @@
                     <c:forEach items="${list1}" var="c">
                         <div style="font-size: 30px;font-weight: 700" class="d-flex justify-content-end">Delivery Money: $${c.deliverymoney}</div>
                     </c:forEach>
+=======
+                        <label style="background: white" class="btn btn-outline-dark"><a class="nav-link" href="homeshipper">List Order</a></label>
+                        <label class="btn btn-outline-dark"><a class="nav-link" href="shipperacceptorder.jsp">Order has been accepted</a></label>
+                    </div>                   
+>>>>>>> b0453cab46c8cad52611058ee40a20c8ffc4c942
 
                 </div>
                 <br>
