@@ -85,7 +85,7 @@
                                 <form action="update-quantity" method="get">
                                     <tr>                               
                                     <input type="hidden" name="foodid" value="${C.value.product.foodid}">
-                                    <th scope="row">${C.value.product.foodid}</th>
+                                    <th scope="row"><c:set var="count" value="${count+1}"></c:set>${count}</th>
                                     <td><img style="width: 70px" src="${C.value.product.image}"></td>
                                     <td>${C.value.product.foodname}</td>
                                     <td>${C.value.product.unitprice} </td>

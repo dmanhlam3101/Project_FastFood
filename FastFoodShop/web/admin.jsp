@@ -85,7 +85,8 @@
 
                             <c:forEach items="${listAccounts}" var="a">
 
-                                <th scope="row">${a.id}</th>
+                                <th hidden scope="row">${a.id}</th>
+                                <th scope="row"><c:set var="count" value="${count+1}"></c:set>${count}</th>
                                 <td>${a.username}</td>
                                 <td>${a.password}</td>
                                 <td>${a.displayName}</td>
@@ -163,7 +164,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Name</label>
-                                <input pattern="[A-Za-z]+$" name="name" type="text" class="form-control" required>
+                                <input pattern="[^!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?]+$" name="name" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Phone</label>
@@ -171,7 +172,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Address</label>
-                                <input pattern="[A-Za-z0-9]+$" name="address" type="text" class="form-control" required>
+                                <input  name="address" type="text" class="form-control" required>
                             </div>       
                             <div class="form-group">
                                 <label>Role</label>

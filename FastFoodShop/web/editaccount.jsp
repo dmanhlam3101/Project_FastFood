@@ -81,7 +81,7 @@
                                             <p class="mb-0">Full Name</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <input pattern="[A-Za-z]+$"  value="${account.displayName}" name="name" type="text" class="form-control" required>
+                                            <input pattern="[^!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?]+$"  value="${account.displayName}" name="name" type="text" class="form-control" required>
                                         </div>
                                     </div>
 
@@ -135,7 +135,7 @@
                                             <p class="mb-0">Address</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <input pattern="[A-Za-z0-9]+$" value="${account.address}" name="address" type="text" class="form-control" required>
+                                            <input pattern="[A-Za-z0-9_ ]+$" value="${account.address}" name="address" type="text" class="form-control" required>
                                         </div>
                                     </div>
                                     <hr>

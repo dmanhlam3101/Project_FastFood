@@ -262,7 +262,6 @@ public class AccountDAO {
 
     }
 
-   
     public void editAccountById(String username, String password, String displayName, String address, String phone, int isCustomer, int isShipper, int isSeller, int id) {
         String sql = "UPDATE [dbo].[Account]\n"
                 + "   SET [Username] = ?\n"
@@ -288,6 +287,29 @@ public class AccountDAO {
             ps.setInt(7, isShipper);
             ps.setInt(8, isSeller);
             ps.setInt(9, id);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+        }
+
+    }
+
+    public void editProfileById(String password, String displayName, String address, String phone, int id) {
+        String sql = "UPDATE [dbo].[Account]\n"
+                + "   SET [Password] =?\n"
+                + "      ,[Displayname] = ?\n"
+                + "      ,[Address] =?\n"
+                + "      ,[Phone] =?\n"
+                + " WHERE  id=?";
+        try {
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, password);
+            ps.setString(2, displayName);
+            ps.setString(3, address);
+            ps.setString(4, phone);
+            ps.setInt(5, id);
             ps.executeUpdate();
 
         } catch (Exception e) {
