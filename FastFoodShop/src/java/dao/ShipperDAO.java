@@ -4,20 +4,17 @@
  * and open the template in the editor.
  */
 package dao;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import model.Shipper;
-
 /**
  *
  * @author dmanh
  */
 public class ShipperDAO {
-
     public Shipper insertShipperByAccountId(int id) {
         String sql = "INSERT INTO Shipper (ShipperName,Phone,[Address],DeliveryMoney,AccountID,[Status])\n"
                 + "SELECT a.Displayname,a.Phone,a.[Address],0,a.ID,1\n"
@@ -38,12 +35,10 @@ public class ShipperDAO {
                         rs.getInt(7),
                         rs.getInt(8));
             }
-
         } catch (Exception e) {
         }
         return null;
     }
-
     public Shipper checkShipperExist(int id) {
         String sql = "select *from Shipper where AccountID = ?";
         try {
@@ -61,15 +56,12 @@ public class ShipperDAO {
                         rs.getInt(7),
                         rs.getInt(8));
             }
-
         } catch (Exception e) {
         }
         return null;
     }
-
     public List<Shipper> getallShipper() {//chua su dung den
         List<Shipper> list = new ArrayList<>();
-
         try {
             String sql = "select *from Shipper ";
             Connection conn = new DBContext().getConnection();
@@ -85,7 +77,6 @@ public class ShipperDAO {
                         rs.getInt(7),
                         rs.getInt(8)));
             }
-
         } catch (Exception e) {
         }
         return list;
@@ -108,12 +99,11 @@ public class ShipperDAO {
                         rs.getInt(7),
                         rs.getInt(8));
             }
-
         } catch (Exception e) {
         }
         return null;
     }
-
+   
     public List<Shipper> getShiperbyShipperID(int accountID) {
         List<Shipper> list = new ArrayList<>();
 
@@ -137,12 +127,12 @@ public class ShipperDAO {
         }
         return list;
     }
-  
+
         public static void main(String[] args) {
         OrderDAO dao = new OrderDAO();
-//        List <Shipper> o = dao.getShipperByAccountID(7);
-//        for (Shipper shipper : o) {
-//            System.out.println(shipper);
-//        }      
+        List <Shipper> o = dao.getShipperByAccountID(7);
+        for (Shipper shipper : o) {
+            System.out.println(shipper);
+        }      
     }
 }
