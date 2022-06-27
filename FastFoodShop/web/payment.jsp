@@ -81,7 +81,7 @@
                                 <form action="update-quantity" method="get">
                                     <tr>
                                     <input type="hidden" name="foodid" value="${C.value.product.foodid}">
-                                    <th scope="row">${C.value.product.foodid}</th>
+                                    <th scope="row"><c:set var="count" value="${count+1}"></c:set>${count}</th>
                                     <td><img style="width: 70px" src="${C.value.product.image}"></td>
                                     <td>${C.value.product.foodname}</td>
                                     <td>${C.value.product.unitprice} </td>
@@ -104,15 +104,15 @@
                                     <input value="${sessionScope.acc.id}" name="id" type="text" class="form-control" required>
                                 </a>
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" required>
+                                <input pattern="[^!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?]+$" type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" required>
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Phone</label>
-                                <input type="text" class="form-control" id="phone" name="phone" aria-describedby="emailHelp" required> 
+                                <input pattern="^0[0-9]{9}" type="text" class="form-control" id="phone" name="phone" aria-describedby="emailHelp" required> 
                             </div>
                             <div class="mb-3">
                                 <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="address" name="address" aria-describedby="emailHelp" required>
+                                <input  type="text" class="form-control" id="address" name="address" aria-describedby="emailHelp" required>
                             </div>   
                             <div class="form-group row">
                                 <div class="col-md-6">

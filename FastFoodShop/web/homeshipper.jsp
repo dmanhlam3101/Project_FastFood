@@ -12,7 +12,7 @@
 <html lang="en">
     <head>
         <!-- Basic -->
-        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- Mobile Metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -22,7 +22,7 @@
         <meta name="author" content="" />
         <link rel="shortcut icon" href="images/favicon.png" type="">
 
-        <title> HomeShipper </title>
+        <title> FastFood </title>
 
         <!-- bootstrap core css -->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -36,9 +36,15 @@
 
         <!-- Custom styles for this template -->
         <link href="css/style.css" rel="stylesheet" />
-        <link href="css/styles-1.css" rel="stylesheet" />
         <!-- responsive style -->
         <link href="css/responsive.css" rel="stylesheet" />
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styles-1.css" rel="stylesheet" />
 
     </head>
 
@@ -60,10 +66,10 @@
                         <!--                        Search by ShipperID: <input type="select" class="btn-check"  > 
                                                 <input type="submit" value="Find">-->
                         <label class="btn btn-outline-dark"><a class="nav-link" href="homeshipper">List Order</a></label>
-                        <label class="btn btn-outline-dark"><a class="nav-link" href="shipperacceptorder.jsp">Order has been accepted</a></label>
+                        <label class="btn btn-outline-dark"><a class="nav-link" href="Shipperacceptorder?accountid=${sessionScope.acc.id}">Order has been accepted</a></label>
                         <!--<label class="btn btn-outline-dark"><a class="nav-link" href="shipperdelivered.jsp">Delivered</a></label>-->
                     </div>                   
-
+                    
                 </div>
                 <br>
                 <br>
@@ -81,20 +87,27 @@
                             <th scope="col">Status</th>
                         </tr>
                     </thead>
+                    <a hidden>
+                        <input value="${sessionScope.acc.id}" name="idShipper">
+                    </a>
                     <tbody>
                         <c:forEach items="${listorder}" var="l">
                             <tr>
+
                                 <th scope="row">${l.orderid}</th>
                                 <td>${l.name}</td>
                                 <td>${l.address}</td>
                                 <td>${l.phone}</td>
                                 <td>$${l.totalprice}</td>
                                 <td>
-                                    <a class="btn btn-outline-dark" href="View.jsp">View</a>
+                                    <a class="btn btn-outline-dark" href="#vieworder"  data-toggle="modal">View</a>
+                                    <!--<a href="#vieworder" class="btn btn-success " data-toggle="modal" ><i class="bi bi-plus-circle-fill"></i> View</a>-->
                                 </td>
                                 <td>
-                                    <input type="checkbox" class="btn-check"  >
-                                    <label class="btn btn-outline-dark" >Accept</label>
+                                    <!--<input type="checkbox" class="btn-check"  >-->
+
+                                    <a class="btn btn-outline-dark" href="AcceptOrderShipper?accountid=${sessionScope.acc.id}&orderid=${l.orderid}&dedeliverymoney=${deliverymoney}" >Accept</a>
+
                                 </td>
                             </tr>
                         </c:forEach>
@@ -102,5 +115,87 @@
                 </table>
             </div>
         </section>
+
+        <div id="vieworder" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="add-account" method="post">
+                        <div class="modal-header">						
+                            <h4 class="modal-title">Add new Account</h4>
+                            <h6 style="color: #be123c">${error}</h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">	
+                            <div class="form-group">
+                                <label>User Name</label>
+                                <input name="username" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input name="password" type="password" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input name="name" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input name="phone" type="number" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input name="address" type="text" class="form-control" required>
+                            </div>       
+                            <div class="form-group">
+                                <label>Role</label>
+                                <select name="role" class="form-select" aria-label="Default select example">
+                                    <option value="1">Customer</option>
+                                    <option value="2">Seller</option>
+                                    <option value="3">Shipper</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-default" style="background:#f5f5f5" data-dismiss="modal" value="Cancel">
+                            <input type="submit" class="btn btn-success" value="Add">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQery -->
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <!-- popper js -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <!-- bootstrap js -->
+        <script src="js/bootstrap.js"></script>
+        <!-- owl slider -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+        </script>
+        <!-- isotope js -->
+        <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+        <!-- nice select -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+        <!-- custom js -->
+        <script src="js/custom.js"></script>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts-1.js"></script>
+
+        <!-- Core theme JS for Blog-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-migrate-3.0.1.min.js"></script>
+        <script src="js/jquery.waypoints.min.js"></script>
+        <script src="js/jquery.stellar.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/scrollax.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </body>
 </html>

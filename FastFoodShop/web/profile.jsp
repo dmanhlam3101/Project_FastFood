@@ -23,6 +23,7 @@
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
     </head>
     <body>
         <section style="background-color: #eee;">
@@ -46,7 +47,7 @@
                                      class="rounded-circle img-fluid" style="width: 150px;">
                                 <h5 class="my-3">${profile.displayName}</h5>
                                 <div class="d-flex justify-content-center mb-2">
-                                    <button type="button" class="btn btn-outline-primary ms-1">Edit Profile</button>
+                                    <a href="#editprofile" data-toggle="modal"  class="btn btn-outline-primary ms-1">Edit Profile</a>
                                 </div>
                             </div>
                         </div>
@@ -67,30 +68,11 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <p class="mb-0">Password</p>
+                                        <p  class="mb-0">Password</p>
                                     </div>
-                                    <div class="col-sm-9">
-                                        <script>
-                                            function togglePassword() {
-                                                var upass = document.getElementById('upass');
-                                                var toggleBtn = document.getElementById('toggleBtn');
-                                                if (upass.type == "password") {
-                                                    upass.type = "text";
-                                                    toggleBtn.value = "Hide";
-                                                } else {
-                                                    upass.type = "password";
-                                                    toggleBtn.value = "Show";
-                                                }
-                                            }
-                                        </script>
-                                        <div class="container">
-                                            <input style="" id="upass" type="password" name="userpass" value="${profile.password}" readonly>
-  
-                                            <input id="toggleBtn" type="button" onclick="togglePassword()" value="Show">
-                                            
-                                        </div>
+                                    <div  class="col-sm-9">
 
-
+                                        <input type="password" value="${profile.password}" style="border: 0 ; background-color: white" disabled="">
                                     </div>
                                 </div>
                                 <hr>
@@ -153,5 +135,100 @@
                 </div>
             </div>
         </section>
+        <!-- Edit profile -->
+        <div id="editprofile" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="edit-profile" method="post">
+                        <div class="modal-header">						
+                            <h4 class="modal-title">Edit Profile</h4>
+                            <h6 style="color: #be123c">${error}</h6>
+                            <button style="background-color: white ; border: 0 ; font-weight: 700" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <script>
+                            function togglePassword() {
+                                var upass = document.getElementById('upass');
+                                var toggleBtn = document.getElementById('toggleBtn');
+
+                                toggleBtn.onclick = (() => {
+                                    if (upass.type === "password") {
+                                        upass.type = "text";
+
+                                        toggleBtn.classList.add("bi bi-eye-slash-fill");
+                                    } else {
+                                        upass.type = "password";
+                                        toggleBtn.classList.remove("bi bi-eye-slash-fill");
+
+                                    }
+                                });
+//                                if (upass.type === "password") {
+//                                    upass.type = "text";
+//                 
+//                                    toggleBtn.classList.add("bi bi-eye-slash-fill");
+//                                } else {
+//                                    upass.type = "password";
+//                                     toggleBtn.classList.remove("bi bi-eye-slash-fill");
+//                                }
+                            }
+                        </script>
+
+                        <div class="modal-body">	
+                            <a hidden >
+                                <input value="${profile.id}" name="id" type="text" class="form-control" required>
+                            </a>
+
+
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input pattern="[^!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?]+$" value="${profile.displayName}" name="name" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input pattern="^0[0-9]{9}" value="${profile.phone}" title="Số điện thoại bao gồm 10 chữ số và bắt đầu bằng chữ số 0" name="phone" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input value="${profile.address}" name="address" type="text" class="form-control" required>
+                            </div>       
+                            <div class="form-group">
+                                <label>Password</label>
+
+                                <div class="row ">
+                                    <div class="col-sm-11"><input value="${profile.password}" class="form-control"   id="upass" type="password" name="userpass" required></div>
+                                    <div style="margin-left: -13px;margin-top: 8px" class="col-sm-1 "> <i  id="toggleBtn" onclick="togglePassword()"  class="fas fa-eye"></i></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-default" style="background:#f5f5f5" data-dismiss="modal" value="Cancel">
+                            <input type="submit" class="btn btn-success" value="Edit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End edit profile -->
+        <!-- jQery -->
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <!-- popper js -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <!-- bootstrap js -->
+        <script src="js/bootstrap.js"></script>
+        <!-- owl slider -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+        </script>
+        <!-- isotope js -->
+        <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+        <!-- nice select -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+        <!-- custom js -->
+        <script src="js/custom.js"></script>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts-1.js"></script>
     </body>
 </html>

@@ -61,7 +61,7 @@
                                             <p class="mb-0">Username</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <input value="${account.username}" name="username" type="text" class="form-control" required>
+                                            <input pattern="[a-z0-9]+$" value="${account.username}" name="username" type="text" class="form-control" required>
                                         </div>
                                     </div>
 
@@ -71,7 +71,7 @@
                                             <p class="mb-0">Password</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <input value="${account.password}" name="password" type="password" class="form-control" required>
+                                            <input pattern="[a-z0-9]+$" value="${account.password}" name="password" type="password" class="form-control" required>
                                         </div>
                                     </div>
 
@@ -81,7 +81,7 @@
                                             <p class="mb-0">Full Name</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <input value="${account.displayName}" name="name" type="text" class="form-control" required>
+                                            <input pattern="[^!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?]+$"  value="${account.displayName}" name="name" type="text" class="form-control" required>
                                         </div>
                                     </div>
 
@@ -91,7 +91,7 @@
                                             <p class="mb-0">Phone</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <input value="${account.phone}" name="phone" type="text" class="form-control" required>
+                                            <input pattern="^0[0-9]{9}" title="Số điện thoại bao gồm 10 chữ số và bắt đầu bằng chữ số 0" value="${account.phone}" name="phone" type="text" class="form-control" required>
                                         </div>
                                     </div>
                                     <hr>
@@ -135,7 +135,7 @@
                                             <p class="mb-0">Address</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <input value="${account.address}" name="address" type="text" class="form-control" required>
+                                            <input pattern="[A-Za-z0-9_ ]+$" value="${account.address}" name="address" type="text" class="form-control" required>
                                         </div>
                                     </div>
                                     <hr>
