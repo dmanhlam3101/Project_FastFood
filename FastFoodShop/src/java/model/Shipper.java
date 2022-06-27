@@ -20,9 +20,6 @@ public class Shipper {
     public Shipper() {
     }
 
-    public Shipper(float deliverymoney) {
-        this.deliverymoney = deliverymoney;
-    }
 
     public Shipper(int shipperid, int sellerid, String shippername, String phone, String address, float deliverymoney, int accountid, int status) {
         this.shipperid = shipperid;

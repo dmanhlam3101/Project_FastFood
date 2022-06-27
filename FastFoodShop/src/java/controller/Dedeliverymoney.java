@@ -6,8 +6,8 @@
 package controller;
 
 import dao.OrderDAO;
+import dao.ShipperDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -35,30 +35,20 @@ public class Dedeliverymoney extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         OrderDAO dao = new OrderDAO();
+        ShipperDAO shipperDAO = new ShipperDAO();
         int accountid = Integer.parseInt(request.getParameter("accountid"));
-        List<Shipper> listship = dao.getShipperByAccountID(accountid);
-        System.out.println("2");
-        for (Shipper shipper : listship) {
-            float Delivery = shipper.getDeliverymoney();
-            int accountid1 = Integer.parseInt(request.getParameter("accountid"));
-            System.out.println("1");
-            List<Order> list = dao.DisplayOrderByShipperID(accountid1);
-            System.out.println("3");
-            int orderID = Integer.parseInt(request.getParameter("orderid"));
-            System.out.println(Delivery);
-            System.out.println("4");
-            float totalprice = Float.parseFloat(request.getParameter("totalprice"));
-            float deliverymoney = Delivery + totalprice;
-            List<Order> list1 = dao.UpdateDeliveryMoney(deliverymoney, accountid1);
-            System.out.println("5");
-            List<Order> list2 = dao.UpdateStatusBackNull(orderID);
-            List<Shipper> list3 = dao.getShipperByAccountID(accountid1);
+        int orderID = Integer.parseInt(request.getParameter("orderid"));
+        Shipper shipper = new ShipperDAO().getShipperByAccountID(accountid);
+        float totalprice = dao.getTotalPriceByOrderId(orderID);
+//        float deliveryMoney = shipper.getDeliverymoney();
+        float deliveryMoney = shipper.getDeliverymoney()+totalprice;
+        
 
-            request.setAttribute("list1", list3);
-            request.setAttribute("deliverymoney", deliverymoney);
-            request.setAttribute("list", list);
-            request.getRequestDispatcher("shipperacceptorder.jsp").forward(request, response);
-        }
+        shipperDAO.UpdateDeliveryMoney(deliveryMoney, accountid);
+        
+
+        dao.UpdateStatusBackNull(orderID);
+        response.sendRedirect("Shipperacceptorder?accountid=" + accountid);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
