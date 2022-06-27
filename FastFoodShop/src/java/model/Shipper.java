@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package model;
-
 /**
  *
  * @author vanhung38ht
@@ -18,7 +17,6 @@ public class Shipper {
     private float deliverymoney;
     private int accountid;
     private int status;
-
     public Shipper() {
     }
 
@@ -36,78 +34,73 @@ public class Shipper {
         this.accountid = accountid;
         this.status = status;
     }
-
+    
     public int getShipperid() {
         return shipperid;
     }
-
+    
     public void setShipperid(int shipperid) {
         this.shipperid = shipperid;
     }
-
+    
     public int getSellerid() {
         return sellerid;
     }
-
+    
     public void setSellerid(int sellerid) {
         this.sellerid = sellerid;
     }
-
+    
     public String getShippername() {
         return shippername;
     }
-
+    
     public void setShippername(String shippername) {
         this.shippername = shippername;
     }
-
+    
     public String getPhone() {
         return phone;
     }
-
+    
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
+    
     public String getAddress() {
         return address;
     }
-
+    
     public void setAddress(String address) {
         this.address = address;
     }
-
+    
     public float getDeliverymoney() {
         return deliverymoney;
     }
-
+    
     public void setDeliverymoney(float deliverymoney) {
         this.deliverymoney = deliverymoney;
     }
-
+    
     public int getAccountid() {
         return accountid;
     }
-
+    
     public void setAccountid(int accountid) {
         this.accountid = accountid;
     }
-
+    
     public int getStatus() {
         return status;
     }
-
+    
     public void setStatus(int status) {
         this.status = status;
     }
-
+    
     @Override
     public String toString() {
         return "Shipper{" + "shipperid=" + shipperid + ", sellerid=" + sellerid + ", shippername=" + shippername + ", phone=" + phone + ", address=" + address + ", deliverymoney=" + deliverymoney + ", accountid=" + accountid + ", status=" + status + '}';
-    }
-
-   
-
-    
-    
+    }     
 }
