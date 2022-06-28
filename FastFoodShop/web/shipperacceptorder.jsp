@@ -56,9 +56,7 @@
 
                     </div>     
                         
-                    <div style="font-size: 30px;font-weight: 500" class="d-flex justify-content-end">Delivery Money: $${shipper.deliverymoney}
-
-                    </div>
+                    <div style="font-size: 30px;font-weight: 500" class="d-flex justify-content-end">Delivery Money: $${shipper.deliverymoney}</div>
                     <div>
                         <a style="color: white; margin-left: 10px" class="btn btn-success" href="">Send Seller</a>
                     </div>

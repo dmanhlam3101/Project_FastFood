@@ -8,19 +8,21 @@ package controller;
 import dao.OrderDAO;
 import dao.ShipperDAO;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Order;
+import model.Seller;
 import model.Shipper;
 
 /**
  *
  * @author vanhung38ht
  */
-public class Dedeliverymoney extends HttpServlet {
+public class BankToSeller extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,20 +37,22 @@ public class Dedeliverymoney extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         OrderDAO dao = new OrderDAO();
-        ShipperDAO shipperDAO = new ShipperDAO();
+        ShipperDAO shipperdao = new ShipperDAO();
+        
         int accountid = Integer.parseInt(request.getParameter("accountid"));
-        int orderID = Integer.parseInt(request.getParameter("orderid"));
+        List<Order> list = dao.DisplayOrderByShipperID(accountid);
+        
         Shipper shipper = new ShipperDAO().getShipperByAccountID(accountid);
+        Seller seller = shipperdao.GetSeller();
+        float ReceiveMoney = shipper.getDeliverymoney() + seller.getReceivemoney();
         
-        float totalprice = dao.getTotalPriceByOrderId(orderID);
-        float deliveryMoney = shipper.getDeliverymoney()+totalprice;
+        shipperdao.UpdateDeliveryEqualZero(accountid);
+        shipperdao.UpdateReceive(ReceiveMoney);
         
+        request.setAttribute("shipper", shipper);
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("shipperacceptorder.jsp").forward(request, response);
 
-        shipperDAO.UpdateDeliveryMoney(deliveryMoney, accountid);
-        
-
-        dao.UpdateStatusBackNull(orderID);
-        response.sendRedirect("Shipperacceptorder?accountid=" + accountid);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
