@@ -42,12 +42,13 @@ public class BankToSeller extends HttpServlet {
         int accountid = Integer.parseInt(request.getParameter("accountid"));
         List<Order> list = dao.DisplayOrderByShipperID(accountid);
         
-        Shipper shipper = new ShipperDAO().getShipperByAccountID(accountid);
-        Seller seller = shipperdao.GetSeller();
-        float ReceiveMoney = shipper.getDeliverymoney() + seller.getReceivemoney();
+        Shipper shipper1 = new ShipperDAO().getShipperByAccountID(accountid);
+//        Seller seller = shipperdao.GetSeller();
+//        float ReceiveMoney = shipper.getDeliverymoney() + seller.getReceivemoney();
         
         shipperdao.UpdateDeliveryEqualZero(accountid);
-        shipperdao.UpdateReceive(ReceiveMoney);
+//        shipperdao.UpdateReceive(ReceiveMoney);
+        Shipper shipper = new ShipperDAO().getShipperByAccountID(accountid);
         
         request.setAttribute("shipper", shipper);
         request.setAttribute("list", list);
