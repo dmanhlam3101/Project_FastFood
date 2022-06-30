@@ -172,14 +172,14 @@ public class ShipperDAO {
     }
     
     public void UpdateReceive(float delivery) {
-
+ 
         try {
-            String sql = "Update Seller set ReceiveMoney = ? where SallerID = (select SallerID from Seller where AccountID = 6)";
+            String sql = "update Seller set ReceiveMoney = ReceiveMoney + " + delivery + " where AccountID = (select ID from Account where IsSaller = 1)";
             Connection conn = new DBContext().getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setFloat(1, delivery);
             ps.executeUpdate();
         } catch (Exception e) {
+           
         }
     }
  
@@ -205,7 +205,7 @@ public class ShipperDAO {
 
     public static void main(String[] args) {
         ShipperDAO dao = new ShipperDAO();
-        Seller a = dao.GetSeller();
-        System.out.println(a);
+         dao.UpdateReceive(120);
+       
     }
 }

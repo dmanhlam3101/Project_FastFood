@@ -1,12 +1,12 @@
 <%-- 
-    Document   : homeshipper
-    Created on : Jun 5, 2022, 1:19:08 PM
-    Author     : vanhung38ht
+    Document   : login
+    Created on : May 26, 2022, 10:06:19 PM
+    Author     : dmanh
 --%>
 
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@
         <meta name="author" content="" />
         <link rel="shortcut icon" href="images/favicon.png" type="">
 
-        <title> FastFood </title>
+        <title> Bill </title>
 
         <!-- bootstrap core css -->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -45,12 +45,9 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/styles-1.css" rel="stylesheet" />
-
     </head>
-
     <body class="sub_page">  
-
-        <div class="hero_area ">
+        <div class="hero_area">
             <div class="bg-box">
                 <img src="images/hero-bg.jpg" alt="">
             </div>
@@ -58,59 +55,50 @@
             <%@include file="component/header.jsp" %>
             <!-- end header section -->
         </div>
-
         <section class="py-5">
+
             <div class="container" style="min-height: 1000px">
-                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                    <div class="me-3">
-                        <label class="btn btn-outline-dark"><a class="nav-link" href="homeshipper">List Order</a></label>
-                        <label class="btn btn-outline-dark"><a class="nav-link" href="Shipperacceptorder?accountid=${sessionScope.acc.id}">Order has been accepted</a></label>
+
+                <div class="row">
+                    
+                    
+                    
+                    <h3> <button style="background: white ; border: 0"><a href="homeshipper"><i class="bi bi-backspace"></i></a></button>Bill of customer: ${cusname1}</h3>
+
+                    <div class="col-md-8" style="border: 1px solid #ccc;border-radius: 5px ; padding: 1rem">
+                        <h5>List Food</h5>
+                        <a hidden>
+                            <input value="${sessionScope.acc.id}" name="idCustomer">
+                        </a>
+                        <table class="table" >
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Total Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${list}" var="c">
+                                    <tr>
+                                        <th scope="row">${c.id - a}</th>
+                                        <td><img style="width: 70px" src="${c.imagefood}"></td>
+                                        <td>${c.namefood}</td>
+                                        <td>${c.pricefood} </td>
+                                        <td>${c.quantity}</td>
+                                        <td>${c.pricefood*c.quantity}</td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                        <h2>Total Amount: $${totalAmout}</h2>
                     </div>
                 </div>
-
-                <br>
-                <br>
-
-                <h1>List</h1>
-
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name Customer</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">Total Price</th>
-                            <th scope="col">View</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                    </thead>
-                    <a hidden>
-                        <input value="${sessionScope.acc.id}" name="idShipper">
-                    </a>
-                    <tbody>
-                        <c:forEach items="${listorder}" var="l">
-                            <tr>
-
-                                <th scope="row">${l.orderid}</th>
-                                <td>${l.name}</td>
-                                <td>${l.address}</td>
-                                <td>${l.phone}</td>
-                                <td>$${l.totalprice}</td>
-                                <td>
-                                    <a class="btn btn-outline-dark" href="viewBillByShipper?orderID=${l.orderid}&cusname=${l.name}">View</a>
-                                </td>
-                                <td>
-                                    <a class="btn btn-outline-dark" href="AcceptOrderShipper?accountid=${sessionScope.acc.id}&orderid=${l.orderid}&dedeliverymoney=${deliverymoney}" >Accept</a>
-
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
             </div>
         </section>
-
         <!-- jQery -->
         <script src="js/jquery-3.4.1.min.js"></script>
         <!-- popper js -->
@@ -127,20 +115,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
         <!-- custom js -->
         <script src="js/custom.js"></script>
-
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts-1.js"></script>
 
-        <!-- Core theme JS for Blog-->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery-migrate-3.0.1.min.js"></script>
-        <script src="js/jquery.waypoints.min.js"></script>
-        <script src="js/jquery.stellar.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/scrollax.min.js"></script>
-        <script src="js/main.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        
     </body>
 </html>

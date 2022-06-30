@@ -133,7 +133,7 @@
         <servlet-class>controller.ViewBillByShipper</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>BankToSeller</servlet-name>
+        <servlet-name>bankToSeller</servlet-name>
         <servlet-class>controller.BankToSeller</servlet-class>
     </servlet>
     <servlet-mapping>
@@ -269,7 +269,7 @@
         <url-pattern>/viewBillByShipper</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>BankToSeller</servlet-name>
+        <servlet-name>bankToSeller</servlet-name>
         <url-pattern>/bankToSeller</url-pattern>
     </servlet-mapping>
     <session-config>

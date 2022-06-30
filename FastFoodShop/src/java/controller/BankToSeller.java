@@ -5,18 +5,13 @@
  */
 package controller;
 
-import dao.OrderDAO;
 import dao.ShipperDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Order;
-import model.Seller;
-import model.Shipper;
 
 /**
  *
@@ -36,24 +31,13 @@ public class BankToSeller extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        OrderDAO dao = new OrderDAO();
         ShipperDAO shipperdao = new ShipperDAO();
-        
         int accountid = Integer.parseInt(request.getParameter("accountid"));
-        List<Order> list = dao.DisplayOrderByShipperID(accountid);
-        
-        Shipper shipper1 = new ShipperDAO().getShipperByAccountID(accountid);
-//        Seller seller = shipperdao.GetSeller();
-//        float ReceiveMoney = shipper.getDeliverymoney() + seller.getReceivemoney();
-        
-        shipperdao.UpdateDeliveryEqualZero(accountid);
-//        shipperdao.UpdateReceive(ReceiveMoney);
-        Shipper shipper = new ShipperDAO().getShipperByAccountID(accountid);
-        
-        request.setAttribute("shipper", shipper);
-        request.setAttribute("list", list);
-        request.getRequestDispatcher("shipperacceptorder.jsp").forward(request, response);
+        float deliverymoney = Float.parseFloat(request.getParameter("deliverymoney"));
 
+        shipperdao.UpdateReceive(deliverymoney);
+        shipperdao.UpdateDeliveryEqualZero(accountid);
+        response.sendRedirect("Shipperacceptorder?accountid=" + accountid);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
