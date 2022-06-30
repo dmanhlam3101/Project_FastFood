@@ -37,7 +37,14 @@
         <link href="css/responsive.css" rel="stylesheet" />
 
     </head>
-
+<style>
+a:link {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+s
+</style>
     <body class="sub_page">
 
         <div class="hero_area ">
@@ -54,7 +61,7 @@
         <section class="food_section layout_padding">
             <div class="container">
                 <div class="heading_container heading_center">
-                     <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
                         <div class="me-3">
                             <!--                        Search by ShipperID: <input type="select" class="btn-check"  > 
                                                     <input type="submit" value="Find">-->
@@ -114,76 +121,75 @@
                 </div>  
                 <div class="row grid">
                     <form action="ActiveOrder" method="POST">
-                          <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col" >Order Id</th>
-                                <th scope="col">Customer Name</th>
-                                <th scope="col">Phone</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">total Price</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${listfood}" var="f">
-
+                        <table class="table">
+                            <thead>
                                 <tr>
-                                    <td ><input type="button"name="OrderID" value="${f.orderid}"></td>
-                                    <td>${f.name}</td>
-                                    <td>${f.phone}</td>
-                                    <td>${f.address}</td>                                       
-                                    <td>${f.totalprice}</td>                                    
-                                    <td> <input class="btn btn-primary btn-rounded btn-block" type="submit"  value="Active" /></td>
-
-                                    <!-- <li class="nav-item"><a class="nav-link" href="View.jsp">View</a></li>-->
-
+                                    <th scope="col" >Order Id</th>
+                                    <th scope="col">Customer Name</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">total Price</th>
+                                    <th scope="col">Action</th>
                                 </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${listfood}" var="f">
 
-                            </c:forEach>
-                        </tbody>
-                    </table>
+                                    <tr>
+                                        <td >${f.orderid}</td>
+                                        <td>${f.name}</td>
+                                        <td>${f.phone}</td>
+                                        <td>${f.address}</td>                                       
+                                        <td>${f.totalprice}</td>                                    
+                                        <td>             <a class="btn btn-outline-light" href="ActiveOrder?OrderID=${f.orderid}" >Active</a>
+                                        </td>
+                                        <!-- <li class="nav-item"><a class="nav-link" href="View.jsp">View</a></li>-->
+
+                                    </tr>
+
+                                </c:forEach>
+                            </tbody>
+                        </table>
                     </form>
-                  
+
                 </div>
             </div>
-        
-        <div class="btn-box">
-            <c:forEach begin="1" end="${endP}" var="b">
-                <a class="page-item btn btn-outline-dark ${b==page?"active":""}" class="page-link" href="SellerOrder?index=${b}" style="text-decoration: none">${b}</a>
-            </c:forEach>
-        </div>
 
-    </section>
+            <div class="btn-box">
+                <c:forEach begin="1" end="${endP}" var="b">
+                    <a class="page-item btn btn-outline-dark ${b==page?"active":""}" class="page-link" href="SellerOrder?index=${b}" style="text-decoration: none">${b}</a>
+                </c:forEach>
+            </div>
 
-    <!-- end food section -->
+        </section>
 
-    <!-- footer section -->
-    <%@include file="component/footer.jsp" %>
-    <!-- footer section -->
+        <!-- end food section -->
 
-    <!-- jQery -->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <!-- popper js -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <!-- bootstrap js -->
-    <script src="js/bootstrap.js"></script>
-    <!-- owl slider -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-    </script>
-    <!-- isotope js -->
-    <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
-    <!-- nice select -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
-    <!-- custom js -->
-    <script src="js/custom.js"></script>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts-1.js"></script>
+        <!-- footer section -->
+        <%@include file="component/footer.jsp" %>
+        <!-- footer section -->
 
-</body>
+        <!-- jQery -->
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <!-- popper js -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <!-- bootstrap js -->
+        <script src="js/bootstrap.js"></script>
+        <!-- owl slider -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+        </script>
+        <!-- isotope js -->
+        <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+        <!-- nice select -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+        <!-- custom js -->
+        <script src="js/custom.js"></script>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts-1.js"></script>
+
+    </body>
 
 </html>
