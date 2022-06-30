@@ -53,9 +53,7 @@
                                 </li>
                             </c:if>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
-                            </li>
+                           
 
                         </ul>
                         <div class="d-flex" >

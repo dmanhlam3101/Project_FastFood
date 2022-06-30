@@ -47,8 +47,8 @@ public class Dedeliverymoney extends HttpServlet {
         shipperDAO.UpdateDeliveryMoney(deliveryMoney, accountid);
         
 
-        dao.UpdateStatusBackNull(orderID);
-        response.sendRedirect("Shipperacceptorder?accountid=" + accountid);
+        dao.UpdateStatusBackNull(orderID);      
+       response.sendRedirect("Shipperacceptorder?accountid=" + accountid);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
