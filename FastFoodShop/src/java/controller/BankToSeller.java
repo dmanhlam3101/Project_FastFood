@@ -8,19 +8,21 @@ package controller;
 import dao.OrderDAO;
 import dao.ShipperDAO;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Order;
+import model.Seller;
 import model.Shipper;
 
 /**
  *
  * @author vanhung38ht
  */
-public class Shipperacceptorder extends HttpServlet {
+public class BankToSeller extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,15 +36,20 @@ public class Shipperacceptorder extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
         OrderDAO dao = new OrderDAO();
-
+        ShipperDAO shipperdao = new ShipperDAO();
+        
         int accountid = Integer.parseInt(request.getParameter("accountid"));
         List<Order> list = dao.DisplayOrderByShipperID(accountid);
-
-//        List<Shipper> list1 = dao.getShipperByAccountID(accountid);
+        
+        Shipper shipper1 = new ShipperDAO().getShipperByAccountID(accountid);
+//        Seller seller = shipperdao.GetSeller();
+//        float ReceiveMoney = shipper.getDeliverymoney() + seller.getReceivemoney();
+        
+        shipperdao.UpdateDeliveryEqualZero(accountid);
+//        shipperdao.UpdateReceive(ReceiveMoney);
         Shipper shipper = new ShipperDAO().getShipperByAccountID(accountid);
-
+        
         request.setAttribute("shipper", shipper);
         request.setAttribute("list", list);
         request.getRequestDispatcher("shipperacceptorder.jsp").forward(request, response);

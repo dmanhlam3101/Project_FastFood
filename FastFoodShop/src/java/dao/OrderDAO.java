@@ -268,34 +268,34 @@ public class OrderDAO {
         return list;
     }   
     
-    public List<Order> UpdateDeliveryMoney(float deliverymoney, int shipperID) {
-        List<Order> list = new ArrayList<>();
-        try {
-                String sql = "Update shipper set DeliveryMoney = ? where ShipperID = (select ShipperID from Shipper where AccountID = ?)";
-            Connection conn = new DBContext().getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setFloat(1, deliverymoney);
-            ps.setInt(2, shipperID);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                list.add(new Order(rs.getInt(1),
-                        rs.getInt(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getFloat(6),
-                        rs.getInt(7),
-                        rs.getInt(8),
-                        rs.getString(9),
-                        rs.getBoolean(10)));
-            }
-        } catch (Exception e) {
-        }
-        return list;
-    }
+//    public List<Order> UpdateDeliveryMoney(float deliverymoney, int shipperID) {
+//        List<Order> list = new ArrayList<>();
+//        try {
+//                String sql = "Update shipper set DeliveryMoney = ? where ShipperID = (select ShipperID from Shipper where AccountID = ?)";
+//            Connection conn = new DBContext().getConnection();
+//            PreparedStatement ps = conn.prepareStatement(sql);
+//            ps.setFloat(1, deliverymoney);
+//            ps.setInt(2, shipperID);
+//            ResultSet rs = ps.executeQuery();
+//            while (rs.next()) {
+//                list.add(new Order(rs.getInt(1),
+//                        rs.getInt(2),
+//                        rs.getString(3),
+//                        rs.getString(4),
+//                        rs.getString(5),
+//                        rs.getFloat(6),
+//                        rs.getInt(7),
+//                        rs.getInt(8),
+//                        rs.getString(9),
+//                        rs.getBoolean(10)));
+//            }
+//        } catch (Exception e) {
+//        }
+//        return list;
+//    }
     
-    public List<Order> UpdateStatusBackNull(int orderID) {
-        List<Order> list = new ArrayList<>();
+    public Order UpdateStatusBackNull(int orderID) {
+       
         try {
                 String sql = "update orders set status = null where OrderID = ?";
             Connection conn = new DBContext().getConnection();
@@ -303,7 +303,7 @@ public class OrderDAO {
             ps.setInt(1, orderID);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new Order(rs.getInt(1),
+               return new Order(rs.getInt(1),
                         rs.getInt(2),
                         rs.getString(3),
                         rs.getString(4),
@@ -312,43 +312,34 @@ public class OrderDAO {
                         rs.getInt(7),
                         rs.getInt(8),
                         rs.getString(9),
-                        rs.getBoolean(10)));
+                        rs.getBoolean(10));
             }
         } catch (Exception e) {
         }
-        return list;
-    }
-    
-    public List<Shipper> getShipperByAccountID(int accountid) {
-        List<Shipper> list = new ArrayList<>();
-        try {
-                String sql = "select * from Shipper where ShipperID = (select ShipperID from Shipper where AccountID = ?)";
-            Connection conn = new DBContext().getConnection();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, accountid);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                list.add(new Shipper(rs.getInt(1),
-                        rs.getInt(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getFloat(6),
-                        rs.getInt(7),
-                        rs.getInt(8)));
-            }
-        } catch (Exception e) {
-        }
-        return list;
+        return null;
     }
 
+   public float getTotalPriceByOrderId(int orderID) {
+       try {
+                String sql = "  select TotalPrice from Orders where OrderID =?";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, orderID);
+            ResultSet rs = ps.executeQuery();
+             if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+ 
     public static void main(String[] args) {
         OrderDAO dao = new OrderDAO();
 
-        List <Order> o = dao.getAllOrder();
-        for (Order shipper : o) {
-            System.out.println(shipper);
-            break;
-        }      
+        float totalprice = dao.getTotalPriceByOrderId(1);
+        System.out.println(totalprice);
     }
+
+  
 }

@@ -19,26 +19,21 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <link rel="shortcut icon" href="images/favicon.png" type="">
-
         <title> HomeShipper </title>
-
         <!-- bootstrap core css -->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-
         <!--owl slider stylesheet -->
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
         <!-- nice select  -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
         <!-- font awesome style -->
         <link href="css/font-awesome.min.css" rel="stylesheet" />
-
         <!-- Custom styles for this template -->
         <link href="css/style.css" rel="stylesheet" />
         <link href="css/styles-1.css" rel="stylesheet" />
         <!-- responsive style -->
         <link href="css/responsive.css" rel="stylesheet" />
     </head>
-
     <body class="sub_page"> 
         <div class="hero_area ">
             <div class="bg-box">
@@ -51,26 +46,27 @@
         <section class="py-5">
             <div class="container" style="min-height: 1000px">
                 <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                    <div style="margin-right: 30rem">
-                        <!--                        Search by ShipperID: <input type="select" class="btn-check"  > 
-                                                <input type="submit" value="Find">-->
-<<<<<<< HEAD
-                        <label class="btn btn-outline-dark"><a class="nav-link" href="homeshipper">List Order</a></label>
-                        <label class="btn btn-outline-dark"><a class="nav-link" href="shipperacceptorder?accountid=${sessionScope.acc.id}">Order has been accepted</a></label>
+                    <div class="me-3">
+                        <div style="margin-right: 30rem">
+                            <!--                        Search by ShipperID: <input type="select" class="btn-check"  > 
+                                                    <input type="submit" value="Find">-->
+                            <label class="btn btn-outline-dark"><a class="nav-link" href="homeshipper">List Order</a></label>
+                            <label class="btn btn-outline-dark"><a class="nav-link" href="Shipperacceptorder?accountid=${sessionScope.acc.id}">Order has been accepted</a></label>
+                        </div>                   
 
                     </div>     
-                    <c:forEach items="${list1}" var="c">
-                        <div style="font-size: 30px;font-weight: 700" class="d-flex justify-content-end">Delivery Money: $${c.deliverymoney}</div>
-                    </c:forEach>
-=======
-                        <label style="background: white" class="btn btn-outline-dark"><a class="nav-link" href="homeshipper">List Order</a></label>
-                        <label class="btn btn-outline-dark"><a class="nav-link" href="shipperacceptorder.jsp">Order has been accepted</a></label>
-                    </div>                   
->>>>>>> b0453cab46c8cad52611058ee40a20c8ffc4c942
+                        
+                    <div style="font-size: 30px;font-weight: 500" class="d-flex justify-content-end">Delivery Money: $${shipper.deliverymoney}</div>
+                    <div>
+                        <a style="color: white; margin-left: 10px" class="btn btn-success" href="bankToSeller?accountid=${sessionScope.acc.id}">Send Seller</a>
+                    </div>
+
 
                 </div>
+
                 <br>
                 <br>
+
                 <h1>List</h1>
 
                 <table class="table">
@@ -81,24 +77,27 @@
                             <th scope="col">Address</th>
                             <th scope="col">Phone</th>
                             <th scope="col">Total Price</th>
+                            <!--                            <th scope="col">ShipperID</th>-->
+                            <!--                            <th scope="col">Money</th>-->
                             <th scope="col">Status</th>
                             <!--                            <th scope="col">ShipperID</th>-->
                             <!--                            <th scope="col">Money</th>-->
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${list}" var="l">
-                            <tr>
-                                <th scope="row">${l.orderid}</th>
-                                <td>${l.name}</td>
-                                <td>${l.address}</td>
-                                <td>${l.phone}</td>
-                                <td>$${l.totalprice}</td>                             
-                                <td>
-                                    <a style="color: white" class="btn btn-success" href="deliveryMoney?totalprice=${l.totalprice}&accountid=${sessionScope.acc.id}&orderid=${l.orderid}">Done</a>
-                                </td>
-                            </tr>
-                        </c:forEach>
+
+                    <c:forEach items="${list}" var="l">
+                        <tr>
+                            <th scope="row">${l.orderid}</th>
+                            <td>${l.name}</td>
+                            <td>${l.address}</td>
+                            <td>${l.phone}</td>                             
+                            <td>$${l.totalprice}</td>                             
+                            <td>
+                                <a style="color: white" class="btn btn-success" href="dedeliverymoney?accountid=${sessionScope.acc.id}&orderid=${l.orderid}">Done</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>

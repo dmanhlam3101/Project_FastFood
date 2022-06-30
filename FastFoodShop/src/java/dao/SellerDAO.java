@@ -40,6 +40,7 @@ public class SellerDAO {
         }
         return null;
     }
+
     public Seller checkSellerExist(int id) {
         String sql = "select *from Seller where AccountID = ?";
         try {
@@ -61,6 +62,7 @@ public class SellerDAO {
         }
         return null;
     }
+
     public Seller deleteSellerByAccountid(int id) {
         String sql = "delete from Seller where AccountID = ?";
         try {

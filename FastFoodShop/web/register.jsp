@@ -52,12 +52,12 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
-                                            <input pattern="[A-Za-z]+$"  type="text" name="firstname" class="form-control" placeholder="First name"  required/>
+                                            <input pattern="[^!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?]+$" type="text" name="firstname" class="form-control" placeholder="First name"  required/>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
-                                            <input pattern="[A-Za-z]+$" type="text" name="lastname" class="form-control" placeholder="Last name" required />
+                                            <input pattern="[^!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?]+$" type="text" name="lastname" class="form-control" placeholder="Last name" required />
                                         </div>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                 </div>
                                 <!-- Address input -->
                                 <div class="form-outline mb-4">
-                                    <input pattern="[A-Za-z0-9]+$"   type="text" name="address" class="form-control" placeholder="Address" required/>
+                                    <input  type="text" name="address" class="form-control" placeholder="Address" required/>
                                 </div>
                                 <!-- Password input -->
                                 <div class="form-outline mb-4">

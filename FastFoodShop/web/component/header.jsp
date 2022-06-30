@@ -53,6 +53,12 @@
                                 </li>
                             </c:if>
 
+                            <c:if test="${sessionScope.acc.isSeller == 1}">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="SellerFood">Seller</a>
+                                </li>
+                            </c:if>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Link</a>
                             </li>

@@ -20,7 +20,7 @@ import model.Shipper;
  *
  * @author vanhung38ht
  */
-public class Shipperacceptorder extends HttpServlet {
+public class Dedeliverymoney extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,19 +34,21 @@ public class Shipperacceptorder extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
         OrderDAO dao = new OrderDAO();
-
+        ShipperDAO shipperDAO = new ShipperDAO();
         int accountid = Integer.parseInt(request.getParameter("accountid"));
-        List<Order> list = dao.DisplayOrderByShipperID(accountid);
-
-//        List<Shipper> list1 = dao.getShipperByAccountID(accountid);
+        int orderID = Integer.parseInt(request.getParameter("orderid"));
         Shipper shipper = new ShipperDAO().getShipperByAccountID(accountid);
+        
+        float totalprice = dao.getTotalPriceByOrderId(orderID);
+        float deliveryMoney = shipper.getDeliverymoney()+totalprice;
+        
 
-        request.setAttribute("shipper", shipper);
-        request.setAttribute("list", list);
-        request.getRequestDispatcher("shipperacceptorder.jsp").forward(request, response);
+        shipperDAO.UpdateDeliveryMoney(deliveryMoney, accountid);
+        
 
+        dao.UpdateStatusBackNull(orderID);
+        response.sendRedirect("Shipperacceptorder?accountid=" + accountid);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

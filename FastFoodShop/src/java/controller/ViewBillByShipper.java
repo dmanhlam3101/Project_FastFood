@@ -5,22 +5,21 @@
  */
 package controller;
 
-import dao.OrderDAO;
-import dao.ShipperDAO;
+import dao.OrderDetailDAO;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Order;
-import model.Shipper;
+import model.OrderDetail;
 
 /**
  *
  * @author vanhung38ht
  */
-public class Shipperacceptorder extends HttpServlet {
+public class ViewBillByShipper extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,19 +33,25 @@ public class Shipperacceptorder extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        OrderDAO dao = new OrderDAO();
-
-        int accountid = Integer.parseInt(request.getParameter("accountid"));
-        List<Order> list = dao.DisplayOrderByShipperID(accountid);
-
-//        List<Shipper> list1 = dao.getShipperByAccountID(accountid);
-        Shipper shipper = new ShipperDAO().getShipperByAccountID(accountid);
-
-        request.setAttribute("shipper", shipper);
+        OrderDetailDAO dao = new OrderDetailDAO();
+            System.out.println("ádsafsafasdf");
+        int id = Integer.parseInt(request.getParameter("orderID"));
+        double totalAmout = 0;
+        int a = 0;
+        List<OrderDetail> list = dao.getOrderDetailByOrderID(id);
+        for (OrderDetail list1 : list) {
+            totalAmout += list1.getPricefood() * list1.getQuantity();
+        }
+        
+        for (OrderDetail list1 : list) {
+            a = list1.getId() - 1;
+            break;
+        }
+        
+        request.setAttribute("a", a);
+        request.setAttribute("totalAmout", totalAmout);
         request.setAttribute("list", list);
-        request.getRequestDispatcher("shipperacceptorder.jsp").forward(request, response);
-
+        request.getRequestDispatcher("View.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

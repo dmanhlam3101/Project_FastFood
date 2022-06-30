@@ -10,6 +10,7 @@ package model;
  * @author dmanh
  */
 public class OrderDetail {
+    private int id;
     private int orderid;
     private String namefood;
     private String imagefood;
@@ -19,12 +20,21 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
-    public OrderDetail(int orderid, String namefood, String imagefood, float pricefood, int quantity) {
+    public OrderDetail(int id, int orderid, String namefood, String imagefood, float pricefood, int quantity) {
+        this.id = id;
         this.orderid = orderid;
         this.namefood = namefood;
         this.imagefood = imagefood;
         this.pricefood = pricefood;
         this.quantity = quantity;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getOrderid() {
@@ -69,8 +79,6 @@ public class OrderDetail {
 
     @Override
     public String toString() {
-        return "OrderDetail{" + "orderid=" + orderid + ", namefood=" + namefood + ", imagefood=" + imagefood + ", pricefood=" + pricefood + ", quantity=" + quantity + '}';
+        return "OrderDetail{" + "id=" + id + ", orderid=" + orderid + ", namefood=" + namefood + ", imagefood=" + imagefood + ", pricefood=" + pricefood + ", quantity=" + quantity + '}';
     }
-    
-    
 }

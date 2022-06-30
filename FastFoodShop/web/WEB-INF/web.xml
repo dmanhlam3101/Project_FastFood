@@ -117,12 +117,24 @@
         <servlet-class>controller.Shipperacceptorder</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>EditProfile</servlet-name>
+        <servlet-class>controller.EditProfile</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>Dedeliverymoney</servlet-name>
         <servlet-class>controller.Dedeliverymoney</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeliveryMoney</servlet-name>
         <servlet-class>controller.DeliveryMoney</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewBillByShipper</servlet-name>
+        <servlet-class>controller.ViewBillByShipper</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BankToSeller</servlet-name>
+        <servlet-class>controller.BankToSeller</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -241,12 +253,24 @@
         <url-pattern>/Shipperacceptorder</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>EditProfile</servlet-name>
+        <url-pattern>/edit-profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>Dedeliverymoney</servlet-name>
         <url-pattern>/dedeliverymoney</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeliveryMoney</servlet-name>
         <url-pattern>/deliveryMoney</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewBillByShipper</servlet-name>
+        <url-pattern>/viewBillByShipper</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BankToSeller</servlet-name>
+        <url-pattern>/bankToSeller</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

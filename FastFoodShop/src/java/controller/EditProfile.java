@@ -5,22 +5,19 @@
  */
 package controller;
 
-import dao.OrderDAO;
-import dao.ShipperDAO;
+import dao.AccountDAO;
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Order;
-import model.Shipper;
 
 /**
  *
- * @author vanhung38ht
+ * @author dmanh
  */
-public class Shipperacceptorder extends HttpServlet {
+public class EditProfile extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,19 +31,18 @@ public class Shipperacceptorder extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        OrderDAO dao = new OrderDAO();
-
-        int accountid = Integer.parseInt(request.getParameter("accountid"));
-        List<Order> list = dao.DisplayOrderByShipperID(accountid);
-
-//        List<Shipper> list1 = dao.getShipperByAccountID(accountid);
-        Shipper shipper = new ShipperDAO().getShipperByAccountID(accountid);
-
-        request.setAttribute("shipper", shipper);
-        request.setAttribute("list", list);
-        request.getRequestDispatcher("shipperacceptorder.jsp").forward(request, response);
-
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            int id = Integer.parseInt(request.getParameter("id"));
+            String name = request.getParameter("name");
+            String address = request.getParameter("address");
+            String phone = request.getParameter("phone");
+            String password = request.getParameter("userpass");
+             AccountDAO accdao = new AccountDAO();
+             accdao.editProfileById(password, name, address, phone, id);
+             String url = "profile?id="+id;
+              request.getRequestDispatcher(url).forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

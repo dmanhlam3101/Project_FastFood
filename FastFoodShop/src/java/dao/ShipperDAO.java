@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import model.Seller;
 import model.Shipper;
 
 /**
@@ -38,7 +39,6 @@ public class ShipperDAO {
                         rs.getInt(7),
                         rs.getInt(8));
             }
-
         } catch (Exception e) {
         }
         return null;
@@ -61,7 +61,6 @@ public class ShipperDAO {
                         rs.getInt(7),
                         rs.getInt(8));
             }
-
         } catch (Exception e) {
         }
         return null;
@@ -69,7 +68,6 @@ public class ShipperDAO {
 
     public List<Shipper> getallShipper() {//chua su dung den
         List<Shipper> list = new ArrayList<>();
-
         try {
             String sql = "select *from Shipper ";
             Connection conn = new DBContext().getConnection();
@@ -85,7 +83,6 @@ public class ShipperDAO {
                         rs.getInt(7),
                         rs.getInt(8)));
             }
-
         } catch (Exception e) {
         }
         return list;
@@ -108,41 +105,107 @@ public class ShipperDAO {
                         rs.getInt(7),
                         rs.getInt(8));
             }
-
         } catch (Exception e) {
         }
         return null;
     }
 
-    public List<Shipper> getShiperbyShipperID(int accountID) {
-        List<Shipper> list = new ArrayList<>();
-
+    public Shipper getShipperByAccountID(int accountid) {
+//        List<Shipper> list = new ArrayList<>();
         try {
-            String sql = "select *from Shipper where Shipperid = (select ShipperID from Shipper where AccountID = ?)";
+            String sql = "select * from Shipper where ShipperID = (select ShipperID from Shipper where AccountID = ?)";
             Connection conn = new DBContext().getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, accountid);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new Shipper(rs.getInt(1),
+                return new Shipper(rs.getInt(1),
                         rs.getInt(2),
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
                         rs.getFloat(6),
                         rs.getInt(7),
-                        rs.getInt(8)));
+                        rs.getInt(8));
             }
-
         } catch (Exception e) {
         }
-        return list;
+        return null;
     }
-  
-        public static void main(String[] args) {
-        OrderDAO dao = new OrderDAO();
-//        List <Shipper> o = dao.getShipperByAccountID(7);
-//        for (Shipper shipper : o) {
-//            System.out.println(shipper);
-//        }      
+
+    public void UpdateDeliveryMoney(float ReceiveMoney, int accountID) {
+
+        try {
+            String sql = "Update shipper set DeliveryMoney = ?  where ShipperID = (select ShipperID from Shipper where AccountID = ?)";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setFloat(1, ReceiveMoney);
+            ps.setInt(2, accountID);
+            ps.executeUpdate();
+//            ResultSet rs = ps.executeQuery();
+//            while (rs.next()) {
+//                return new Shipper(rs.getInt(1),
+//                        rs.getInt(2),
+//                        rs.getString(3),
+//                        rs.getString(4),
+//                        rs.getString(5),
+//                        rs.getFloat(6),
+//                        rs.getInt(7),
+//                        rs.getInt(8));
+//            }
+        } catch (Exception e) {
+        }
+
+//        return null;
+    }
+    
+    public void UpdateDeliveryEqualZero( int accountID) {
+
+        try {
+            String sql = "Update shipper set DeliveryMoney = 0  where ShipperID = (select ShipperID from Shipper where AccountID = ?)";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, accountID);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+    
+    public void UpdateReceive(float delivery) {
+
+        try {
+            String sql = "Update Seller set ReceiveMoney = ? where SallerID = (select SallerID from Seller where AccountID = 6)";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setFloat(1, delivery);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+ 
+    public Seller GetSeller() {
+        try {
+            String sql = "select * from Seller";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Seller(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getFloat(6),
+                        rs.getInt(7));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        ShipperDAO dao = new ShipperDAO();
+        Seller a = dao.GetSeller();
+        System.out.println(a);
     }
 }
