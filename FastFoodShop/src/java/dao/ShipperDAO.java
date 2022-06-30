@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import model.Seller;
 import model.Shipper;
 
 /**
@@ -132,13 +133,13 @@ public class ShipperDAO {
         return null;
     }
 
-    public void UpdateDeliveryMoney(float deliverymoney, int accountID) {
+    public void UpdateDeliveryMoney(float ReceiveMoney, int accountID) {
 
         try {
             String sql = "Update shipper set DeliveryMoney = ?  where ShipperID = (select ShipperID from Shipper where AccountID = ?)";
             Connection conn = new DBContext().getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setFloat(1, deliverymoney);
+            ps.setFloat(1, ReceiveMoney);
             ps.setInt(2, accountID);
             ps.executeUpdate();
 //            ResultSet rs = ps.executeQuery();
@@ -157,11 +158,54 @@ public class ShipperDAO {
 
 //        return null;
     }
+    
+    public void UpdateDeliveryEqualZero( int accountID) {
+
+        try {
+            String sql = "Update shipper set DeliveryMoney = 0  where ShipperID = (select ShipperID from Shipper where AccountID = ?)";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, accountID);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+    
+    public void UpdateReceive(float delivery) {
  
+        try {
+            String sql = "update Seller set ReceiveMoney = ReceiveMoney + " + delivery + " where AccountID = (select ID from Account where IsSaller = 1)";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch (Exception e) {
+           
+        }
+    }
+ 
+    public Seller GetSeller() {
+        try {
+            String sql = "select * from Seller";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Seller(rs.getInt(1),        
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getFloat(5),
+                        rs.getInt(6),
+                        rs.getInt(7));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         ShipperDAO dao = new ShipperDAO();
-
-        
-      
+         dao.UpdateReceive(120);
+       
     }
 }

@@ -55,12 +55,13 @@
                         </div>                   
 
                     </div>     
-                        
-                    <div style="font-size: 30px;font-weight: 500" class="d-flex justify-content-end">Delivery Money: $${shipper.deliverymoney}
 
+                    <div style="font-size: 30px;font-weight: 500" class="d-flex justify-content-end">Delivery Money: $${shipper.deliverymoney}</div>
+                    <div hidden>
+                        <input  name="deliverymoney" value="${shipper.deliverymoney}">
                     </div>
                     <div>
-                        <a style="color: white; margin-left: 10px" class="btn btn-success" href="">Send Seller</a>
+                        <a style="color: white; margin-left: 10px" class="btn btn-success" href="bankToSeller?accountid=${sessionScope.acc.id}&deliverymoney=${shipper.deliverymoney}">Send Seller</a>
                     </div>
 
 
@@ -74,7 +75,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Order ID</th>
+                            <th scope="col">#</th>
                             <th scope="col">Name Customer</th>
                             <th scope="col">Address</th>
                             <th scope="col">Phone</th>
@@ -88,18 +89,18 @@
                     </thead>
                     <tbody>
 
-                    <c:forEach items="${list}" var="l">
-                        <tr>
-                            <th scope="row">${l.orderid}</th>
-                            <td>${l.name}</td>
-                            <td>${l.address}</td>
-                            <td>${l.phone}</td>                             
-                            <td>$${l.totalprice}</td>                             
-                            <td>
-                                <a style="color: white" class="btn btn-success" href="dedeliverymoney?accountid=${sessionScope.acc.id}&orderid=${l.orderid}">Done</a>
-                            </td>
-                        </tr>
-                    </c:forEach>
+                        <c:forEach items="${list}" var="l">
+                            <tr>
+                                <th scope="row">${l.orderid}</th>
+                                <td>${l.name}</td>
+                                <td>${l.address}</td>
+                                <td>${l.phone}</td>                             
+                                <td>$${l.totalprice}</td>                             
+                                <td>
+                                    <a style="color: white" class="btn btn-success" href="dedeliverymoney?accountid=${sessionScope.acc.id}&orderid=${l.orderid}">Done</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>

@@ -132,6 +132,10 @@
         <servlet-name>ViewBillByShipper</servlet-name>
         <servlet-class>controller.ViewBillByShipper</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>bankToSeller</servlet-name>
+        <servlet-class>controller.BankToSeller</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -263,6 +267,10 @@
     <servlet-mapping>
         <servlet-name>ViewBillByShipper</servlet-name>
         <url-pattern>/viewBillByShipper</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>bankToSeller</servlet-name>
+        <url-pattern>/bankToSeller</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

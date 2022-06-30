@@ -36,6 +36,7 @@ public class ViewBillByShipper extends HttpServlet {
         OrderDetailDAO dao = new OrderDetailDAO();
             System.out.println("ádsafsafasdf");
         int id = Integer.parseInt(request.getParameter("orderID"));
+        String cusname = request.getParameter("cusname");
         double totalAmout = 0;
         int a = 0;
         List<OrderDetail> list = dao.getOrderDetailByOrderID(id);
@@ -48,10 +49,11 @@ public class ViewBillByShipper extends HttpServlet {
             break;
         }
         
+        request.setAttribute("cusname1", cusname);
         request.setAttribute("a", a);
         request.setAttribute("totalAmout", totalAmout);
         request.setAttribute("list", list);
-        request.getRequestDispatcher("View.jsp").forward(request, response);
+        request.getRequestDispatcher("ViewBillShipper.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

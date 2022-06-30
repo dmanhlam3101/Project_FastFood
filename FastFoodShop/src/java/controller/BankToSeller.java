@@ -5,20 +5,19 @@
  */
 package controller;
 
-import dao.OrderDAO;
 import dao.ShipperDAO;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Shipper;
 
 /**
  *
  * @author vanhung38ht
  */
-public class Dedeliverymoney extends HttpServlet {
+public class BankToSeller extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,21 +31,13 @@ public class Dedeliverymoney extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        OrderDAO dao = new OrderDAO();
-        ShipperDAO shipperDAO = new ShipperDAO();
+        ShipperDAO shipperdao = new ShipperDAO();
         int accountid = Integer.parseInt(request.getParameter("accountid"));
-        int orderID = Integer.parseInt(request.getParameter("orderid"));
-        Shipper shipper = new ShipperDAO().getShipperByAccountID(accountid);
-        
-        float totalprice = dao.getTotalPriceByOrderId(orderID);
-        float deliveryMoney = shipper.getDeliverymoney()+totalprice;
-        
+        float deliverymoney = Float.parseFloat(request.getParameter("deliverymoney"));
 
-        shipperDAO.UpdateDeliveryMoney(deliveryMoney, accountid);
-        
-
-        dao.UpdateStatusBackNull(orderID);      
-       response.sendRedirect("Shipperacceptorder?accountid=" + accountid);
+        shipperdao.UpdateReceive(deliverymoney);
+        shipperdao.UpdateDeliveryEqualZero(accountid);
+        response.sendRedirect("Shipperacceptorder?accountid=" + accountid);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
