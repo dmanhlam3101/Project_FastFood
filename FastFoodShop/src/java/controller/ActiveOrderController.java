@@ -39,7 +39,8 @@ public class ActiveOrderController extends HttpServlet {
             System.out.println(OrderID);
             OrderDAO dao = new OrderDAO();
             dao.UpdateOrder(OrderID);
-            
+//            request.getRequestDispatcher("SellerOrder").forward(request, response);
+            response.sendRedirect("SellerOrder");
         }
     }
 

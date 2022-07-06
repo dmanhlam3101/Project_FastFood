@@ -122,7 +122,7 @@ Author     : dmanh
                                     <th scope="col">Quantity</th>
                                     <th scope="col">UnitPrice</th>
                                     <th scope="col">Description</th>
-                                    <th scope="col">Status</th>
+                                    
                                     <th scope="col">DateCreated</th>
                                 </tr>
                             </thead>
@@ -136,7 +136,7 @@ Author     : dmanh
                                         <td>${f.quantity}</td>
                                         <td>${f.unitprice}</td>
                                         <td>${f.description}</td>                                                                               
-                                        <td>${f.status}</td>
+                                        
                                         <td>${f.createdate}</td>
 
                                         <!-- <li class="nav-item"><a class="nav-link" href="View.jsp">View</a></li>-->
