@@ -37,14 +37,14 @@
         <link href="css/responsive.css" rel="stylesheet" />
 
     </head>
-<style>
-a:link {
-  color: black;
-  background-color: transparent;
-  text-decoration: none;
-}
-s
-</style>
+    <style>
+        a:link {
+            color: black;
+            background-color: transparent;
+            text-decoration: none;
+        }
+        s
+    </style>
     <body class="sub_page">
 
         <div class="hero_area ">
@@ -66,13 +66,13 @@ s
                             <!--                        Search by ShipperID: <input type="select" class="btn-check"  > 
                                                     <input type="submit" value="Find">-->
                             <label class="btn btn-outline-dark"><a class="nav-link" href="SellerFood">List Product</a></label>
-                            <label class="btn btn-outline-dark"><a class="nav-link" href="SellerOrder">List Order</a></label>
-<!--                            <div style="font-size: 30px;font-weight: 500; margin-left: 1000px" class="d-flex justify-content-end">Money:</div>-->
+                            <label class="btn btn-outline-dark"><a class="nav-link" href="SellerOrder?idSeller=${sessionScope.acc.id}">List Order</a></label>
+                            <!--                            <div style="font-size: 30px;font-weight: 500; margin-left: 1000px" class="d-flex justify-content-end">Money:</div>-->
                         </div>                   
 
                     </div>
-                    
-                   
+
+
                     <h2>
                         List Order 
                     </h2>
@@ -89,7 +89,10 @@ s
 
                 <form class="form-inline" action="SellerOrder" method="POST">
                     <section class="intro">
-
+                        <a hidden >
+                            <input value="${sessionScope.acc.id}"  name="idSeller">
+                        </a>
+                        <div style="font-size: 30px;font-weight: 500" class="d-flex justify-content-end">Receive Money: $${receivemoney}</div>
                         <div class="mask d-flex align-items-center h-100" style="background-color: rgba(194, 185, 179, 0.2);">
                             <div class="container">
                                 <div class="card" >

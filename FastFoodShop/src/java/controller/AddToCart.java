@@ -44,11 +44,11 @@ public class AddToCart extends HttpServlet {
            int foodid = Integer.parseInt(request.getParameter("foodid"));
             HttpSession session = request.getSession();
             //checklogin
-            Account account = (Account) session.getAttribute("acc");
-            if(account ==null){
-                response.sendRedirect("login.jsp");
-                return;
-            }
+//            Account account = (Account) session.getAttribute("acc");
+//            if(account ==null){
+//                response.sendRedirect("login.jsp");
+//                return;
+//            }
             Map<Integer,Cart> carts = (Map<Integer,Cart>) session.getAttribute("carts");
             if(carts == null){
                 carts = new LinkedHashMap<>();//linkedmap se sap xep theo thu tu
@@ -64,12 +64,13 @@ public class AddToCart extends HttpServlet {
             //th1: sp chua co trong gio hang
             //th2: san pham da co tren gio hang -> cap nhat lai so luong tren gio hang
             session.setAttribute("carts", carts);
-           // response.getWriter().println(carts.size());
+//            response.getWriter().println(carts.size());
             String urlHistory = (String) session.getAttribute("urlHistory");
             if(urlHistory == null){
                 urlHistory = "home";
             }
             response.sendRedirect(urlHistory);
+            
         }
         
     }

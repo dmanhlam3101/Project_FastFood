@@ -8,6 +8,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import model.Food;
 import model.Seller;
 
 /**
@@ -83,5 +84,20 @@ public class SellerDAO {
         } catch (Exception e) {
         }
         return null;
+    }
+    public int getReceiveMoney(int id){
+          try {
+            String sql = "  select ReceiveMoney from Seller where AccountID = ?";
+             Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+             if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+       
     }
 }

@@ -6,13 +6,13 @@
 package controller;
 
 import dao.OrderDAO;
+import dao.SellerDAO;
 import dao.ShipperDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,9 +21,8 @@ import model.Order;
 
 /**
  *
- * @author ASUS
+ * @author dmanh
  */
-@WebServlet(name = "SellerOrderController", urlPatterns = {"/SellerOrder"})
 public class SellerOrderController extends HttpServlet {
 
     /**
@@ -39,6 +38,9 @@ public class SellerOrderController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+           int idseller = Integer.parseInt(request.getParameter("idSeller"));
+            System.out.println(idseller);
+            int  receiveMoney = new SellerDAO().getReceiveMoney(6);
             OrderDAO dAO = new OrderDAO();
            ShipperDAO shipperDAO = new ShipperDAO();
              List<Order> list2 = dAO.getAllOrder();
@@ -63,11 +65,12 @@ public class SellerOrderController extends HttpServlet {
             }       
             request.setAttribute("page", indexPage);//de khi an vao trang 2 thi trang 2 mau den
             request.setAttribute("endP", endPage);
-             
+            request.setAttribute("receivemoney", receiveMoney);
             HttpSession session = request.getSession();
             session.setAttribute("listfood", list);
             request.getRequestDispatcher("sellerOrder.jsp").forward(request, response);
         }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

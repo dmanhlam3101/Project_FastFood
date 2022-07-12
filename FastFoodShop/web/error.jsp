@@ -1,18 +1,18 @@
 <%-- 
-    Document   : login
-    Created on : May 26, 2022, 10:06:19 PM
-    Author     : dmanh
+Document   : menu
+Created on : Jun 2, 2022, 1:37:22 AM
+Author     : dmanh
 --%>
 
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
 
-<!DOCTYPE html>
-<!DOCTYPE html>
-<html lang="en">
     <head>
         <!-- Basic -->
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- Mobile Metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -22,7 +22,7 @@
         <meta name="author" content="" />
         <link rel="shortcut icon" href="images/favicon.png" type="">
 
-        <title> Payment </title>
+        <title> FastFood </title>
 
         <!-- bootstrap core css -->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -36,18 +36,15 @@
 
         <!-- Custom styles for this template -->
         <link href="css/style.css" rel="stylesheet" />
+        <link href="css/styles-1.css" rel="stylesheet" />
         <!-- responsive style -->
         <link href="css/responsive.css" rel="stylesheet" />
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <link href="css/styles-1.css" rel="stylesheet" />
+
     </head>
-    <body class="sub_page">  
-        <div class="hero_area">
+
+    <body class="sub_page" >
+
+        <div class="hero_area ">
             <div class="bg-box">
                 <img src="images/hero-bg.jpg" alt="">
             </div>
@@ -55,46 +52,27 @@
             <%@include file="component/header.jsp" %>
             <!-- end header section -->
         </div>
-        <section class="py-5">
 
-            <div class="container" style="min-height: 1000px">
-
-                <div class="row">
-                    <h3>Bill</h3>
-                    <div class="col-md-8" style="border: 1px solid #ccc;border-radius: 5px ; padding: 1rem">
-                        <h5>List Food</h5>
-                        <a hidden>
-                            <input value="${sessionScope.acc.id}" name="idCustomer">
-                        </a>
-                        <table class="table" >
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Image</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Total Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach items="${list}" var="c">
-                                    <tr>
-                                        <th scope="row">${c.id - a}</th>
-                                        <td><img style="width: 70px" src="${c.imagefood}"></td>
-                                        <td>${c.namefood}</td>
-                                        <td>${c.pricefood} </td>
-                                        <td>${c.quantity}</td>
-                                        <td>${c.pricefood*c.quantity}</td>
-                                    </tr>
-                                </c:forEach>
-                            </tbody>
-                        </table>
-                        <h2>Total Amount: $${totalAmout}</h2>
-                    </div>
+        <!-- food section -->
+        
+       
+        <section class="food_section layout_padding" style="min-height: 450px" >
+            <div class="container">
+                <div class="text-center" >
+                    <h1 style="font-size: 150px">You do not have permission to access this website</h1>
+                    
                 </div>
+
             </div>
+           
         </section>
+
+        <!-- end food section -->
+
+        <!-- footer section -->
+        <%@include file="component/footer.jsp" %>
+        <!-- footer section -->
+
         <!-- jQery -->
         <script src="js/jquery-3.4.1.min.js"></script>
         <!-- popper js -->
@@ -115,5 +93,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts-1.js"></script>
+
     </body>
+
 </html>

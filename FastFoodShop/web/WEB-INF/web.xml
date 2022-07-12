@@ -136,6 +136,14 @@
         <servlet-name>bankToSeller</servlet-name>
         <servlet-class>controller.BankToSeller</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SellerOrderController</servlet-name>
+        <servlet-class>controller.SellerOrderController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Ngu</servlet-name>
+        <servlet-class>controller.Ngu</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -271,6 +279,14 @@
     <servlet-mapping>
         <servlet-name>bankToSeller</servlet-name>
         <url-pattern>/bankToSeller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SellerOrderController</servlet-name>
+        <url-pattern>/SellerOrder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Ngu</servlet-name>
+        <url-pattern>/ngu</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
