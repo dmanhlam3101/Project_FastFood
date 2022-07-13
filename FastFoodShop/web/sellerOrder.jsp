@@ -66,7 +66,7 @@
                             <!--                        Search by ShipperID: <input type="select" class="btn-check"  > 
                                                     <input type="submit" value="Find">-->
                             <label class="btn btn-outline-dark"><a class="nav-link" href="SellerFood">List Product</a></label>
-                            <label class="btn btn-outline-dark"><a class="nav-link" href="SellerOrder?idSeller=${sessionScope.acc.id}">List Order</a></label>
+                            <label class="btn btn-outline-dark"><a class="nav-link" href="SellerOrder">List Order</a></label>
                             <!--                            <div style="font-size: 30px;font-weight: 500; margin-left: 1000px" class="d-flex justify-content-end">Money:</div>-->
                         </div>                   
 

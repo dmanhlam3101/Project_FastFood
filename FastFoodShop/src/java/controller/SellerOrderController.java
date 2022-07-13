@@ -38,8 +38,8 @@ public class SellerOrderController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           int idseller = Integer.parseInt(request.getParameter("idSeller"));
-            System.out.println(idseller);
+//           int idseller = Integer.parseInt(request.getParameter("idSeller"));
+//            System.out.println(idseller);
             int  receiveMoney = new SellerDAO().getReceiveMoney(6);
             OrderDAO dAO = new OrderDAO();
            ShipperDAO shipperDAO = new ShipperDAO();
