@@ -316,10 +316,24 @@ public class AccountDAO {
         }
 
     }
+ public String getUsernameById(int id){
+     try {
+         String sql= "select Username from Account where id = ?";
+        Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getString(1);
+            }
 
+     } catch (Exception e) {
+     }
+     return null;
+ }
     public static void main(String[] args) {
         AccountDAO dao = new AccountDAO();
-        Account a = dao.getAcountByID(2);
+        String a = dao.getUsernameById(3);
         System.out.println(a);
     }
 }

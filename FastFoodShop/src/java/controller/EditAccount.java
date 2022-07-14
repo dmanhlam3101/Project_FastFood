@@ -74,9 +74,10 @@ public class EditAccount extends HttpServlet {
         int role = Integer.parseInt(request.getParameter("role"));
 
         AccountDAO accdao = new AccountDAO();
-
+        String user = accdao.getUsernameById(id);
         Account account = accdao.checkAccountExist(username);
-        if (account == null) {
+      
+        if (account == null || username.equals(user) ) {
             //dc add
             switch (role) {
                 case 1:

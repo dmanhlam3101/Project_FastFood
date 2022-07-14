@@ -70,7 +70,7 @@ public class AddNewAccount extends HttpServlet {
             } else {
                 //ko dc add
                 request.setAttribute("error", "Username exist");
-                request.getRequestDispatcher("#addEmployeeModal").forward(request, response);
+                request.getRequestDispatcher("admin").forward(request, response);
             }
 
         }

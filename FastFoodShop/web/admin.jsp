@@ -60,6 +60,7 @@
 
                 <br>
                 <h6 style="color: #be123c">${msg}</h6>
+               <h6 style="color: #be123c">${error}</h6>
                 <div>
                     <a href="#addEmployeeModal" class="btn btn-success " data-toggle="modal" ><i class="bi bi-plus-circle-fill"></i> Add</a>
                 </div>
@@ -150,7 +151,6 @@
                     <form action="add-account" method="post">
                         <div class="modal-header">						
                             <h4 class="modal-title">Add new Account</h4>
-                            <h6 style="color: #be123c">${error}</h6>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">	
