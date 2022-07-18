@@ -335,10 +335,10 @@
                                 <div><a href="#">Admin</a></div>
                             </div>
                             <h3 class="heading"><a target="_blank" href="https://foodtolive.com/healthy-blog/fast-food-junk-food-difference/">Fast Food and Junk Food: Is There Any Difference</a></h3>
-                            <p class="clearfix">
+<!--                            <p class="clearfix">
                                 <a target="_blank"  href="https://foodtolive.com/healthy-blog/fast-food-junk-food-difference/" class="float-left read btn btn-primary">Read more</a>
-                                <!--                            <a href="#" class="float-right meta-chat"><span class="fa fa-comment"></span> 3</a>-->
-                            </p>
+                                                            <a href="#" class="float-right meta-chat"><span class="fa fa-comment"></span> 3</a>
+                            </p>-->
                         </div>
                     </div>
                 </div>
@@ -353,10 +353,10 @@
                             </div>
                             <h3 class="heading"><a target="_blank" href="https://www.hungryforever.com/recreate-wendys-salads-at-home/">Recreate Wendy’s Salads at Home</a></h3>
                             <br>
-                            <p class="clearfix">
+<!--                            <p class="clearfix">
                                 <a target="_blank"  href="https://www.hungryforever.com/recreate-wendys-salads-at-home/" class="float-left read btn btn-primary">Read more</a>
-                                <!--                            <a href="#" class="float-right meta-chat"><span class="fa fa-comment"></span> 3</a>-->
-                            </p>
+                                                            <a href="#" class="float-right meta-chat"><span class="fa fa-comment"></span> 3</a>
+                            </p>-->
                         </div>
                     </div>
                 </div>
@@ -371,10 +371,10 @@
                             </div>
                             <h3 class="heading"><a target="_blank" href="https://hotdogonline.com/2019/09/11/your-perfect-burger-2/">Choose Your Perfect Burger</a></h3>
                             <br>
-                            <p class="clearfix">
+<!--                            <p class="clearfix">
                                 <a target="_blank"  href="https://hotdogonline.com/2019/09/11/your-perfect-burger-2/" class="float-left read btn btn-primary">Read more</a>
-                                <!--<a href="#" class="float-right meta-chat"><span class="fa fa-comment"></span> 3</a>-->
-                            </p>
+                                <a href="#" class="float-right meta-chat"><span class="fa fa-comment"></span> 3</a>
+                            </p>-->
                         </div>
                     </div>
                 </div>

@@ -107,9 +107,10 @@ public class AccountDAO {
                 + "           ,[isAdmin]\n"
                 + "           ,[isCustomer]\n"
                 + "           ,[IsShipper]\n"
-                + "           ,[IsSeller])\n"
+                + "           ,[IsSaller]\n"
+                + "           ,[status])\n"
                 + "     VALUES\n"
-                + "           (?,?,?,?,?,0,1,0,0)";
+                + "           (?,?,?,?,?,0,1,0,0,0)";
         try {
             Connection conn = new DBContext().getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);

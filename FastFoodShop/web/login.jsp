@@ -50,6 +50,7 @@
                                 <!-- msg is wrong username and pass -->
 
                                 <p class="text-danger">${msg}</p>
+                                <p class="text-primary">${alert}</p>
                                 
                                 <!-- Username input -->
                                 <div class="form-outline mb-4">

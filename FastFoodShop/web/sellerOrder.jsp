@@ -93,7 +93,7 @@
                             <input value="${sessionScope.acc.id}"  name="idSeller">
                         </a>
                         <div style="font-size: 30px;font-weight: 500" class="d-flex justify-content-end">Receive Money: $${receivemoney}</div>
-                        <div class="mask d-flex align-items-center h-100" style="background-color: rgba(194, 185, 179, 0.2);">
+<!--                        <div class="mask d-flex align-items-center h-100" style="background-color: rgba(194, 185, 179, 0.2);">
                             <div class="container">
                                 <div class="card" >
                                     <div class="card-body p-4">
@@ -112,7 +112,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
 
                     </section>
                 </form>

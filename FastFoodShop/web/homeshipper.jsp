@@ -92,7 +92,8 @@
                         <c:forEach items="${listorder}" var="l">
                             <tr>
 
-                                <th scope="row">${l.orderid}</th>
+                                <th hidden scope="row">${l.orderid}</th>
+                                <th scope="row"><c:set var="count" value="${count+1}"></c:set>${count}</th>
                                 <td>${l.name}</td>
                                 <td>${l.address}</td>
                                 <td>${l.phone}</td>

@@ -32,6 +32,8 @@ public class Register extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+         request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             String firstname = request.getParameter("firstname");
@@ -45,8 +47,9 @@ public class Register extends HttpServlet {
             Account account = dao.checkAccountExist(username);
             if(account== null){
                 //dc signup
-                dao.signup(username, password, displayname, address,phone);              
-                response.sendRedirect("login.jsp");
+                dao.signup(username, password, displayname, address,phone);  
+                 request.setAttribute("alert", "Register successfully");
+                 request.getRequestDispatcher("login.jsp").forward(request, response);
             }else{
                 //day ve signup
                 request.setAttribute("msg", "Username exist");
