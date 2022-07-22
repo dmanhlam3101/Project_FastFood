@@ -150,7 +150,7 @@ public class FoodDAO extends ConnectDB {
         try {
             String sql = "select * from Foods order by CategoryID offset ? row fetch next 9 rows only";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, (index - 1) * 6);
+            ps.setInt(1, (index - 1) * 9);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 int FoodID = rs.getInt(1);

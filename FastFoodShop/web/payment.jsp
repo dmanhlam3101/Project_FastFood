@@ -116,7 +116,7 @@
                             </div>   
                             <div class="form-group row">
                                 <div class="col-md-6">
-                                    <button  class="btn btn-default btn-lg btn-block" style="background-color: #f0f0f0">Cancel</button>
+                                    <button   class="btn btn-default btn-lg btn-block" style="background-color: #CDD0D2"><a style="color:white;text-decoration: none" href="carts">Cancel</a></button>
                                 </div>
                                 <div class="col-md-6">
                                     <button  type="submit" class="btn btn-success btn-lg btn-block" >Submit</button>

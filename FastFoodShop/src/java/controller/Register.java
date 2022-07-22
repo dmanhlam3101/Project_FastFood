@@ -38,7 +38,7 @@ public class Register extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String firstname = request.getParameter("firstname");
             String lastname = request.getParameter("lastname");
-            String displayname = firstname +lastname;
+            String displayname = firstname+" " +lastname;
             String username = request.getParameter("username");
             String phone = request.getParameter("phone");
             String address = request.getParameter("address");
